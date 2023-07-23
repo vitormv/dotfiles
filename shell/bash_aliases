@@ -1,0 +1,43 @@
+# ==============================================================================
+# shell
+
+alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+
+# ==============================================================================
+# shell config
+alias profile='vim ~/.bash_profile'
+alias zshconfig="vim ~/.zshrc"
+alias reload="source ~/.zshrc"
+
+alias grep='rg --color=auto'
+alias bash.forget="history -c && history -w"
+
+# ===================================================
+# Torrentbox
+
+alias torrentbox="ssh torrentbox '(bash ~/torrentbox/torrentbox.sh status)'"
+
+# ===================================================
+# Docker
+
+alias do.ls='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
+alias doco="docker compose"
+
+# ===================================================
+# MacOS
+
+# cleanup all .DS_Store files recursively
+alias cleanup.ds='find . -type f \( -name ".DS_Store" -o -name "._.DS_Store" \) -delete -print 2>&1 | grep -v "Permission denied"'
+
+# reload native apps
+alias killfinder="killall Finder"
+
+# flush dns
+alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# start screen saver
+alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"

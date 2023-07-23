@@ -1,0 +1,109 @@
+#############
+# Functions
+#############
+
+# mkdir and cd
+function mkcd() { mkdir -p "$@" && cd "$_"; }
+
+function perf() {
+  curl -o /dev/null -s -w "time_total: %{time_total} sec\nsize_download: %{size_download} bytes\n" "$1"
+}
+
+# check who is listening to a certain port
+function listening() {
+  if [ $# -eq 0 ]; then
+    lsof -iTCP -sTCP:LISTEN -n -P
+  elif [ $# -eq 1 ]; then
+    lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color=auto "$1"
+  else
+    echo "Usage: listening [pattern]"
+  fi
+}
+
+# download website for offline use
+function download-page() {
+  wget -E -H -k -K -p -e robots=off $1
+}
+
+# Delete last command in history
+function forget() {
+  history -d "$(expr $(history | tail -n 1 | grep -oP '^ \d+') - 1)"
+}
+
+function erase() {
+  local shell_name=$0
+  if [ $shell_name == 'bash' ]; then
+    history -c && history -w
+  else
+    echo -n >~/.zsh_history
+  fi
+}
+
+function backtick-remap() {
+  if [ "$1" = "on" ] || [ "$1" = "true" ] || [ "$1" = "1" ] || [ "$1" = "yes" ]; then
+    hidutil property --matching '{"ProductID":0x0340}' --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064},{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}'
+  else
+    hidutil property --set '{"UserKeyMapping":[]}'
+  fi
+}
+
+function fail {
+  echo $1 >&2
+  exit 1
+}
+
+function retry {
+  local n=1
+  local max=20
+  local delay=4
+  while true; do
+    "$@" && break || {
+      if [[ $n -lt $max ]]; then
+        ((n++))
+        echo "Command failed. Attempt $n/$max:"
+        sleep $delay
+      else
+        fail "The command has failed after $n attempts."
+      fi
+    }
+  done
+}
+
+## Docker
+function do.bash() {
+  docker exec -it $(docker ps -aqf "name=$1") bash
+}
+
+# ==============================================================================
+# Miscellaneous functions
+
+# Generate a random string ('A-Za-z0-9') with the given length
+#
+# Usage:
+#   $ ./random 32
+#
+function random() {
+  chars='A-Za-z0-9'
+  length=${1:-32}
+
+  cat /dev/urandom | env LC_ALL=C tr -dc $chars | fold -w $length | head -n 1
+}
+
+# Convert a decimal number to a byte unit
+#
+# Usage:
+#   echo 1234567890 | byte-me
+#
+function byte-me() {
+  local list="bytes,KB,MB,GB,TB,PB,EB,ZB,YB"
+  local p=1
+  local data=$(cat)
+  local v=$(echo "scale=2; $data / 1" | bc)
+  local i=$(echo $v / 1024 | bc)
+  while [ ! $i = "0" ]; do
+    let p=p+1
+    v=$(echo "scale=2; $v / 1024" | bc)
+    i=$(echo $v / 1024 | bc)
+  done
+  echo $v$(echo $list | cut -f$p -d,)
+}

@@ -1,0 +1,95 @@
+# Uses the zsh precmd function hook to set the tab title to the current working directory before each prompt
+function precmd () {
+    window_title="\\033]0;${PWD##*/}\\007"
+    echo -ne "$window_title"
+}
+
+###-begin-npm-completion-###
+#
+# npm command completion script
+#
+# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
+# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
+#
+
+if type complete &>/dev/null; then
+  _npm_completion () {
+    local words cword
+    if type _get_comp_words_by_ref &>/dev/null; then
+      _get_comp_words_by_ref -n = -n @ -n : -w words -i cword
+    else
+      cword="$COMP_CWORD"
+      words=("${COMP_WORDS[@]}")
+    fi
+
+    local si="$IFS"
+    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
+                           COMP_LINE="$COMP_LINE" \
+                           COMP_POINT="$COMP_POINT" \
+                           npm completion -- "${words[@]}" \
+                           2>/dev/null)) || return $?
+    IFS="$si"
+    if type __ltrim_colon_completions &>/dev/null; then
+      __ltrim_colon_completions "${words[cword]}"
+    fi
+  }
+  complete -o default -F _npm_completion npm
+elif type compdef &>/dev/null; then
+  _npm_completion() {
+    local si=$IFS
+    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
+                 COMP_LINE=$BUFFER \
+                 COMP_POINT=0 \
+                 npm completion -- "${words[@]}" \
+                 2>/dev/null)
+    IFS=$si
+  }
+  compdef _npm_completion npm
+elif type compctl &>/dev/null; then
+  _npm_completion () {
+    local cword line point words si
+    read -Ac words
+    read -cn cword
+    let cword-=1
+    read -l line
+    read -ln point
+    si="$IFS"
+    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
+                       COMP_LINE="$line" \
+                       COMP_POINT="$point" \
+                       npm completion -- "${words[@]}" \
+                       2>/dev/null)) || return $?
+    IFS="$si"
+  }
+  compctl -K _npm_completion npm
+fi
+###-end-npm-completion-###
+
+
+# SSH autocomplete
+# Highlight the current autocomplete option
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# Autocompletion with Meu style and arrow key navigation
+zstyle ':completion:*' menu select
+
+# Initialize the autocompletion
+autoload -Uz compinit && compinit -i
+
+####################
+# Spaceship Prompt
+####################
+# autoload -U promptinit; promptinit
+export SPACESHIP_PROMPT_SEPARATE_LINE=false
+export SPACESHIP_TIME_SHOW=true
+export SPACESHIP_DIR_SUFFIX="/  "
+export SPACESHIP_BATTERY_SHOW=true
+export SPACESHIP_BATTERY_THRESHOLD=30
+export SPACESHIP_PACKAGE_SHOW=false
+export SPACESHIP_NODE_DEFAULT_VERSION=v12.13.0
+export SPACESHIP_PHP_SHOW=false
+export SPACESHIP_DOCKER_SHOW=false
+source /opt/homebrew/opt/spaceship/spaceship.zsh
+
+# ZSH command green/red highlighting (HAS TO BE THE LAST COMMAND!!)
+source /usr/local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
