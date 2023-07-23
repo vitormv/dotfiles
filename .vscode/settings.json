@@ -1,0 +1,19 @@
+{
+  "[properties]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.autoIndent": "none",
+  },
+  "shellformat.effectLanguages": [
+    "dockerfile",
+    "dotenv",
+    "hosts",
+    "jvmoptions",
+    "ignore",
+    "gitignore",
+    "shellscript",
+    "spring-boot-properties",
+    "azcli",
+    "bats"
+  ]
+}
