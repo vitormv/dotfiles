@@ -5,7 +5,7 @@ IFS=$'\n\t'
 setup_dotfiles() {
   title_h1 "HOME Symlinks"
 
-  local DIR="$HOME/.dotfiles"
+  local DIR="$DOTFILES_ROOT"
   local TARGET_DIR=$1
 
   local overwrite_all=false backup_all=false skip_all=false
