@@ -94,8 +94,7 @@ function setup_osx() {
     setup_machine_name
 
     # ----------------------
-    title_h2 "Application Icons"
-
+    # title_h2 "Application Icons"
     # @todo does not seem to work on OSX Ventura :(
     # replace_app_icon kitty.app kitty.icns "assets/app_icons/kitty.icns"
     # replace_app_icon iTerm.app AppIcon.icns "assets/app_icons/iTerm2.icns"
