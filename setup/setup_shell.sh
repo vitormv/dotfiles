@@ -2,6 +2,9 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+source _lib/utils/system.sh
+source _lib/utils/layout.sh
+
 function setup_shell() {
   title_h1 "Shell (bash + zsh)"
 
@@ -16,9 +19,6 @@ function setup_shell() {
   # ----------------------
   title_h2 "Bash"
 
-  # npm completion >"$HOME/.config/bash/completions/npm"
-  # status "NPM completion for Bash" $?
-
-  fnm completions --shell=bash >~/.config/bash/completions/fnm
+  fnm completions --shell=bash >"$HOME/.config/bash/completions/fnm"
   status "FNM completion for Bash" $?
 }

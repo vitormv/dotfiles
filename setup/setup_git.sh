@@ -70,7 +70,7 @@ function setup_git() {
 
   # Set alias settings
   git config --global alias.cleanup-branches "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-  git config --global alias.apply-url "!f() { curl -s $1 2>nul | git apply \${@:2}; }; f"
+  git config --global alias.apply-url "!f() { curl -s \$1 2>nul | git apply \${@:2}; }; f"
   git config --global alias.switch "!legit switch"
   git config --global alias.branches "!legit branches"
   git config --global alias.sprout "!legit sprout \"\$@\""
