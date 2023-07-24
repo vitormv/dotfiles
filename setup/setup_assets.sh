@@ -21,11 +21,11 @@ setup_assets() {
 
   title_h2 "Ensure directories exist"
 
-  ensure_directory_exists "$HOME/projects"
-  ensure_directory_exists "$HOME/.tools"
-  ensure_directory_exists "$HOME/.config"
-  ensure_directory_exists "$HOME/.config/zsh/completions"
-  ensure_directory_exists "$HOME/.config/bash/completions"
+  ensure_directory_exists "$HOME/projects" verbose
+  ensure_directory_exists "$HOME/.tools" verbose
+  ensure_directory_exists "$HOME/.config" verbose
+  ensure_directory_exists "$HOME/.config/zsh/completions" verbose
+  ensure_directory_exists "$HOME/.config/bash/completions" verbose
 
   title_h2 "Ensure files exist"
 

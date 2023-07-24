@@ -44,21 +44,25 @@ function copy_file() {
 }
 
 function ensure_directory_exists() {
-  local output_message mkdir_result
+  local output_message mkdir_result mode
   local target_dir=$1
-  local mode=${!2:-verbose}
+
+  mode=${2:-}
 
   output_message="Create directory $(pretty_path "$target_dir")"
   if [ -d "$target_dir" ]; then
-    [ "$mode" != "silent" ] && inform_tag "$output_message" yellow "already exists"
+    [ "$mode" == "verbose" ] && inform_tag "$output_message" yellow "already exists"
   else
     mkdir -p "$target_dir"
     mkdir_result=$?
 
-    if [ "$mode" != "silent" ]; then
+    if [ "$mode" == "verbose" ]; then
       status "$output_message" "$mkdir_result"
     fi
   fi
+
+  # ensure function returns with non-error code regardless of outcome
+  echo -n
 }
 
 function ensure_file_exists() {
@@ -69,11 +73,14 @@ function ensure_file_exists() {
   if [ -f "$target_file" ]; then
     inform_tag "$output_message" yellow "already exists"
   else
-    ensure_directory_exists "$(dirname "${target_file}")" silent
+    ensure_directory_exists "$(dirname "${target_file}")" verbose
     touch "$target_file"
 
     status "$output_message" $?
   fi
+
+  # ensure function returns with non-error code regardless of outcome
+  echo -n
 }
 
 # run function in a subshell, as to not define variables in host process

@@ -99,7 +99,7 @@ setup_dotfiles() {
 
       # Create symbolic link
       if [[ $is_skip -eq 0 ]]; then
-        ensure_directory_exists "$(dirname "${target_file}")" "silent"
+        ensure_directory_exists "$(dirname "${target_file}")"
         ln -fs "${source_file}" "${target_file}"
       fi
 

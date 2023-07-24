@@ -28,5 +28,10 @@
     "from": "home/.config/git-delta/themes.gitconfig",
     "to": ".config/git-delta/themes.gitconfig",
     "method": "symlink"
+  },
+  {
+    "from": "home/.config/starship.toml",
+    "to": ".config/starship.toml",
+    "method": "symlink"
   }
 ]
