@@ -25,11 +25,6 @@ function download-page() {
   wget -E -H -k -K -p -e robots=off $1
 }
 
-# Delete last command in history
-function forget() {
-  history -d "$(expr $(history | tail -n 1 | grep -oP '^ \d+') - 1)"
-}
-
 function erase() {
   local shell_name=$0
   if [ $shell_name == 'bash' ]; then

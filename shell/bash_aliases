@@ -1,4 +1,10 @@
 # ==============================================================================
+# General
+
+alias projects="cd ~/projects"
+alias dotfiles="cd ~/dotfiles"
+
+# ==============================================================================
 # shell
 
 alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
@@ -7,11 +13,13 @@ alias ll='exa -l --color=always --group-directories-first --icons'  # long forma
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
 alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 
+alias cls='printf "\033c"'
+
 # ==============================================================================
 # shell config
-alias profile='vim ~/.bash_profile'
-alias zshconfig="vim ~/.zshrc"
-alias reload="source ~/.zshrc"
+alias bashrc='vim ~/.bashrc'
+alias zshrc="vim ~/.zshrc"
+alias reload="source ~/.bashrc"
 
 alias grep='rg --color=auto'
 alias bash.forget="history -c && history -w"
@@ -34,7 +42,8 @@ alias doco="docker compose"
 alias cleanup.ds='find . -type f \( -name ".DS_Store" -o -name "._.DS_Store" \) -delete -print 2>&1 | grep -v "Permission denied"'
 
 # reload native apps
-alias killfinder="killall Finder"
+alias kill.finder="killall Finder"
+alias kill.docker="killall Docker"
 
 # flush dns
 alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"

@@ -26,6 +26,7 @@ function pad_start() {
 }
 
 # Convert string value to float
+# @todo is this needed?
 function float() {
   if [ "$1" = '""' ] || [ -z "$1" ]; then
     echo 0
@@ -48,6 +49,7 @@ function short_home() {
   fi
 }
 
+# @todo is this needed?
 function is_truthy() {
   if [[ "$1" =~ ^(true|TRUE|yes|YES|y|Y|on|ON|1)$ ]]; then
     return 0

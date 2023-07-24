@@ -1,0 +1,11 @@
+# source "$HOME/dotfiles/utils.sh"
+
+source "$HOME/dotfiles/shell/bash_exports"
+source "$HOME/dotfiles/shell/bash_aliases"
+source "$HOME/dotfiles/shell/bash_functions"
+
+# IF currently in bash shell: load bash completions in "~/.config/bash/completions"
+current_shell=$(ps -p $$ -ocomm=)
+if [[ "$current_shell" == "bash" ]]; then
+  for file in ~/.config/bash/completions/*; do source "$file"; done
+fi

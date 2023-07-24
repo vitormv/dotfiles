@@ -6,6 +6,7 @@ function setup_secrets() {
   title_h1 "Secrets"
 
   # List of secrets that need to exist in OSX Keychain
+  # @todo use associative array with helper lines https://linuxhint.com/associative_array_bash/
   declare -a required_secrets=(
     "HOMEBREW_GITHUB_API_TOKEN"
   )

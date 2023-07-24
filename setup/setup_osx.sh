@@ -54,23 +54,25 @@ function setup_osx() {
     warning "Not a macOS (Darwin) system, skipping"
   else
 
-    local cmd="@"
-    local shift="\$"
-    local ctrl="^"
-    local optn="~"
-
     # @todo: add configurations OSX
     # defaults write NSGlobalDomain KeyRepeat -int 1
     # defaults write com.apple.dock tilesize -int 70
 
-    title_h2 "Add MacOS keyboard shortcuts" 0
+    # ----------------------
+    title_h2 "Keyboard shortcuts" 0
+
+    local cmd="@"
+    local shift="\$"
+    local ctrl="^"
+    local optn="~"
 
     defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF702"
     defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Right Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF703"
     defaults write -g NSUserKeyEquivalents -dict-add 'Lock Screen' "${cmd}${shift}L"
     status "Shortcuts added" OK
 
-    title_h2 "Add MacOS keyboard replacements"
+    # ----------------------
+    title_h2 "Keyboard replacements"
 
     osx_add_text_replacement '&shrug;' '¯\_(ツ)_/¯'
     osx_add_text_replacement '&flip;' '(╯°□°)╯︵ ┻━┻'
@@ -86,11 +88,16 @@ function setup_osx() {
     defaults read -g &>/dev/null
     killall cfprefsd
 
-    title_h2 "Install Nerd Fonts"
+    # ----------------------
+    title_h2 "Machine Name"
 
-    # Copy all files from ./assets/fonts to ~/Library/Fonts
-    for source_file in "$DOTFILES_ROOT/assets/fonts"/*; do
-      copy_file "$source_file" "$HOME/Library/Fonts"
-    done
+    setup_machine_name
+
+    # ----------------------
+    title_h2 "Application Icons"
+
+    # @todo does not seem to work on OSX Ventura :(
+    # replace_app_icon kitty.app kitty.icns "assets/app_icons/kitty.icns"
+    # replace_app_icon iTerm.app AppIcon.icns "assets/app_icons/iTerm2.icns"
   fi
 }

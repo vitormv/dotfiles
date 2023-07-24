@@ -10,7 +10,8 @@ setup_dotfiles() {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  local json_file="${DIR}/homedir/_mappings.json"
+  # @todo add support for copy vs symlink property
+  local json_file="${DIR}/home/_mappings.json"
 
   # Check if the JSON file exists
   if [ -f "${json_file}" ]; then
@@ -98,6 +99,7 @@ setup_dotfiles() {
 
       # Create symbolic link
       if [[ $is_skip -eq 0 ]]; then
+        ensure_directory_exists "$(dirname "${target_file}")" "silent"
         ln -fs "${source_file}" "${target_file}"
       fi
 

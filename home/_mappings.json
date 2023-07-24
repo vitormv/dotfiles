@@ -1,0 +1,32 @@
+[
+  {
+    "from": "home/.bashrc.dotfiles",
+    "to": ".bashrc.dotfiles",
+    "method": "symlink"
+  },
+  {
+    "from": "home/.zshrc.dotfiles",
+    "to": ".zshrc.dotfiles",
+    "method": "symlink"
+  },
+  {
+    "from": "home/Brewfile",
+    "to": "Brewfile",
+    "method": "symlink"
+  },
+  {
+    "from": "home/.config/kitty/theme.conf",
+    "to": ".config/kitty/theme.conf",
+    "method": "symlink"
+  },
+  {
+    "from": "home/.config/kitty/kitty.conf",
+    "to": ".config/kitty/kitty.conf",
+    "method": "symlink"
+  },
+  {
+    "from": "home/.config/git-delta/themes.gitconfig",
+    "to": ".config/git-delta/themes.gitconfig",
+    "method": "symlink"
+  }
+]

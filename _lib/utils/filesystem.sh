@@ -44,15 +44,20 @@ function copy_file() {
 }
 
 function ensure_directory_exists() {
-  local output_message
+  local output_message mkdir_result
   local target_dir=$1
+  local mode=${!2:-verbose}
 
   output_message="Create directory $(pretty_path "$target_dir")"
   if [ -d "$target_dir" ]; then
-    inform_tag "$output_message" yellow "already exists"
+    [ "$mode" != "silent" ] && inform_tag "$output_message" yellow "already exists"
   else
     mkdir -p "$target_dir"
-    status "$output_message" $?
+    mkdir_result=$?
+
+    if [ "$mode" != "silent" ]; then
+      status "$output_message" "$mkdir_result"
+    fi
   fi
 }
 
@@ -64,7 +69,35 @@ function ensure_file_exists() {
   if [ -f "$target_file" ]; then
     inform_tag "$output_message" yellow "already exists"
   else
+    ensure_directory_exists "$(dirname "${target_file}")" silent
     touch "$target_file"
+
     status "$output_message" $?
   fi
 }
+
+# run function in a subshell, as to not define variables in host process
+function get_dotfiles_setting() (
+  local variable_name=$1
+
+  [[ -f "$DOTFILES_SETTINGS_FILE" ]] && source "$DOTFILES_SETTINGS_FILE"
+
+  # read variable by its name and avoid "unbound variable" error
+  local value="${!variable_name:-}"
+
+  if [ -n "${value}" ]; then
+    echo "$value"
+  fi
+)
+
+# run function in a subshell, as to not mess with variables in host process
+function set_dotfiles_setting() (
+  local name=$1
+  local value=$2
+
+  # ensure line is removed (if it exists)
+  sed -i '' "/export ${name}=/d" "$DOTFILES_SETTINGS_FILE"
+
+  # save value to file
+  echo -e "export ${name}=\"${value}\"\n" >>"$DOTFILES_SETTINGS_FILE"
+)

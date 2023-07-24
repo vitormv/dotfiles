@@ -65,3 +65,71 @@ function osx_add_text_replacement() {
 
   status "Added shortcut ${shortcut}" OK
 }
+
+function setup_machine_name() {
+  local current_name
+  current_name=$(get_dotfiles_setting MACHINE_NAME)
+
+  if [[ -n $current_name ]]; then
+    debug "Machine Name already configured"
+  else
+    inform "This machine doesn't have a name yet"
+    echo -n "${PREFIX_EMPTY}→ how do you want to call it (no dots)? "
+    read current_name
+  fi
+
+  sudo scutil --set HostName "$current_name"
+  sudo scutil --set LocalHostName "$current_name"
+  sudo scutil --set ComputerName "$current_name"
+
+  set_dotfiles_setting 'MACHINE_NAME' "$current_name"
+
+  status "Configured ComputerName, HostName and LocalHostName" OK
+}
+
+function make_zsh_default_shell() {
+  local zsh_path
+  zsh_path="$(which zsh)"
+
+  # Check zsh is not already the default shell
+  if [ "$SHELL" != "$zsh_path" ]; then
+    # If zsh is not listed as a shell, list it
+    if ! grep -q "^$(which zsh)$" /etc/shells; then
+      inform "Adding zsh to the list of shells (/etc/shells)"
+
+      "$zsh_path" | sudo tee -a /etc/shells
+    fi
+
+    chsh -s "$zsh_path"
+
+    success "$zsh_path configured as the default shell"
+  else
+    inform_tag "ZSH is already the default shell" green "OK"
+  fi
+}
+
+function replace_app_icon() {
+  local application=$1
+  local app_icon_name=$2
+  local new_icon=$3
+
+  local app_path="/Applications/${application}"
+  local app_icon_path="${app_path}/Contents/Resources/${app_icon_name}"
+  local new_icon_path="${DOTFILES_ROOT}/${new_icon}"
+
+  if [ ! -d "$app_path" ]; then
+    echo "APP NOT FOUND"
+    exit 1
+  fi
+
+  if [ ! -f "$app_icon_path" ]; then
+    echo "ICON NOT FOUND"
+  fi
+
+  echo "NEW ICON PATH: $new_icon_path"
+  echo "APP ICON PATH: $app_icon_path"
+
+  # sudo mv "$app_icon_path" "$app_icon_path.backup"
+  sudo cp -f "$new_icon_path" "$app_icon_path"
+  touch "${app_path}"
+}

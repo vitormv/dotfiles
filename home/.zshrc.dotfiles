@@ -1,11 +1,14 @@
+
+source ~/.bashrc
+
+# mkdir and cd
+function mkcd() { mkdir -p "$@" && cd "$_"; }
+
 # Uses the zsh precmd function hook to set the tab title to the current working directory before each prompt
 function precmd () {
     window_title="\\033]0;${PWD##*/}\\007"
     echo -ne "$window_title"
 }
-
-# fnm completions
-eval "$(fnm env --use-on-cd)"
 
 # SSH autocomplete
 # Highlight the current autocomplete option
@@ -32,5 +35,6 @@ export SPACESHIP_PHP_SHOW=false
 export SPACESHIP_DOCKER_SHOW=false
 source /opt/homebrew/opt/spaceship/spaceship.zsh
 
+
 # ZSH command green/red highlighting (HAS TO BE THE LAST COMMAND!!)
-source /usr/local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
