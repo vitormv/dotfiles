@@ -4,8 +4,12 @@ source "$HOME/dotfiles/shell/bash_exports"
 source "$HOME/dotfiles/shell/bash_aliases"
 source "$HOME/dotfiles/shell/bash_functions"
 
-# IF currently in bash shell: load bash completions in "~/.config/bash/completions"
+# Do some things ONLY if we are in a bash shell
 current_shell=$(ps -p $$ -ocomm=)
-if [[ "$current_shell" == "bash" ]]; then
+if [[ "$current_shell" == *"bash" ]]; then
+  # load starship prompt
+  eval "$(starship init bash)"
+
+  # load bash completions in "~/.config/bash/completions"
   for file in ~/.config/bash/completions/*; do source "$file"; done
 fi

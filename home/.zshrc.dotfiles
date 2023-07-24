@@ -1,40 +1,4 @@
 
 source ~/.bashrc
 
-# mkdir and cd
-function mkcd() { mkdir -p "$@" && cd "$_"; }
-
-# Uses the zsh precmd function hook to set the tab title to the current working directory before each prompt
-function precmd () {
-    window_title="\\033]0;${PWD##*/}\\007"
-    echo -ne "$window_title"
-}
-
-# SSH autocomplete
-# Highlight the current autocomplete option
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-# Autocompletion with Meu style and arrow key navigation
-zstyle ':completion:*' menu select
-
-# Initialize the autocompletion
-autoload -Uz compinit && compinit -i
-
-####################
-# Spaceship Prompt
-####################
-# autoload -U promptinit; promptinit
-export SPACESHIP_PROMPT_SEPARATE_LINE=false
-export SPACESHIP_TIME_SHOW=true
-export SPACESHIP_DIR_SUFFIX="/  "
-export SPACESHIP_BATTERY_SHOW=true
-export SPACESHIP_BATTERY_THRESHOLD=30
-export SPACESHIP_PACKAGE_SHOW=false
-export SPACESHIP_NODE_DEFAULT_VERSION=v12.13.0
-export SPACESHIP_PHP_SHOW=false
-export SPACESHIP_DOCKER_SHOW=false
-source /opt/homebrew/opt/spaceship/spaceship.zsh
-
-
-# ZSH command green/red highlighting (HAS TO BE THE LAST COMMAND!!)
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$HOME/dotfiles/shell/zsh_prompt"
