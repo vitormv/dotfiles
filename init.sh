@@ -8,24 +8,26 @@ if ${DEBUG+"false"}; then
   DEBUG=
 fi
 
-source "${DOTFILES_ROOT}/_lib/utils/strings.sh"
-source "${DOTFILES_ROOT}/_lib/utils/filesystem.sh"
-source "${DOTFILES_ROOT}/_lib/utils/layout.sh"
-source "${DOTFILES_ROOT}/_lib/utils/system.sh"
+source "./_lib/utils/strings.sh"
+source "./_lib/utils/filesystem.sh"
+source "./_lib/utils/layout.sh"
+source "./_lib/utils/system.sh"
 
-source "${DOTFILES_ROOT}/setup/setup_assets.sh"
-source "${DOTFILES_ROOT}/setup/setup_dependencies.sh"
-source "${DOTFILES_ROOT}/setup/setup_dotfiles.sh"
-source "${DOTFILES_ROOT}/setup/setup_git.sh"
-source "${DOTFILES_ROOT}/setup/setup_osx.sh"
-source "${DOTFILES_ROOT}/setup/setup_shell.sh"
-source "${DOTFILES_ROOT}/setup/setup_secrets.sh"
+source "./setup/setup_assets.sh"
+source "./setup/setup_dependencies.sh"
+source "./setup/setup_dotfiles.sh"
+source "./setup/setup_git.sh"
+source "./setup/setup_osx.sh"
+source "./setup/setup_shell.sh"
+source "./setup/setup_secrets.sh"
 
 echo "ROOT: $(pretty_path "$DOTFILES_ROOT")"
 echo "SETTINGS: $(pretty_path "$DOTFILES_SETTINGS_FILE")"
 
 # ask early, we will be needing it
 sudo -v
+
+# @todo add README.md file
 
 setup_dependencies
 setup_assets
