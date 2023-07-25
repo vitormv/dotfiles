@@ -18,4 +18,4 @@ success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set
 [custom.bash]
 command = "echo 'bash'"
 when = '[ "$STARSHIP_SHELL" == "bash" ]'
-format = '[ $output ](bg:yellow black) '
+format = '[ $output ](bg:purple black) '
