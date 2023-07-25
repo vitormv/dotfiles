@@ -5,6 +5,8 @@ alias projects="cd ~/projects"
 alias dotfiles="cd ~/dotfiles"
 alias top="btm"
 
+alias forget="history -cw"
+
 # ==============================================================================
 # shell
 
@@ -14,10 +16,13 @@ alias la='exa -a --color=always --group-directories-first --icons'              
 alias lt='exa -aT --ignore-glob=".git" --color=always --group-directories-first --icons' # tree listing
 alias l.="exa -a | egrep '^\.'"                                                          # show only dotfiles
 
-alias cls='printf "\033c"'
+# like the original "/usr/bin/clear", but it actually removes things instead of just scrolling
+alias clear='printf "\033c"'
+alias cls='clear'
 
 # ==============================================================================
 # shell config
+
 alias bashrc='vim ~/.bashrc'
 alias zshrc="vim ~/.zshrc"
 alias reload="source ~/.bashrc"
