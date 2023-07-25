@@ -61,8 +61,7 @@ function ensure_directory_exists() {
     fi
   fi
 
-  # ensure function returns with non-error code regardless of outcome
-  echo -n
+  return 0 # function is always successfull
 }
 
 function ensure_file_exists() {
@@ -79,8 +78,7 @@ function ensure_file_exists() {
     status "$output_message" $?
   fi
 
-  # ensure function returns with non-error code regardless of outcome
-  echo -n
+  return 0 # function is always successfull
 }
 
 # run function in a subshell, as to not define variables in host process
