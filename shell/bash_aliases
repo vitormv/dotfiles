@@ -3,15 +3,16 @@
 
 alias projects="cd ~/projects"
 alias dotfiles="cd ~/dotfiles"
+alias top="btm"
 
 # ==============================================================================
 # shell
 
-alias ls='exa -l --color=always --group-directories-first --icons'  # long format
-alias ll='exa -al --color=always --group-directories-first --icons' # preferred listing
-alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+alias ls='exa -l --color=always --group-directories-first --icons'                       # long format
+alias ll='exa -al --color=always --group-directories-first --icons'                      # preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'                       # all files and dirs
+alias lt='exa -aT --ignore-glob=".git" --color=always --group-directories-first --icons' # tree listing
+alias l.="exa -a | egrep '^\.'"                                                          # show only dotfiles
 
 alias cls='printf "\033c"'
 
