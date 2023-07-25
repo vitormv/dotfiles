@@ -8,10 +8,10 @@ if ${DEBUG+"false"}; then
   DEBUG=
 fi
 
-source "./_lib/utils/strings.sh"
-source "./_lib/utils/filesystem.sh"
-source "./_lib/utils/layout.sh"
-source "./_lib/utils/system.sh"
+source "./lib/strings.sh"
+source "./lib/filesystem.sh"
+source "./lib/layout.sh"
+source "./lib/system.sh"
 
 source "./setup/setup_assets.sh"
 source "./setup/setup_dependencies.sh"

@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-source ./_lib/utils/filesystem.sh
+source ./lib/filesystem.sh
 
 setup_assets() {
   title_h1 "Assets"
