@@ -1,24 +1,26 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 
-brew "bat"
-brew "bottom"
-brew "coreutils"
+brew "bat" # cat with syntax highlighting
+brew "bottom" # top replacement, system dashboard
+brew "coreutils" # better core /usr/bin
 brew "duf"
 brew "dust"
 brew "exa"
-brew "fd"
+brew "fd" # find things easily
 brew "ffmpeg"
-brew "fnm"
+brew "fnm" # NVM but in rust
 brew "git"
-brew "git-delta"
-brew "hyperfine"
+brew "git-delta" # awesome git diffs
+brew "hyperfine" # benchmark commands
 brew "jq"
 brew "mackup"
+brew "monolith"
 brew "neovim"
 brew "ouch"
-brew "ripgrep"
+brew "ripgrep" # better faster grep
 brew "shellcheck"
+brew "tealdeer" # aint nobody got time for that
 brew "youtube-dl"
 brew "yt-dlp"
 brew "zsh"
@@ -26,6 +28,7 @@ brew "zsh-syntax-highlighting"
 
 cask "kap"
 cask "kitty"
+cask "numi"
 cask "stats"
 cask "sublime-text"
 
