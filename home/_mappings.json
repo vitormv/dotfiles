@@ -33,5 +33,10 @@
     "from": "home/.config/starship.toml",
     "to": ".config/starship.toml",
     "method": "symlink"
+  },
+  {
+    "from": "home/Library/Preferences/org.videolan.vlc/vlcrc",
+    "to": "Library/Preferences/org.videolan.vlc/vlcrc",
+    "method": "symlink"
   }
 ]

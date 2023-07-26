@@ -4,9 +4,6 @@ IFS=$'\n\t'
 
 # https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
-# Amazing MACOS shortcuts and settings, and bash functions
-# https://github.com/webpro/dotfiles/blob/main/system/.alias.macos
-
 # Gist with nice stuff: https://gist.github.com/steinbrueckri/02287553f62597c6de77295c4dcdcaea
 
 # Here is a rough cheatsheet for syntax.
@@ -54,12 +51,34 @@ function setup_osx() {
     warning "Not a macOS (Darwin) system, skipping"
   else
 
+    title_h2 "Set my prefered default MacOS settings" 0
     # @todo: add configurations OSX
     # defaults write NSGlobalDomain KeyRepeat -int 1
     # defaults write com.apple.dock tilesize -int 70
+    defaults write -g InitialKeyRepeat -int 30
+    defaults write -g KeyRepeat -int 2
+    defaults write -g com.apple.mouse.tapBehavior -int 1 # tap to click on trackpad
+
+    defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false # no siri in menubar
+    defaults write -g AppleShowAllExtensions -bool true                             # always show all extensions
+
+    # Use list view in all Finder windows by default
+    defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+    defaults write com.apple.finder SearchRecentsSavedViewStyle -string "clmv"
+
+    defaults write com.apple.finder EmptyTrashSecurely -bool true # Empty Trash securely by default
+
+    # dock
+    defaults write com.apple.dock tilesize -int 70
+    defaults write com.apple.dock show-recents -bool FALSE # disable recents in Dock
+    defaults write com.apple.dock wvous-br-corner -int 5   # hot corner bottom right opens screensaver
+
+    # @todo open in $HOME by default ~/Library/Preferences/com.apple.finder.plist NewWindowTargetPath
+
+    # @todo configure VLC possible? ~/Library/Preferences/org.videolan.vlc/vlcrc
 
     # ----------------------
-    title_h2 "Keyboard shortcuts" 0
+    title_h2 "Keyboard shortcuts"
 
     local cmd="@"
     local shift="\$"
@@ -98,5 +117,10 @@ function setup_osx() {
     # @todo does not seem to work on OSX Ventura :(
     # replace_app_icon kitty.app kitty.icns "assets/app_icons/kitty.icns"
     # replace_app_icon iTerm.app AppIcon.icns "assets/app_icons/iTerm2.icns"
+    # VLC: also had to overwrite the VLC.icns manually inside the folder
+
+    # @todo set default applications
+    # -------
+    # https://github.com/fharper/macsetup/blob/main/macsetup.sh#L4299
   fi
 }

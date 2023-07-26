@@ -10,6 +10,9 @@ function setup_git() {
   git_name=$(git config user.name || echo)
   git_email=$(git config user.email || echo)
 
+  # @todo move git stuff to ~/.config/.git
+  # https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
+
   if [[ -z "$git_name" ]]; then
     # ask the user for Git Name
     inform "Setting up Git Author"

@@ -5,8 +5,6 @@ alias projects="cd ~/projects"
 alias dotfiles="cd ~/dotfiles"
 alias top="btm"
 
-alias forget="history -cw"
-
 # ==============================================================================
 # shell
 
@@ -25,10 +23,9 @@ alias cls='clear'
 
 alias bashrc='vim ~/.bashrc'
 alias zshrc="vim ~/.zshrc"
-alias reload="source ~/.bashrc"
+alias reload="source ~/.bashrc && echo 'Sourced ~/.bashrc'"
 
 alias grep='rg --color=auto'
-alias bash.forget="history -c && history -w"
 
 # ===================================================
 # Torrentbox
@@ -44,8 +41,8 @@ alias doco="docker compose"
 # ===================================================
 # MacOS
 
-# cleanup all .DS_Store files recursively
-alias cleanup.ds='find . -type f \( -name ".DS_Store" -o -name "._.DS_Store" \) -delete -print 2>&1 | grep -v "Permission denied"'
+# remove all .DS_Store files recursively
+alias purge.ds='find . -type f \( -name ".DS_Store" -o -name "._.DS_Store" \) -delete -print 2>&1 | grep -v "Permission denied"'
 
 # reload native apps
 alias kill.finder="killall Finder"

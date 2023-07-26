@@ -1,4 +1,5 @@
 
 source ~/.bashrc
 
+source "$HOME/dotfiles/shell/zsh_aliases"
 source "$HOME/dotfiles/shell/zsh_prompt"

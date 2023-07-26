@@ -1,5 +1,19 @@
-
 # this overrides existing bash's "reload" alias
 # so we can reload the prompt from both zsh and bash and
 # correclty source their respective fiels
-alias reload="source ~/.zshrc"
+alias reload="source ~/.zshrc && echo 'Sourced ~/.zshrc'"
+
+unset -f forget
+function forget() {
+  echo -e "Are you sure you want to delete ALL Zsh history?"
+  echo -n "This will also close all ZSH instances: "
+
+  read confirmStart
+  echo
+  if is_truthy "$confirmStart"; then
+    history -p
+    echo >~/.zsh_history && kill -9 $$
+  else
+    echo "Ok ok, not touching anything!"
+  fi
+}

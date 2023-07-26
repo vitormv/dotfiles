@@ -29,8 +29,11 @@ brew "zsh-syntax-highlighting"
 cask "kap"
 cask "kitty"
 cask "numi"
+cask "qlmarkdown", args: { 'no-quarantine': true }
+cask "quicklook-json"
 cask "stats"
 cask "sublime-text"
+cask "vlc" , args: { 'no-quarantine': true }
 
 vscode "christian-kohler.npm-intellisense"
 vscode "clinyong.vscode-css-modules"

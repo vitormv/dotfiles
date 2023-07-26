@@ -23,4 +23,8 @@ function setup_dependencies() {
 
   title_h2 "Install Homebrew packages"
   brew bundle --no-lock --file "${DOTFILES_ROOT}/home/Brewfile"
+
+  # @todo un-quarantine only if needed?
+  # xattr -r -d com.apple.quarantine "/Applications/QLMarkdown.app"
+  # qlmanage -r
 }

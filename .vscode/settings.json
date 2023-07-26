@@ -4,6 +4,10 @@
     "editor.formatOnPaste": false,
     "editor.autoIndent": "none",
   },
+  "files.associations": {
+    "*.conf": "properties",
+    "**/shell/*": "shellscript",
+  },
   "shellformat.effectLanguages": [
     "dockerfile",
     "dotenv",
