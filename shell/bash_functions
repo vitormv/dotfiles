@@ -104,3 +104,35 @@ function byte-me() {
   done
   echo $v$(echo $list | cut -f$p -d,)
 }
+
+# Get gzipped file size
+gz() {
+  local ORIGSIZE=$(wc -c <"$1")
+  local GZIPSIZE=$(gzip -c "$1" | wc -c)
+  local RATIO=$(echo "$GZIPSIZE * 100/ $ORIGSIZE" | bc -l)
+  local SAVED=$(echo "($ORIGSIZE - $GZIPSIZE) * 100/ $ORIGSIZE" | bc -l)
+
+  printf "orig: %d bytes\ngzip: %d bytes\nsave: %2.0f%% (%2.0f%%)\n" "$ORIGSIZE" "$GZIPSIZE" "$SAVED" "$RATIO"
+}
+
+# prompt to source .bashrc files from mounted drives
+# but always require user input
+function stick() {
+  for file_path in /Volumes/*; do
+    local file_name=$(basename "$file_path")
+
+    # ignore actual HDD
+    if [[ "$file_name" == "Macintosh HD" ]]; then continue; fi
+
+    local bashrc_path="/Volumes/${file_name}/.bashrc"
+
+    if [ ! -f "${bashrc_path}" ]; then continue; fi
+
+    echo -n "Found '${bashrc_path}'. Do you want to load it? "
+    read load_file_choice
+
+    if is_truthy "$load_file_choice"; then
+      source "$bashrc_path"
+    fi
+  done
+}

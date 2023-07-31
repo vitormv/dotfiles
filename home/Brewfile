@@ -1,38 +1,44 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
+tap "homebrew/cask-fonts"
 
 brew "bat" # cat with syntax highlighting
 brew "bottom" # top replacement, system dashboard
 brew "coreutils" # better core /usr/bin
 brew "duf"
 brew "dust"
-brew "exa"
+brew "exa" # better ls
 brew "fd" # find things easily
 brew "ffmpeg"
 brew "fnm" # NVM but in rust
 brew "git"
 brew "git-delta" # awesome git diffs
 brew "hyperfine" # benchmark commands
-brew "jq"
+brew "jq" # parse json from bash
 brew "mackup"
-brew "monolith"
+brew "monolith" # download websites
 brew "neovim"
-brew "ouch"
+brew "ouch" # zip/unzip stuff easily
 brew "ripgrep" # better faster grep
 brew "shellcheck"
+brew "starship"
 brew "tealdeer" # aint nobody got time for that
 brew "youtube-dl"
 brew "yt-dlp"
 brew "zsh"
 brew "zsh-syntax-highlighting"
 
+cask "firefox" , args: { 'no-quarantine': true }
+cask "google-chrome" , args: { 'no-quarantine': true }
+cask "iterm2"
 cask "kap"
 cask "kitty"
 cask "numi"
 cask "qlmarkdown", args: { 'no-quarantine': true }
 cask "quicklook-json"
-cask "stats"
+cask "stats" , args: { 'no-quarantine': true }
 cask "sublime-text"
+cask "visual-studio-code" , args: { 'no-quarantine': true }
 cask "vlc" , args: { 'no-quarantine': true }
 
 vscode "christian-kohler.npm-intellisense"

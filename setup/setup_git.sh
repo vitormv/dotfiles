@@ -74,9 +74,6 @@ function setup_git() {
   # Set alias settings
   git config --global alias.cleanup-branches "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
   git config --global alias.apply-url "!f() { curl -s \$1 2>nul | git apply \${@:2}; }; f"
-  git config --global alias.switch "!legit switch"
-  git config --global alias.branches "!legit branches"
-  git config --global alias.sprout "!legit sprout \"\$@\""
   git config --global alias.undo "reset --soft HEAD^"
   git config --global alias.diffs "diff --staged"
   git config --global alias.pushf "push -u --force"
@@ -94,7 +91,6 @@ function setup_git() {
   git config --global alias.lnc "log --pretty=format:\"%h\\ %s\\ [%cn]\""
   git config --global alias.lds "log --pretty=format:\"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --date=short"
   git config --global alias.ld "log --pretty=format:\"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --date=relative"
-  git config --global alias.resync "!legit resync"
   git config --global alias.stale "for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
   git config --global alias.alias "! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /"
 

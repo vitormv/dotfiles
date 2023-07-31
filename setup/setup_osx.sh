@@ -112,6 +112,8 @@ function setup_osx() {
 
     setup_machine_name
 
+    # @todo configure dock order items and position with https://github.com/kcrawford/dockutil
+
     # ----------------------
     # title_h2 "Application Icons"
     # @todo does not seem to work on OSX Ventura :(

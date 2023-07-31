@@ -13,6 +13,7 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 export DEBUG_PRINT_LIMIT=20000
 export LC_CTYPE="en_US.UTF-8"
+export HISTCONTROL=ignoreboth:erasedups # do not log consecutive repeated commands
 
 # ===================================================
 # Homebrew

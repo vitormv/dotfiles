@@ -14,6 +14,11 @@ format = '[$time](yellow) in '
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 
+# [custom.incognito]
+# command = 'echo "󱀣"'
+# when = "[[ -z \"$HISTFILE\" ]]"
+# format = '[ $output ](bg:none purple) '
+
 # Indicates when in bash shell.
 [custom.bash]
 command = "echo 'bash'"
