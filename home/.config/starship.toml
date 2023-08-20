@@ -3,12 +3,18 @@ scan_timeout = 10
 
 format = '$custom$is_bash$time$all'
 
+[battery]
+disabled = true
+
 [line_break]
 disabled = true
 
 [time]
 disabled = false
 format = '[$time](yellow) in '
+
+[package]
+disabled = true
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
@@ -17,6 +23,8 @@ success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set
 # [custom.incognito]
 # command = 'echo "󱀣"'
 # when = "[[ -z \"$HISTFILE\" ]]"
+# shell = ["/Users/vmello/dotfiles/test.sh"]
+# when = true
 # format = '[ $output ](bg:none purple) '
 
 # Indicates when in bash shell.

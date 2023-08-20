@@ -4,6 +4,7 @@
 alias projects="cd ~/projects"
 alias dotfiles="cd ~/dotfiles"
 alias top="btm"
+alias nvm="fnm"
 
 # ==============================================================================
 # shell

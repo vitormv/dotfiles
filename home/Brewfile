@@ -20,15 +20,19 @@ brew "monolith" # download websites
 brew "neovim"
 brew "ouch" # zip/unzip stuff easily
 brew "ripgrep" # better faster grep
+brew "serve"
 brew "shellcheck"
 brew "starship"
 brew "tealdeer" # aint nobody got time for that
 brew "youtube-dl"
+brew "yarn"
 brew "yt-dlp"
 brew "zsh"
 brew "zsh-syntax-highlighting"
 
-cask "firefox" , args: { 'no-quarantine': true }
+# cask "dropbox" // @todo use it?
+cask "docker"
+cask "firefox", args: { 'no-quarantine': true }
 cask "google-chrome" , args: { 'no-quarantine': true }
 cask "iterm2"
 cask "kap"
@@ -36,10 +40,11 @@ cask "kitty"
 cask "numi"
 cask "qlmarkdown", args: { 'no-quarantine': true }
 cask "quicklook-json"
-cask "stats" , args: { 'no-quarantine': true }
+cask "spotify"
+cask "stats", args: { 'no-quarantine': true }
 cask "sublime-text"
 cask "visual-studio-code" , args: { 'no-quarantine': true }
-cask "vlc" , args: { 'no-quarantine': true }
+cask "vlc", args: { 'no-quarantine': true }
 
 vscode "christian-kohler.npm-intellisense"
 vscode "clinyong.vscode-css-modules"

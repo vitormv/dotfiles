@@ -106,7 +106,7 @@ function byte-me() {
 }
 
 # Get gzipped file size
-gz() {
+function gz() {
   local ORIGSIZE=$(wc -c <"$1")
   local GZIPSIZE=$(gzip -c "$1" | wc -c)
   local RATIO=$(echo "$GZIPSIZE * 100/ $ORIGSIZE" | bc -l)
@@ -135,4 +135,6 @@ function stick() {
       source "$bashrc_path"
     fi
   done
+
+  return 0
 }

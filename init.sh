@@ -27,7 +27,7 @@ echo "SETTINGS: $(pretty_path "$DOTFILES_SETTINGS_FILE")"
 # ask early, we will be needing it
 sudo -v
 
-# @todo add README.md file
+# @todo add README.md file   https://github.com/aaronbates/dotfiles/blob/master/README.md
 
 setup_dependencies
 setup_assets
@@ -37,6 +37,9 @@ setup_dotfiles "${HOME}"
 setup_osx
 setup_shell
 # @todo init_iterm vscode kitty
+# @todo add firefox extensions?
+# @todo add chrome extensions?
+# @todo add all my vscode extensions?
 # @todo init fnm node manager   # https://freddiecarthy.com/blog/use-git-and-bash-to-automate-your-developer-tooling
 # @todo add cronjob for checking mouse battery
 
