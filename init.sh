@@ -40,7 +40,6 @@ setup_shell
 # @todo add firefox extensions?
 # @todo add chrome extensions?
 # @todo add all my vscode extensions?
-# @todo init fnm node manager   # https://freddiecarthy.com/blog/use-git-and-bash-to-automate-your-developer-tooling
 # @todo add cronjob for checking mouse battery
 
 echo -e '\n\n✅ All done! Enjoy your new system.'

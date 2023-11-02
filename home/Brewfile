@@ -16,6 +16,7 @@ brew "git-delta" # awesome git diffs
 brew "hyperfine" # benchmark commands
 brew "jq" # parse json from bash
 brew "mackup"
+brew "mas"
 brew "monolith" # download websites
 brew "neovim"
 brew "ouch" # zip/unzip stuff easily
@@ -30,9 +31,9 @@ brew "yt-dlp"
 brew "zsh"
 brew "zsh-syntax-highlighting"
 
-# cask "dropbox" // @todo use it?
 cask "docker"
 cask "firefox", args: { 'no-quarantine': true }
+cask "font-meslo-lg-nerd-font"
 cask "google-chrome" , args: { 'no-quarantine': true }
 cask "iterm2"
 cask "kap"
@@ -45,6 +46,18 @@ cask "stats", args: { 'no-quarantine': true }
 cask "sublime-text"
 cask "visual-studio-code" , args: { 'no-quarantine': true }
 cask "vlc", args: { 'no-quarantine': true }
+
+mas "1Password for Safari", id: 1569813296
+mas "Amphetamine", id: 937984704
+mas "Simplenote", id: 692867256
+mas "Ghostery – Privacy Ad Blocker", id: 1436953057
+mas "MeetingBar", id: 1532419400
+mas "New File Menu Lite", id: 1066302071
+mas "NordVPN", id: 905953485
+mas "GrandPerspective", id: 1111570163
+mas "Telegram Lite", id: 946399090
+mas "The Unarchiver", id: 425424353
+mas "Todoist", id: 585829637
 
 vscode "christian-kohler.npm-intellisense"
 vscode "clinyong.vscode-css-modules"
