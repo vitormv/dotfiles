@@ -18,6 +18,7 @@ source "./setup/setup_dependencies.sh"
 source "./setup/setup_dotfiles.sh"
 source "./setup/setup_git.sh"
 source "./setup/setup_osx.sh"
+source "./setup/setup_ssh.sh"
 source "./setup/setup_shell.sh"
 source "./setup/setup_secrets.sh"
 
@@ -35,6 +36,7 @@ setup_git
 setup_secrets
 setup_dotfiles "${HOME}"
 setup_osx
+setup_ssh
 setup_shell
 # @todo init_iterm vscode kitty
 # @todo add firefox extensions?
