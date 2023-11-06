@@ -55,12 +55,15 @@ function setup_osx() {
     # @todo: add configurations OSX
     # defaults write NSGlobalDomain KeyRepeat -int 1
     # defaults write com.apple.dock tilesize -int 70
-    defaults write -g InitialKeyRepeat -int 30
-    defaults write -g KeyRepeat -int 2
-    defaults write -g com.apple.mouse.tapBehavior -int 1 # tap to click on trackpad
 
-    defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false # no siri in menubar
-    defaults write -g AppleShowAllExtensions -bool true                             # always show all extensions
+    ############################
+    # System
+    ############################
+
+    # no siri in menubar
+    defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false
+    # always show all extensions
+    defaults write -g AppleShowAllExtensions -bool true
 
     # Use list view in all Finder windows by default
     defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
@@ -68,10 +71,79 @@ function setup_osx() {
 
     defaults write com.apple.finder EmptyTrashSecurely -bool true # Empty Trash securely by default
 
-    # dock
+    # Expand save panel by default
+    defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+    defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+    # Expand print panel by default
+    defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+    defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+    ############################
+    # Keyboard & Input
+    ############################
+
+    # Disable press-and-hold for keys in favor of key repeat
+    defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+    # Disable auto-correct
+    defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+    defaults write -g InitialKeyRepeat -int 30
+    defaults write -g KeyRepeat -int 2
+
+    # Trackpad: enable tap to click for this user and for the login screen
+    defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+    defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+    defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+    ############################
+    # Finder
+    ############################
+
+    # Finder: show status bar
+    defaults write com.apple.finder ShowStatusBar -bool true
+
+    # Finder: show path bar
+    defaults write com.apple.finder ShowPathbar -bool true
+
+    # Finder: allow text selection in Quick Look
+    defaults write com.apple.finder QLEnableTextSelection -bool true
+
+    # Keep folders on top when sorting by name
+    defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+    # When performing a search, search the current folder by default
+    defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+    # Always open everything in Finder's list view.
+    # Use list view in all Finder windows by default
+    # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+    defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+    ############################
+    # Dock
+    ############################
+
+    # Dock Size
     defaults write com.apple.dock tilesize -int 70
-    defaults write com.apple.dock show-recents -bool FALSE # disable recents in Dock
-    defaults write com.apple.dock wvous-br-corner -int 5   # hot corner bottom right opens screensaver
+
+    # hot corner bottom right opens screensaver
+    defaults write com.apple.dock wvous-br-corner -int 5
+
+    # Don't show recently used applications in the Dock
+    defaults write com.Apple.Dock show-recents -bool false
+
+    ############################
+    # Calendar
+    ############################
+
+    # Show week numbers (10.8 only)
+    defaults write com.apple.iCal "Show Week Numbers" -bool true
+
+    # Week starts on monday
+    defaults write com.apple.iCal "first day of week" -int 1
 
     # @todo open in $HOME by default ~/Library/Preferences/com.apple.finder.plist NewWindowTargetPath
 
@@ -124,5 +196,10 @@ function setup_osx() {
     # @todo set default applications
     # -------
     # https://github.com/fharper/macsetup/blob/main/macsetup.sh#L4299
+
+    # ----------------------
+    title_h2 "Set default applications"
+    duti -v "$DOTFILES_ROOT/setup/duti"
+
   fi
 }

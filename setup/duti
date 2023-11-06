@@ -1,0 +1,16 @@
+org.videolan.vlc .aif all
+org.videolan.vlc .avi all
+org.videolan.vlc .flac all
+org.videolan.vlc .flv all
+org.videolan.vlc .iff all
+org.videolan.vlc .m4a all
+org.videolan.vlc .m4v all
+org.videolan.vlc .mkv all
+org.videolan.vlc .mov all
+org.videolan.vlc .mp4 all
+org.videolan.vlc .mpeg all
+org.videolan.vlc .mpg all
+org.videolan.vlc .mpg4 all
+org.videolan.vlc .qt all
+org.videolan.vlc .webm all
+org.videolan.vlc .wmv all

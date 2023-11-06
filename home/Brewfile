@@ -7,6 +7,7 @@ brew "bottom" # top replacement, system dashboard
 brew "coreutils" # better core /usr/bin
 brew "duf"
 brew "dust"
+brew "duti" # set default OSX apps
 brew "exa" # better ls
 brew "fd" # find things easily
 brew "ffmpeg"
@@ -23,6 +24,7 @@ brew "ouch" # zip/unzip stuff easily
 brew "ripgrep" # better faster grep
 brew "serve"
 brew "shellcheck"
+brew "speedtest-cli"
 brew "starship"
 brew "tealdeer" # aint nobody got time for that
 brew "youtube-dl"
