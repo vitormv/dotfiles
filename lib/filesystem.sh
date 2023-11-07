@@ -99,10 +99,15 @@ function get_dotfiles_setting() (
 function set_dotfiles_setting() (
   local name=$1
   local value=$2
+  local sorted_and_unique
 
   # ensure line is removed (if it exists)
   sed -i '' "/export ${name}=/d" "$DOTFILES_SETTINGS_FILE"
 
   # save value to file
-  echo -e "export ${name}=\"${value}\"\n" >>"$DOTFILES_SETTINGS_FILE"
+  echo -e -n "export ${name}=\"${value}\"\n" >>"$DOTFILES_SETTINGS_FILE"
+
+  sorted_and_unique=$(sort "$DOTFILES_SETTINGS_FILE" | uniq)
+
+  echo -e "$sorted_and_unique\n" >"$DOTFILES_SETTINGS_FILE"
 )
