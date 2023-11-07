@@ -138,3 +138,17 @@ function stick() {
 
   return 0
 }
+
+function snakecase() {
+  local array=("$@")
+  local input="'${array[@]}'"
+
+  echo "$input" | sed -e 's/[^0-9a-zA-Z .-]*//g' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/  */_/g'
+}
+
+function kebapcase() {
+  local array=("$@")
+  local input="'${array[@]}'"
+
+  echo "$input" | sed -e 's/[^0-9a-zA-Z .-]*//g' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/  */-/g'
+}

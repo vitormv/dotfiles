@@ -33,6 +33,7 @@ brew "yt-dlp"
 brew "zsh"
 brew "zsh-syntax-highlighting"
 
+cask "choosy"
 cask "docker"
 cask "firefox", args: { 'no-quarantine': true }
 cask "font-meslo-lg-nerd-font"
