@@ -56,20 +56,8 @@ function setup_osx() {
     # defaults write NSGlobalDomain KeyRepeat -int 1
     # defaults write com.apple.dock tilesize -int 70
 
-    souce "$DOTFILES_ROOT/setup/.macos"
-
-    for app in "Activity Monitor" \
-      "Address Book" \
-      "Calendar" \
-      "cfprefsd" \
-      "Contacts" \
-      "Dock" \
-      "Finder" \
-      "Photos" \
-      "Safari" \
-      "SystemUIServer"; do
-      killall "${app}" &>/dev/null
-    done
+    source "$DOTFILES_ROOT/setup/osx/defaults.sh"
+    status "Applied default settings" OK
 
     # @todo configure VLC possible? ~/Library/Preferences/org.videolan.vlc/vlcrc
     # ----------------------
@@ -122,7 +110,7 @@ function setup_osx() {
 
     # ----------------------
     title_h2 "Set default applications"
-    duti -v "$DOTFILES_ROOT/setup/duti"
+    duti -v "$DOTFILES_ROOT/setup/osx/duti"
 
   fi
 }
