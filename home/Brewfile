@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "lotyp/homebrew-formulae" # needed for dockutil
 
 brew "bat" # cat with syntax highlighting
 brew "bottom" # top replacement, system dashboard
@@ -16,6 +18,7 @@ brew "git"
 brew "git-delta" # awesome git diffs
 brew "hyperfine" # benchmark commands
 brew "jq" # parse json from bash
+brew "lotyp/formulae/dockutil"
 brew "mackup"
 brew "mas"
 brew "monolith" # download websites
@@ -36,6 +39,7 @@ brew "zsh-syntax-highlighting"
 cask "choosy"
 cask "docker"
 cask "firefox", args: { 'no-quarantine': true }
+# cask "firefox-developer-edition"
 cask "font-meslo-lg-nerd-font"
 cask "google-chrome" , args: { 'no-quarantine': true }
 cask "iterm2"
@@ -44,6 +48,7 @@ cask "kitty"
 cask "numi"
 cask "qlmarkdown", args: { 'no-quarantine': true }
 cask "quicklook-json"
+cask "slack"
 cask "spotify"
 cask "stats", args: { 'no-quarantine': true }
 cask "sublime-text"
