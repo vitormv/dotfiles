@@ -65,17 +65,19 @@ function ensure_directory_exists() {
 }
 
 function ensure_file_exists() {
-  local output_message
+  local output_message mode
   local target_file=$1
+
+  mode=${2:-}
 
   output_message="Create file $(pretty_path "$target_file")"
   if [ -f "$target_file" ]; then
-    inform_tag "$output_message" yellow "already exists"
+    [ "$mode" == "verbose" ] && inform_tag "$output_message" yellow "already exists"
   else
-    ensure_directory_exists "$(dirname "${target_file}")" verbose
+    ensure_directory_exists "$(dirname "${target_file}")" "$mode"
     touch "$target_file"
 
-    status "$output_message" $?
+    [ "$mode" == "verbose" ] && status "$output_message" OK
   fi
 
   return 0 # function is always successfull
@@ -111,3 +113,16 @@ function set_dotfiles_setting() (
 
   echo -e "$sorted_and_unique\n" >"$DOTFILES_SETTINGS_FILE"
 )
+
+function ensure_line_exists() {
+  local target_file=$1
+  local line=$2
+
+  ensure_file_exists "$target_file"
+
+  if [[ -z $(grep "$line" "$target_file") ]]; then
+    echo -e "$line" >>"$target_file"
+  fi
+
+  return 0 # function is always successfull
+}

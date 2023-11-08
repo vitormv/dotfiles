@@ -1,8 +1,9 @@
-
 source ~/.bashrc
 
 source "$HOME/dotfiles/shell/zsh_aliases"
 source "$HOME/dotfiles/shell/zsh_prompt"
+
+source_if_exists "$HOME/.zshrc.local"
 
 # case insensitive autocomplete
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'

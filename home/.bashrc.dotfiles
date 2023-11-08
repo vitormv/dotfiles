@@ -4,6 +4,8 @@ source "$HOME/dotfiles/shell/bash_exports"
 source "$HOME/dotfiles/shell/bash_aliases"
 source "$HOME/dotfiles/shell/bash_functions"
 
+source_if_exists "$HOME/.bashrc.local"
+
 # Do some things ONLY if we are in a bash shell
 current_shell=$(ps -p $$ -ocomm=)
 if [[ "$current_shell" == *"bash" ]]; then
