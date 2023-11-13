@@ -44,12 +44,12 @@ function backtick-remap() {
   fi
 }
 
-function fail {
+function fail() {
   echo $1 >&2
   exit 1
 }
 
-function retry {
+function retry() {
   local n=1
   local max=20
   local delay=4
@@ -151,4 +151,8 @@ function kebapcase() {
   local input="'${array[@]}'"
 
   echo "$input" | sed -e 's/[^0-9a-zA-Z .-]*//g' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/  */-/g'
+}
+
+function jwt-decode() {
+  jq -R 'split(".") |.[0:2] | map(@base64d) | map(fromjson)' <<<"$1"
 }

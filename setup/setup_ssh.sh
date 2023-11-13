@@ -18,7 +18,7 @@ function setup_ssh() {
     ssh-keygen -q -t ed25519 -C "vitor@vmello.com" -f "$github_id_file" -N ""
     inform_tag "Github SSH credentials" green "created"
 
-    ssh-add -K "$github_id_file"
+    ssh-add --apple-use-keychain "$github_id_file"
 
     echo -e "\n$(red)Paste this SSH key into your Github account:$(clr)"
     echo -e "cat ${github_id_file}.pub\n"
