@@ -12,13 +12,6 @@ setup_assets() {
     copy_file "$source_file" "$HOME/Pictures"
   done
 
-  title_h2 "Install Nerd Fonts"
-
-  # Copy all files from ./assets/fonts to ~/Library/Fonts
-  for source_file in "$DOTFILES_ROOT/assets/fonts"/*; do
-    copy_file "$source_file" "$HOME/Library/Fonts"
-  done
-
   title_h2 "Ensure directories exist"
 
   ensure_directory_exists "$HOME/projects" verbose
