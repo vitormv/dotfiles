@@ -5,6 +5,8 @@ alias projects="cd ~/projects"
 alias dotfiles="cd ~/dotfiles"
 alias top="btm"
 alias nvm="fnm"
+alias iplocal="ipconfig getifaddr en0"
+alias ippublic='echo $(curl -sS -4 ifconfig.me)'
 
 # ==============================================================================
 # shell

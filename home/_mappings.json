@@ -38,5 +38,15 @@
     "from": "home/Library/Preferences/org.videolan.vlc/vlcrc",
     "to": "Library/Preferences/org.videolan.vlc/vlcrc",
     "method": "symlink"
+  },
+  {
+    "from": "home/Library/Application Support/Code/User/keybindings.json",
+    "to": "Library/Application Support/Code/User/keybindings.json",
+    "method": "symlink"
+  },
+  {
+    "from": "home/Library/Application Support/Code/User/settings.json",
+    "to": "Library/Application Support/Code/User/settings.json",
+    "method": "symlink"
   }
 ]

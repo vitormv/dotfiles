@@ -1,5 +1,8 @@
 source ~/.bashrc
 
+setopt histignorespace # do not save commands that start with space
+setopt histignoredups # do not save duplicated commands
+
 source "$HOME/dotfiles/shell/zsh_aliases"
 source "$HOME/dotfiles/shell/zsh_prompt"
 

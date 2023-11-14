@@ -46,7 +46,7 @@ setup_dotfiles() {
             noop=1
           else
             warning "${output_message}"
-            echo -en "${prompt_message}\n${PREFIX_EMPTY}  [s]kip, [o]verwrite, [b]ackup?"
+            echo -en "${prompt_message}\n${PREFIX_EMPTY} $(gray)delta \"$source_file\" \"$target_file\"$(clr)\n${PREFIX_EMPTY}  [s]kip, [o]verwrite, [b]ackup?"
 
             while [[ $action == "" ]]; do
               read -r -s -n 1 choice

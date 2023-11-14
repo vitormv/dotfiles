@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source_if_exists() {
+function source_if_exists() {
   [[ -f "$1" ]] && source "$1"
 }
 
