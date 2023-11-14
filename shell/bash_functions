@@ -92,27 +92,20 @@ function random() {
 #   echo 1234567890 | byte-me
 #
 function byte-me() {
-  local list="bytes,KB,MB,GB,TB,PB,EB,ZB,YB"
-  local p=1
-  local data=$(cat)
-  local v=$(echo "scale=2; $data / 1" | bc)
-  local i=$(echo $v / 1024 | bc)
-  while [ ! $i = "0" ]; do
-    let p=p+1
-    v=$(echo "scale=2; $v / 1024" | bc)
-    i=$(echo $v / 1024 | bc)
-  done
-  echo $v$(echo $list | cut -f$p -d,)
+  numfmt --to=iec --padding="1" "$1"
 }
 
 # Get gzipped file size
 function gz() {
   local ORIGSIZE=$(wc -c <"$1")
   local GZIPSIZE=$(gzip -c "$1" | wc -c)
+
   local RATIO=$(echo "$GZIPSIZE * 100/ $ORIGSIZE" | bc -l)
   local SAVED=$(echo "($ORIGSIZE - $GZIPSIZE) * 100/ $ORIGSIZE" | bc -l)
 
-  printf "orig: %d bytes\ngzip: %d bytes\nsave: %2.0f%% (%2.0f%%)\n" "$ORIGSIZE" "$GZIPSIZE" "$SAVED" "$RATIO"
+  echo -e "Original: $(byte-me $ORIGSIZE)   ($ORIGSIZE bytes)"
+  echo -e "Gzipped: $(byte-me $GZIPSIZE)   ($GZIPSIZE bytes)"
+  printf "Save: %2.0f%% (%2.0f%%)\n" "$SAVED" "$RATIO"
 }
 
 # prompt to source .bashrc files from mounted drives
