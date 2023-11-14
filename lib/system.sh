@@ -97,7 +97,7 @@ function make_zsh_default_shell() {
     if ! grep -q "^$(which zsh)$" /etc/shells; then
       inform "Adding zsh to the list of shells (/etc/shells)"
 
-      "$zsh_path" | sudo tee -a /etc/shells
+      sudo sh -c "echo $(which zsh) >> /etc/shells"
     fi
 
     chsh -s "$zsh_path"
