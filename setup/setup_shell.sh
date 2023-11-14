@@ -17,8 +17,8 @@ function setup_shell() {
   status "FNM completion for ZSH" $?
 
   ensure_line_exists "${HOME}/.zshrc" 'source "$HOME/.zshrc.dotfiles"'
-  ensure_line_exists "${HOME}/.zshrc" '# ZSH command green/red highlighting (HAS TO BE THE LAST COMMAND!!)'
-  ensure_line_exists "${HOME}/.zshrc" 'source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
+  ensure_line_exists "${HOME}/.zshrc" '# ZSH command green/red highlighting (HAS TO BE THE LAST COMMAND!!) (for apple and intel)'
+  ensure_line_exists "${HOME}/.zshrc" 'source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"'
 
   status "Add sourcing of .zshrc.dotfiles" OK
 
