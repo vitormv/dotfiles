@@ -42,6 +42,7 @@ cask "firefox", args: { 'no-quarantine': true }
 # cask "firefox-developer-edition"
 cask "font-meslo-lg-nerd-font"
 cask "google-chrome" , args: { 'no-quarantine': true }
+cask "insomnia"
 cask "iterm2"
 cask "kap"
 cask "kitty"

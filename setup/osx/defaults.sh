@@ -4,6 +4,10 @@
 
 # no siri in menubar
 defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false
+
+# Disable spotlight search icon (use cmd+space) in Menu bar
+defaults write com.apple.controlcenter "NSStatusItem Visible Item-0" -int 0
+
 # always show all extensions
 defaults write -g AppleShowAllExtensions -bool true
 
@@ -39,6 +43,9 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Disable language / flag input menu in menu bar
+defaults write com.apple.TextInputMenu visible -bool false
 
 ############################
 # Finder
@@ -84,6 +91,7 @@ defaults write com.Apple.Dock show-recents -bool false
 
 # Remove the auto-hiding Dock delay
 defaults write com.apple.dock autohide-delay -float 0
+
 # Remove the animation when hiding/showing the Dock
 defaults write com.apple.dock autohide-time-modifier -float 0
 

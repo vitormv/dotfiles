@@ -110,7 +110,7 @@ setup_dotfiles() {
           inform_tag "$output_message" green "created"
         fi
       else
-        echo -ne '\033[2A\r' # Move cursor up one line, and go to the 1st column
+        echo -ne '\033[3A\r' # Move cursor up one line, and go to the 1st column
         echo -ne "\033[${end_col}C [$(yellow)${action}$(clr)]\n"
       fi
     done 3< <(jq -c '.[]' "$json_file") # Supply $json_file on file descriptor 3

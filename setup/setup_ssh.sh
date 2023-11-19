@@ -2,8 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-source lib/system.sh
-source lib/layout.sh
+source "$DOTFILES_ROOT/setup/lib/system.sh"
+source "$DOTFILES_ROOT/setup/lib/layout.sh"
 
 function setup_ssh() {
   title_h1 "SSH"
