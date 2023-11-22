@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-source "./lib/strings.sh"
+source "$DOTFILES_ROOT/setup/lib/strings.sh"
 
 function black() {
   printf "\e[30m"

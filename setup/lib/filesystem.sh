@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-source ./lib/layout.sh
+source "$DOTFILES_ROOT/setup/lib/layout.sh"
 
 function rename_with_increment() {
   local source_file="$1"

@@ -8,19 +8,19 @@ if ${DEBUG+"false"}; then
   DEBUG=
 fi
 
-source "./lib/strings.sh"
-source "./lib/filesystem.sh"
-source "./lib/layout.sh"
-source "./lib/system.sh"
+source "$DOTFILES_ROOT/setup/lib/strings.sh"
+source "$DOTFILES_ROOT/setup/lib/filesystem.sh"
+source "$DOTFILES_ROOT/setup/lib/layout.sh"
+source "$DOTFILES_ROOT/setup/lib/system.sh"
 
-source "./setup/setup_assets.sh"
-source "./setup/setup_dependencies.sh"
-source "./setup/setup_dotfiles.sh"
-source "./setup/setup_git.sh"
-source "./setup/setup_osx.sh"
-source "./setup/setup_ssh.sh"
-source "./setup/setup_shell.sh"
-source "./setup/setup_secrets.sh"
+source "$DOTFILES_ROOT/setup/setup_assets.sh"
+source "$DOTFILES_ROOT/setup/setup_dependencies.sh"
+source "$DOTFILES_ROOT/setup/setup_dotfiles.sh"
+source "$DOTFILES_ROOT/setup/setup_git.sh"
+source "$DOTFILES_ROOT/setup/setup_osx.sh"
+source "$DOTFILES_ROOT/setup/setup_ssh.sh"
+source "$DOTFILES_ROOT/setup/setup_shell.sh"
+source "$DOTFILES_ROOT/setup/setup_secrets.sh"
 
 echo "ROOT: $(pretty_path "$DOTFILES_ROOT")"
 echo "SETTINGS: $(pretty_path "$DOTFILES_SETTINGS_FILE")"
@@ -43,5 +43,9 @@ setup_shell
 # @todo add chrome extensions?
 # @todo add all my vscode extensions?
 # @todo add cronjob for checking mouse battery
+# @todo add Google DNS 1.1.1.1
+#       https://osxdaily.com/2015/06/02/change-dns-command-line-mac-os-x/
+#       networksetup -getdnsservers Ethernet
+#       networksetup -getdnsservers Wi-Fi
 
 echo -e '\n\n✅ All done! Enjoy your new system.'

@@ -102,6 +102,7 @@ function setup_osx() {
     # @todo does not seem to work on OSX Ventura :(
     # replace_app_icon kitty.app kitty.icns "assets/app_icons/kitty.icns"
     # replace_app_icon iTerm.app AppIcon.icns "assets/app_icons/iTerm2.icns"
+    # replace_app_icon 'Visual Studio Code.app' Code.icns "assets/app_icons/vscode.icns"
     # VLC: also had to overwrite the VLC.icns manually inside the folder
 
     # @todo set default applications
