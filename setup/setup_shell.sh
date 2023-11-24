@@ -21,8 +21,8 @@ function setup_shell() {
   ensure_line_exists "${HOME}/.zshrc" 'source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"'
 
   # avoid Error "zsh compinit: insecure directories" warnings when loading zsh-completions
-  chmod go-w "$HOMEBREW_PREFIX/share"
-  chmod -R go-w "$HOMEBREW_PREFIX/share/zsh"
+  chmod go-w "$(brew --prefix)/share"
+  chmod -R go-w "$(brew --prefix)/share/zsh"
 
   status "Add sourcing of .zshrc.dotfiles" OK
 
