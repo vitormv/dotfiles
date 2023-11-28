@@ -20,6 +20,10 @@ function setup_shell() {
   ensure_line_exists "${HOME}/.zshrc" '# ZSH command green/red highlighting (HAS TO BE THE LAST COMMAND!!) (for apple and intel)'
   ensure_line_exists "${HOME}/.zshrc" 'source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"'
 
+  # avoid Error "zsh compinit: insecure directories" warnings when loading zsh-completions
+  chmod go-w "$(brew --prefix)/share"
+  chmod -R go-w "$(brew --prefix)/share/zsh"
+
   status "Add sourcing of .zshrc.dotfiles" OK
 
   # ----------------------
