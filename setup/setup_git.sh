@@ -89,7 +89,7 @@ function setup_git() {
   git config --global alias.ls "log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate"
   git config --global alias.ll "log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --numstat"
   git config --global alias.lnc "log --pretty=format:\"%h\\ %s\\ [%cn]\""
-  git config --global alias.mergeff "push -u"
+  git config --global alias.mergeff "merge --no-ff"
   git config --global alias.push "push -u"
   git config --global alias.pushf "push -u --force"
   git config --global alias.pushfn "push -u --force --no-verify"
