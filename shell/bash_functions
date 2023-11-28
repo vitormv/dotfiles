@@ -149,3 +149,16 @@ function kebapcase() {
 function jwt-decode() {
   jq -R 'split(".") |.[0:2] | map(@base64d) | map(fromjson)' <<<"$1"
 }
+
+function desmont() {
+  echo "Unmounting ${1}..."
+  echo "  ... But actually not implemented yet :P"
+}
+
+function _desmont_completions() {
+  local volumes
+  volumes=$(/bin/ls /Volumes)
+  COMPREPLY=($(compgen -W "$volumes" "${COMP_WORDS[1]}"))
+}
+
+complete -F _desmont_completions desmont
