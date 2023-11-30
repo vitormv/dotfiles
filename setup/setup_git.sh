@@ -82,6 +82,7 @@ function setup_git() {
   git config --global alias.ci "commit"
   git config --global alias.cin "commit --no-verify"
   git config --global alias.co "checkout"
+  git config --global alias.continue "rebase --continue"
   git config --global alias.diffs "diff --staged"
   git config --global alias.fpo "fetch --prune origin"
   git config --global alias.ld "log --pretty=format:\"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --date=relative"

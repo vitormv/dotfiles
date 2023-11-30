@@ -26,7 +26,7 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 ############################
-# Keyboard & Input
+# Input, Keyboard, Trackpad & Mouse
 ############################
 
 # Disable press-and-hold for keys in favor of key repeat
@@ -46,6 +46,9 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Disable language / flag input menu in menu bar
 defaults write com.apple.TextInputMenu visible -bool false
+
+# Mouse speed
+defaults write -g com.apple.mouse.scaling 1.5
 
 ############################
 # Finder
