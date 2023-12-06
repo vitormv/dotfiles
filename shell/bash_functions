@@ -27,6 +27,16 @@ function download-page() {
   wget -E -H -k -K -p -e robots=off $1
 }
 
+# Git Helper: goes to main branch if it exists, otherwise master
+# No need to remember which projects use which term
+function main() {
+  if git show-ref --quiet refs/heads/main; then
+    git co main
+  else
+    git co master
+  fi
+}
+
 function erase() {
   local shell_name=$0
   if [ $shell_name == 'bash' ]; then
