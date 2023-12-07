@@ -90,6 +90,7 @@ function setup_git() {
   git config --global alias.ls "log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate"
   git config --global alias.ll "log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --numstat"
   git config --global alias.lnc "log --pretty=format:\"%h\\ %s\\ [%cn]\""
+  git config --global alias.main '!f() { show-ref -q --heads main && git checkout main || git checkout master; }; f' # go to main/master, whichever exists
   git config --global alias.mergeff "merge --no-ff"
   git config --global alias.push "push -u"
   git config --global alias.pushf "push -u --force"
