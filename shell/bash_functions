@@ -2,7 +2,7 @@
 # Functions
 #############
 
-function forget() { history -cw; }
+function forget() { history -c && history -w; }
 
 # mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }

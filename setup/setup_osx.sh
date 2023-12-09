@@ -104,6 +104,7 @@ function setup_osx() {
     # replace_app_icon iTerm.app AppIcon.icns "assets/app_icons/iTerm2.icns"
     # replace_app_icon 'Visual Studio Code.app' Code.icns "assets/app_icons/vscode.icns"
     # VLC: also had to overwrite the VLC.icns manually inside the folder
+    # READ current icon defaults read "defaults read /Applications/kitty.app/Contents/Info CFBundleIconFile"
 
     # @todo set default applications
     # -------
