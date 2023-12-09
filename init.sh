@@ -43,6 +43,7 @@ setup_shell
 # @todo add chrome extensions?
 # @todo add all my vscode extensions?
 # @todo add cronjob for checking mouse battery
+# @todo Persist Kap changes/ /Users/vitormello/Library/Application\ Support/Kap/config.json
 # @todo add Google DNS 1.1.1.1
 #       https://osxdaily.com/2015/06/02/change-dns-command-line-mac-os-x/
 #       networksetup -getdnsservers Ethernet

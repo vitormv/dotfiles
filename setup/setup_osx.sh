@@ -56,7 +56,7 @@ function setup_osx() {
     # defaults write NSGlobalDomain KeyRepeat -int 1
     # defaults write com.apple.dock tilesize -int 70
 
-    source "$DOTFILES_ROOT/setup/osx/defaults.sh"
+    source "$DOTFILES_ROOT/setup/osx/settings.sh"
     status "Applied default settings" OK
 
     # @todo configure VLC possible? ~/Library/Preferences/org.videolan.vlc/vlcrc
