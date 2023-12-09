@@ -203,5 +203,6 @@
     "*.conf": "properties"
   },
   "local-history.path": "/tmp/vscode/localhistory",
-  "terminal.integrated.cursorStyle": "line"
+  "terminal.integrated.cursorStyle": "line",
+  "redhat.telemetry.enabled": false
 }
