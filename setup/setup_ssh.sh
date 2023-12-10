@@ -9,6 +9,7 @@ function setup_ssh() {
   title_h1 "SSH"
 
   ensure_directory_exists "$HOME/.ssh" verbose
+  ensure_file_exists "$HOME/.ssh/config" verbose
 
   local github_id_file="$HOME/.ssh/github_id_rsa"
 
@@ -26,5 +27,21 @@ function setup_ssh() {
     echo -e
 
     read -n 1 -p "  Press ENTER to continue"
+  fi
+
+  # add Github config if not yet exists
+  local ssh_config_file="$HOME/.ssh/config"
+  if grep --quiet 'IdentityFile ~/.ssh/github_id_rsa' "$ssh_config_file"; then
+    inform_tag "Add github.com to SSH config" yellow "already exists"
+  else
+    echo "
+host github.com
+  User git
+  Hostname github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/github_id_rsa
+" >>"$ssh_config_file"
+
+    status "Add github.com to SSH config" OK
   fi
 }
