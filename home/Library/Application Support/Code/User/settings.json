@@ -204,5 +204,20 @@
   },
   "local-history.path": "/tmp/vscode/localhistory",
   "terminal.integrated.cursorStyle": "line",
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "launch": {
+    "configurations": [
+      {
+        "type": "node",
+        "name": "react-app-rewired-jest-test",
+        "request": "launch",
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/react-app-rewired",
+        "args": ["test", "--runInBand"],
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "protocol": "inspector",
+        "internalConsoleOptions": "neverOpen"
+      }
+    ]
+  }
 }
