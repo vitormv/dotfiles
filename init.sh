@@ -41,7 +41,7 @@ setup_shell
 # @todo init_iterm vscode kitty
 # @todo add firefox extensions?
 # @todo add chrome extensions?
-# @todo add all my vscode extensions?
+# @todo add dotfiles diff APP command for non symlinked things
 # @todo add cronjob for checking mouse battery
 # @todo Persist Kap changes/ /Users/vitormello/Library/Application\ Support/Kap/config.json
 # @todo add Google DNS 1.1.1.1
