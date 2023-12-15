@@ -9,8 +9,8 @@ if ${DEBUG+"false"}; then
 fi
 
 source "$DOTFILES_ROOT/setup/lib/strings.sh"
-source "$DOTFILES_ROOT/setup/lib/filesystem.sh"
 source "$DOTFILES_ROOT/setup/lib/layout.sh"
+source "$DOTFILES_ROOT/setup/lib/filesystem.sh"
 source "$DOTFILES_ROOT/setup/lib/system.sh"
 
 source "$DOTFILES_ROOT/setup/setup_assets.sh"

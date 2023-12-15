@@ -102,7 +102,7 @@ function make_zsh_default_shell() {
 
     chsh -s "$zsh_path"
 
-    success "$zsh_path configured as the default shell"
+    status "$zsh_path configured as the default shell" OK
   else
     inform_tag "ZSH is already the default shell" green "OK"
   fi
