@@ -38,6 +38,14 @@ setup_dotfiles "${HOME}"
 setup_osx
 setup_ssh
 setup_shell
+
+# when pulling from github for the first time, since there is no SSH yet
+# repo will be pulled with https. But now that we configure things
+# set origin back to SSH if needed
+if git --git-dir ~/dotfiles/.git remote get-url origin | grep https; then
+  git --git-dir ~/dotfiles/.git remote set-url git@github.com:vitormv/dotfiles.git
+fi
+
 # @todo init_iterm vscode kitty
 # @todo add firefox extensions?
 # @todo add chrome extensions?
