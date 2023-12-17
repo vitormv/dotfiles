@@ -7,6 +7,11 @@ function forget() { history -c && history -w; }
 # mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
+# use fd to search only in mounted Volumes
+function fdm() {
+  fd -E "/Volumes/Macintosh HD" "$1" /Volumes
+}
+
 function perf() {
   curl -o /dev/null -s -w "time_total: %{time_total} sec\nsize_download: %{size_download} bytes\n" "$1"
 }
