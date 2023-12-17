@@ -35,4 +35,15 @@ function setup_shell() {
   ensure_line_exists "${HOME}/.bashrc" 'source "$HOME/.bashrc.dotfiles"'
 
   status "Add sourcing of .bashrc.dotfiles" OK
+
+  # ----------------------
+  title_h2 "iTerm"
+
+  # Specify the preferences directory
+  defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DOTFILES_ROOT/home/.config/iTerm"
+
+  # Tell iTerm2 to use the custom preferences in the directory
+  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+  status "Configured iTerm preferences" OK
 }
