@@ -58,7 +58,7 @@ function setup_osx() {
     # ----------------------
     title_h2 "Dock Items"
 
-    source "$DOTFILES_ROOT/setup/osx/dock.sh"
+    source "$DOTFILES_ROOT/setup/osx/dock_items.sh"
     status "Configured Dock Items" OK
 
     # @todo configure VLC possible? ~/Library/Preferences/org.videolan.vlc/vlcrc
