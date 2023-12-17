@@ -9,8 +9,8 @@ if ${DEBUG+"false"}; then
 fi
 
 source "$DOTFILES_ROOT/setup/lib/strings.sh"
-source "$DOTFILES_ROOT/setup/lib/filesystem.sh"
 source "$DOTFILES_ROOT/setup/lib/layout.sh"
+source "$DOTFILES_ROOT/setup/lib/filesystem.sh"
 source "$DOTFILES_ROOT/setup/lib/system.sh"
 
 source "$DOTFILES_ROOT/setup/setup_assets.sh"
@@ -38,10 +38,18 @@ setup_dotfiles "${HOME}"
 setup_osx
 setup_ssh
 setup_shell
+
+# when pulling from github for the first time, since there is no SSH yet
+# repo will be pulled with https. But now that we configure things
+# set origin back to SSH if needed
+if git --git-dir ~/dotfiles/.git remote get-url origin | grep https; then
+  git --git-dir ~/dotfiles/.git remote set-url git@github.com:vitormv/dotfiles.git
+fi
+
 # @todo init_iterm vscode kitty
 # @todo add firefox extensions?
 # @todo add chrome extensions?
-# @todo add all my vscode extensions?
+# @todo add dotfiles diff APP command for non symlinked things
 # @todo add cronjob for checking mouse battery
 # @todo Persist Kap changes/ /Users/vitormello/Library/Application\ Support/Kap/config.json
 # @todo add Google DNS 1.1.1.1

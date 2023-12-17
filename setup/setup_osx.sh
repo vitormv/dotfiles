@@ -50,14 +50,16 @@ function setup_osx() {
   if [ "$(uname)" != "Darwin" ]; then
     warning "Not a macOS (Darwin) system, skipping"
   else
-
     title_h2 "Set my prefered default MacOS settings" 0
-    # @todo: add configurations OSX
-    # defaults write NSGlobalDomain KeyRepeat -int 1
-    # defaults write com.apple.dock tilesize -int 70
 
     source "$DOTFILES_ROOT/setup/osx/settings.sh"
     status "Applied default settings" OK
+
+    # ----------------------
+    title_h2 "Dock Items"
+
+    source "$DOTFILES_ROOT/setup/osx/dock.sh"
+    status "Configured Dock Items" OK
 
     # @todo configure VLC possible? ~/Library/Preferences/org.videolan.vlc/vlcrc
     # ----------------------
@@ -95,8 +97,6 @@ function setup_osx() {
 
     setup_machine_name
 
-    # @todo configure dock order items and position with https://github.com/kcrawford/dockutil
-
     # ----------------------
     # title_h2 "Application Icons"
     # @todo does not seem to work on OSX Ventura :(
@@ -106,13 +106,8 @@ function setup_osx() {
     # VLC: also had to overwrite the VLC.icns manually inside the folder
     # READ current icon defaults read "defaults read /Applications/kitty.app/Contents/Info CFBundleIconFile"
 
-    # @todo set default applications
-    # -------
-    # https://github.com/fharper/macsetup/blob/main/macsetup.sh#L4299
-
     # ----------------------
     title_h2 "Set default applications"
     duti -v "$DOTFILES_ROOT/setup/osx/duti"
-
   fi
 }

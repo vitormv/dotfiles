@@ -20,3 +20,9 @@ export HISTCONTROL=ignoreboth:erasedups # do not log consecutive repeated comman
 
 export HOMEBREW_BREWFILE=~/Brewfile
 export HOMEBREW_GITHUB_API_TOKEN=$(security find-generic-password -a "$USER" -s "HOMEBREW_GITHUB_API_TOKEN" -w)
+
+# ===================================================
+# React Testing Library
+
+# show more of the HTML snapshot on errors
+export DEBUG_PRINT_LIMIT=90000

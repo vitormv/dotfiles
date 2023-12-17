@@ -1,3 +1,7 @@
+# enable ZSH compatibility mode for bash completions
+autoload bashcompinit
+bashcompinit
+
 source ~/.bashrc
 
 setopt histignorespace # do not save commands that start with space
