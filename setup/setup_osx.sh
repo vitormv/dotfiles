@@ -58,8 +58,17 @@ function setup_osx() {
     # ----------------------
     title_h2 "Dock Items"
 
-    source "$DOTFILES_ROOT/setup/osx/dock_items.sh"
-    status "Configured Dock Items" OK
+    local is_dock_items_configured
+    is_dock_items_configured=$(get_dotfiles_setting "DOCK_ITEMS_CONFIGURED" || echo "false")
+
+    if is_truthy "$is_dock_items_configured"; then
+      inform_tag "Dock Items already configured" yellow "skipping"
+    else
+      source "$DOTFILES_ROOT/setup/osx/dock_items.sh"
+      set_dotfiles_setting "DOCK_ITEMS_CONFIGURED" "true"
+
+      status "Dock Items configured" OK
+    fi
 
     # @todo configure VLC possible? ~/Library/Preferences/org.videolan.vlc/vlcrc
     # ----------------------
