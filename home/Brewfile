@@ -7,6 +7,7 @@ tap "lotyp/homebrew-formulae" # needed for dockutil
 brew "bat" # cat with syntax highlighting
 brew "bottom" # top replacement, system dashboard
 brew "coreutils" # better core /usr/bin
+brew "diskonaut" # disk/folder space utilization
 brew "duf"
 brew "dust"
 brew "duti" # set default OSX apps
