@@ -15,6 +15,11 @@
     "method": "symlink"
   },
   {
+    "from": "home/.config/bat/themes/monokai-dimmed.tmTheme",
+    "to": ".config/bat/themes/monokai-dimmed.tmTheme",
+    "method": "symlink"
+  },
+  {
     "from": "home/.config/kitty/theme.conf",
     "to": ".config/kitty/theme.conf",
     "method": "symlink"
