@@ -73,6 +73,7 @@ function setup_git() {
 
   # Set alias settings
   git config --global alias.aa "add --all"
+  git config --global alias.abort "rebase --abort"
   git config --global alias.alias "! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /"
   git config --global alias.amend "commit --amend --no-edit"
   git config --global alias.apply-url "!f() { curl -s \$1 2>nul | git apply \${@:2}; }; f"
