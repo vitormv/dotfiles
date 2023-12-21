@@ -117,6 +117,6 @@ function setup_osx() {
 
     # ----------------------
     title_h2 "Set default applications"
-    duti -v "$DOTFILES_ROOT/setup/osx/duti"
+    duti -v "$DOTFILES_ROOT/setup/osx/default_apps.duti"
   fi
 }
