@@ -19,6 +19,9 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+# enable SHIFT+TAB navigation in menus and autocomplete options
+bindkey '^[[Z' reverse-menu-complete
+
 # case insensitive autocomplete
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
