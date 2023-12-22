@@ -105,6 +105,11 @@ function setup_git() {
   git config --global alias.stale "for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
   git config --global alias.undo "reset --soft HEAD^"
 
+  # alias: temporarily ignore changes to files (avoid commiting changes by mistake)
+  git config --global alias.ghost "update-index --assume-unchanged"
+  git config --global alias.ghosted "!f() { git ls-files -v | grep \"^[[:lower:]]\"; }; f" # list ghosted files
+  git config --global alias.unghost "update-index --no-assume-unchanged"
+
   # Set other settings
   git config --global push.default current
   git config --global color.ui true
