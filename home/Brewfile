@@ -14,6 +14,7 @@ brew "duti" # set default OSX apps
 brew "exa" # better ls
 brew "fd" # find things easily
 brew "ffmpeg"
+brew "fish"
 brew "fnm" # NVM but in rust
 brew "git"
 brew "git-delta" # awesome git diffs

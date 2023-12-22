@@ -46,4 +46,7 @@ function setup_shell() {
   defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
   status "Configured iTerm preferences" OK
+
+  # make sure bat reads any new syntax-highlight themes installed
+  bat cache --build >/dev/null
 }

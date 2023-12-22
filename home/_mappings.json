@@ -20,6 +20,11 @@
     "method": "symlink"
   },
   {
+    "from": "home/.config/fish/config.fish",
+    "to": ".config/fish/config.fish",
+    "method": "symlink"
+  },
+  {
     "from": "home/.config/kitty/theme.conf",
     "to": ".config/kitty/theme.conf",
     "method": "symlink"
