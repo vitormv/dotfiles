@@ -21,6 +21,8 @@ alias l.="exa -a | egrep '^\.'"                                                 
 alias clear='printf "\033c"'
 alias cls='clear'
 
+alias incognito="fish --private"
+
 # ==============================================================================
 # shell config
 
