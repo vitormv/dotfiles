@@ -20,7 +20,6 @@ brew "git-delta" # awesome git diffs
 brew "hyperfine" # benchmark commands
 brew "jq" # parse json from bash
 brew "lotyp/formulae/dockutil"
-brew "mackup"
 brew "mas"
 brew "monolith" # download websites
 brew "neovim"
