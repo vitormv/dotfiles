@@ -23,7 +23,6 @@ source "$DOTFILES_ROOT/setup/setup_git.sh"
 source "$DOTFILES_ROOT/setup/setup_osx.sh"
 source "$DOTFILES_ROOT/setup/setup_ssh.sh"
 source "$DOTFILES_ROOT/setup/setup_shell.sh"
-source "$DOTFILES_ROOT/setup/setup_secrets.sh"
 
 echo "ROOT: $(pretty_path "$DOTFILES_ROOT")"
 echo "SETTINGS: $(pretty_path "$DOTFILES_SETTINGS_FILE")"
@@ -36,7 +35,6 @@ sudo -v
 setup_dependencies
 setup_assets
 setup_git
-setup_secrets
 setup_dotfiles "${HOME}"
 setup_osx
 setup_ssh
