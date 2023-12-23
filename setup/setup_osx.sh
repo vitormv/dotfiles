@@ -90,9 +90,8 @@ function setup_osx() {
     osx_add_text_replacement '&shrug;' '¯\_(ツ)_/¯'
     osx_add_text_replacement '&flip;' '(╯°□°)╯︵ ┻━┻'
     osx_add_text_replacement '&noflip;' '┬─┬ノ( º _ ºノ)'
-    osx_add_text_replacement '&oreally;' "﴾͡๏̯͡๏﴿ O'RLY?"
+    osx_add_text_replacement '&orly;' "﴾͡๏̯͡๏﴿ O'RLY?"
     osx_add_text_replacement '&smirk;' "( ͡° ͜ʖ ͡°)"
-    osx_add_text_replacement '&smirkmany;' "( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)"
     osx_add_text_replacement '&wat;' "ಠ_ಠ"
     osx_add_text_replacement '&fuckyou;' '╭∩╮(´• ᴗ •`˵)╭∩╮'
     osx_add_text_replacement '&fuckoff;' '╭∩╮（︶_︶）╭∩╮'

@@ -25,7 +25,7 @@ function check_dependencies() {
 }
 
 function osx_add_text_replacement() {
-  local uuid count quoted_replacement replaced_regex_escaped
+  local uuid count quoted_replacement
 
   local shortcut="$1"
   local replacement="$2"
@@ -34,8 +34,6 @@ function osx_add_text_replacement() {
 
   debug "${shortcut}:"
 
-  replaced_regex_escaped=$(printf '%s\nf' "$replacement" | sed -e 's/[\/&]/\\&/g')
-
   # check if item already exists in TextReplacements.db
   count=$(sqlite3 "$db_file" "SELECT count(*) FROM ZTEXTREPLACEMENTENTRY WHERE ZSHORTCUT = '$shortcut'")
   debug "  $(gray)exists in DB?:$(clr) ${count}"
@@ -43,7 +41,8 @@ function osx_add_text_replacement() {
     uuid=$(uuidgen)
     timestamp=$(date +%s)
 
-    quoted_replacement=${replaced_regex_escaped/\'/\'\'}
+    # replace ' with ''
+    quoted_replacement=${replacement/\'/\'\'}
     local sql="INSERT INTO \"ZTEXTREPLACEMENTENTRY\" VALUES (NULL,1,1,0,0,${timestamp},'${quoted_replacement}','${shortcut}','${uuid}',NULL);"
 
     sqlite3 "$db_file" "$sql"
