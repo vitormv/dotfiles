@@ -62,7 +62,7 @@ function osx_add_text_replacement() {
     debug "  $(gray)added to .GlobalPreferences.plist$(clr)"
   fi
 
-  status "Added shortcut ${shortcut}" OK
+  debug "Added shortcut ${shortcut}" OK
 }
 
 function setup_machine_name() {
@@ -94,16 +94,16 @@ function make_zsh_default_shell() {
   if [ "$SHELL" != "$zsh_path" ]; then
     # If zsh is not listed as a shell, list it
     if ! grep -q "^$(which zsh)$" /etc/shells; then
-      inform "Adding zsh to the list of shells (/etc/shells)"
+      inform "zsh: Adding zsh to the list of shells (/etc/shells)"
 
       sudo sh -c "echo $(which zsh) >> /etc/shells"
     fi
 
     chsh -s "$zsh_path"
 
-    status "$zsh_path configured as the default shell" OK
+    status "zsh: $zsh_path configured as the default shell" OK
   else
-    inform_tag "ZSH is already the default shell" green "OK"
+    inform_tag "zsh: is already the default shell" yellow "skipping"
   fi
 }
 

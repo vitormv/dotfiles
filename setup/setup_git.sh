@@ -37,7 +37,7 @@ function setup_git() {
       warning "No Git user email has been set.  Please update manually"
     fi
   else
-    status "Git is already configured" OK
+    inform_tag "Git user/email already setup" yellow skipping
   fi
 
   # Set user settings
@@ -73,6 +73,19 @@ function setup_git() {
 
   # Set diff settings
   git config --global diff.colorMoved "default"
+
+  # Set other settings
+  git config --global push.default current
+  git config --global color.ui true
+  git config --global color.diff true
+  git config --global pull.ff only
+  git config --global init.defaultBranch main
+  git config --global filter.lfs.clean "git-lfs clean -- %f"
+  git config --global filter.lfs.smudge "git-lfs smudge -- %f"
+  git config --global filter.lfs.process "git-lfs filter-process"
+  git config --global filter.lfs.required true
+
+  status "Configure global git settings" OK
 
   # Set alias settings
   git config --global alias.aa "add --all"
@@ -110,14 +123,5 @@ function setup_git() {
   git config --global alias.ghosted "!f() { git ls-files -v | grep \"^[[:lower:]]\"; }; f" # list ghosted files
   git config --global alias.unghost "update-index --no-assume-unchanged"
 
-  # Set other settings
-  git config --global push.default current
-  git config --global color.ui true
-  git config --global color.diff true
-  git config --global pull.ff only
-  git config --global init.defaultBranch main
-  git config --global filter.lfs.clean "git-lfs clean -- %f"
-  git config --global filter.lfs.smudge "git-lfs smudge -- %f"
-  git config --global filter.lfs.process "git-lfs filter-process"
-  git config --global filter.lfs.required true
+  status "Git aliases" OK
 }

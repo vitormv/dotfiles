@@ -61,4 +61,4 @@ fi
 #       networksetup -getdnsservers Ethernet
 #       networksetup -getdnsservers Wi-Fi
 
-echo -e '\n\n✅ All done! Enjoy your new system.'
+echo -e '\n\n✅ All done! Enjoy your new system 🔥!'

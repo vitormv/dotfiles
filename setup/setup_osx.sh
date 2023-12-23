@@ -40,7 +40,7 @@ IFS=$'\n\t'
 # ⌃ Control (or Ctrl)
 
 function setup_osx() {
-  title_h1 "OSX Setup"
+  title_h1 "macOS Setup"
 
   # Close any open System Preferences panes, to prevent them from overriding
   # settings we’re about to change
@@ -50,13 +50,8 @@ function setup_osx() {
   if [ "$(uname)" != "Darwin" ]; then
     warning "Not a macOS (Darwin) system, skipping"
   else
-    title_h2 "Set my prefered default MacOS settings" 0
-
     source "$DOTFILES_ROOT/setup/osx/settings.sh"
-    status "Applied default settings" OK
-
-    # ----------------------
-    title_h2 "Dock Items"
+    status "System settings and preferences" OK
 
     local is_dock_items_configured
     is_dock_items_configured=$(get_dotfiles_setting "DOCK_ITEMS_CONFIGURED" || echo "false")
@@ -67,12 +62,8 @@ function setup_osx() {
       source "$DOTFILES_ROOT/setup/osx/dock_items.sh"
       set_dotfiles_setting "DOCK_ITEMS_CONFIGURED" "true"
 
-      status "Dock Items configured" OK
+      status "Rearranged Dock Items" OK
     fi
-
-    # @todo configure VLC possible? ~/Library/Preferences/org.videolan.vlc/vlcrc
-    # ----------------------
-    title_h2 "Keyboard shortcuts"
 
     local cmd="@"
     local shift="\$"
@@ -82,11 +73,13 @@ function setup_osx() {
     defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF702"
     defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Right Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF703"
     defaults write -g NSUserKeyEquivalents -dict-add 'Lock Screen' "${cmd}${shift}L"
-    status "Shortcuts added" OK
 
-    # ----------------------
-    title_h2 "Keyboard replacements"
+    status "Added keyboard shortcuts" OK
 
+    # machine name
+    setup_machine_name
+
+    # input text replacemetns
     osx_add_text_replacement '&shrug;' '¯\_(ツ)_/¯'
     osx_add_text_replacement '&flip;' '(╯°□°)╯︵ ┻━┻'
     osx_add_text_replacement '&noflip;' '┬─┬ノ( º _ ºノ)'
@@ -96,14 +89,11 @@ function setup_osx() {
     osx_add_text_replacement '&fuckyou;' '╭∩╮(´• ᴗ •`˵)╭∩╮'
     osx_add_text_replacement '&fuckoff;' '╭∩╮（︶_︶）╭∩╮'
 
+    status "Added Input Text Replacements" OK
+
     # persist changes
     defaults read -g &>/dev/null
     killall cfprefsd
-
-    # ----------------------
-    title_h2 "Machine Name"
-
-    setup_machine_name
 
     # ----------------------
     # title_h2 "Application Icons"
@@ -115,7 +105,8 @@ function setup_osx() {
     # READ current icon defaults read "defaults read /Applications/kitty.app/Contents/Info CFBundleIconFile"
 
     # ----------------------
-    title_h2 "Set default applications"
-    duti -v "$DOTFILES_ROOT/setup/osx/default_apps.duti"
+    duti $([[ -n "$DEBUG" ]] && echo -n "-v") "$DOTFILES_ROOT/setup/osx/default_apps.duti"
+
+    status "Default \"Open With\" applications" OK
   fi
 }

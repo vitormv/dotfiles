@@ -25,7 +25,4 @@ setup_assets() {
   ensure_file_exists "$HOME/.bashrc.local" verbose
   ensure_file_exists "$DOTFILES_SETTINGS_FILE" verbose
   ensure_file_exists "$HOME/.gitignore_global" verbose
-
-  # @todo add download for git-delta themes automatically
-  # download_if_not_exists "https://raw.githubusercontent.com/dandavison/delta/master/themes.gitconfig" "$HOME/.config/git-delta/themes.gitconfig"
 }

@@ -8,8 +8,8 @@ source "$DOTFILES_ROOT/setup/lib/layout.sh"
 function setup_ssh() {
   title_h1 "SSH"
 
-  ensure_directory_exists "$HOME/.ssh" verbose
-  ensure_file_exists "$HOME/.ssh/config" verbose
+  [ -z "$DEBUG" ] || ensure_directory_exists "$HOME/.ssh" verbose
+  [ -z "$DEBUG" ] || ensure_file_exists "$HOME/.ssh/config" verbse
 
   local github_id_file="$HOME/.ssh/github_id_rsa"
 

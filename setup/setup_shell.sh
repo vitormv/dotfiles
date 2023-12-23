@@ -6,15 +6,14 @@ source "$DOTFILES_ROOT/setup/lib/layout.sh"
 source "$DOTFILES_ROOT/setup/lib/system.sh"
 
 function setup_shell() {
-  title_h1 "Shell (bash + zsh)"
+  title_h1 "Shell & Terminal"
 
   # ----------------------
-  title_h2 "ZSH" 0
-
+  # ZSH
   make_zsh_default_shell
 
   fnm completions --shell=zsh >"$HOME/.config/zsh/completions/fnm"
-  status "FNM completion for ZSH" $?
+  status "zsh: FNM completion for ZSH" $?
 
   ensure_line_exists "${HOME}/.zshrc" 'source "$HOME/.zshrc.dotfiles"'
   ensure_line_exists "${HOME}/.zshrc" '# ZSH command green/red highlighting (HAS TO BE THE LAST COMMAND!!) (for apple and intel)'
@@ -24,20 +23,20 @@ function setup_shell() {
   chmod go-w "$(brew --prefix)/share"
   chmod -R go-w "$(brew --prefix)/share/zsh"
 
-  status "Add sourcing of .zshrc.dotfiles" OK
+  status "zsh: Add sourcing of .zshrc.dotfiles" OK
 
   # ----------------------
-  title_h2 "Bash"
+  # BASH
 
   fnm completions --shell=bash >"$HOME/.config/bash/completions/fnm"
-  status "FNM completion for Bash" $?
+  status "bash: FNM completion for Bash" $?
 
   ensure_line_exists "${HOME}/.bashrc" 'source "$HOME/.bashrc.dotfiles"'
 
-  status "Add sourcing of .bashrc.dotfiles" OK
+  status "bash: Add sourcing of .bashrc.dotfiles" OK
 
   # ----------------------
-  title_h2 "iTerm"
+  # iTerm
 
   # Specify the preferences directory
   defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DOTFILES_ROOT/home/.config/iTerm"
@@ -45,7 +44,7 @@ function setup_shell() {
   # Tell iTerm2 to use the custom preferences in the directory
   defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
-  status "Configured iTerm preferences" OK
+  status "iTerm: Setup external config file" OK
 
   # make sure bat reads any new syntax-highlight themes installed
   bat cache --build >/dev/null
