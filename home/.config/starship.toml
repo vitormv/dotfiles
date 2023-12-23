@@ -25,12 +25,12 @@ version_format = 'v${major}'
 
 [custom.is_bash]
 description = "Indicates when in BASH shell"
-command = "echo 'bash'"
+command = "echo ''"
 when = '[ "$STARSHIP_SHELL" == "bash" ]'
 format = '[ $output ](bg:purple black) '
 
 [custom.is_fish]
 description = "Indicates when in FISH shell"
-command = 'echo "fish"'
+command = 'echo "🐟"'
 when = 'test "$STARSHIP_SHELL" = "fish"'
-format = '[ $output ](bg:green black) '
+format = '[ $output ](bg:blue black) '
