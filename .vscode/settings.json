@@ -7,6 +7,7 @@
   "files.associations": {
     "*.conf": "properties",
     "**/shell/*": "shellscript",
+    "**/home/.*.dotfiles": "shellscript",
   },
   "shellformat.effectLanguages": [
     "dockerfile",

@@ -13,7 +13,9 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 export LC_CTYPE="en_US.UTF-8"
 export HISTCONTROL=ignoreboth:erasedups # do not log consecutive repeated commands
-export BAT_THEME="monokai-dimmed"       # default syntax-highlight theme for `bat` command
+
+export BAT_THEME="monokai-dimmed"                              # default syntax-highlight theme for `bat` command
+export BAT_STYLE="grid,header,header-filename,header-filesize" # bat output style (hide line numbers)
 
 # ----------------------------------------------------
 # Homebrew
