@@ -1,16 +1,31 @@
 # enable ZSH compatibility mode for bash completions
 autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit 
+autoload -U +X bashcompinit && bashcompinit
+
+# ----------------------------------------------------
+# Source all the things \o/
 
 source ~/.bashrc
-
-setopt histignorespace # do not save commands that start with space
-setopt histignoredups # do not save duplicated commands
-
 source "$HOME/dotfiles/shell/zsh_aliases"
 source "$HOME/dotfiles/shell/zsh_prompt"
 
 source_if_exists "$HOME/.zshrc.local"
+
+# ----------------------------------------------------
+# ZSH Options
+
+setopt histignorespace # do not save commands that start with space
+setopt histignoredups  # do not save duplicated commands
+
+# ----------------------------------------------------
+# Key Mappings (human-friendly)
+
+bindkey "^[[Z" reverse-menu-complete # SHIFT+TAB -> previous item in menus and autocomplete options
+bindkey "^[[H" beginning-of-line     # HOME key -> beginning of line
+bindkey "^[[F" end-of-line           # END key -> end of line
+
+# ----------------------------------------------------
+# Autocompletions
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -18,9 +33,6 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
-
-# enable SHIFT+TAB navigation in menus and autocomplete options
-bindkey '^[[Z' reverse-menu-complete
 
 # case insensitive autocomplete
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'

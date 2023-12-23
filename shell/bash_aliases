@@ -1,4 +1,4 @@
-# ==============================================================================
+# ----------------------------------------------------
 # General
 
 alias projects="cd ~/projects"
@@ -8,7 +8,7 @@ alias nvm="fnm"
 alias iplocal="ipconfig getifaddr en0"
 alias ippublic='echo $(curl -sS -4 ifconfig.me)'
 
-# ==============================================================================
+# ----------------------------------------------------
 # shell
 
 alias ls='exa -l --color=always --group-directories-first --icons'                       # long format
@@ -23,7 +23,7 @@ alias cls='clear'
 
 alias incognito="fish --private"
 
-# ==============================================================================
+# ----------------------------------------------------
 # shell config
 
 alias bashrc='vim ~/.bashrc'
@@ -32,18 +32,18 @@ alias reload="source ~/.bashrc && echo 'Sourced ~/.bashrc'"
 
 alias grep='rg --color=auto'
 
-# ===================================================
+# ----------------------------------------------------
 # Torrentbox
 
 alias torrentbox="ssh torrentbox '(bash ~/torrentbox/torrentbox.sh status)'"
 
-# ===================================================
+# ----------------------------------------------------
 # Docker
 
 alias do.ls='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
 alias doco="docker compose"
 
-# ===================================================
+# ----------------------------------------------------
 # MacOS
 
 # remove all .DS_Store files recursively
