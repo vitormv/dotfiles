@@ -113,7 +113,12 @@ setup_dotfiles() {
   process_dotfile "$TARGET_DIR" ".config/kitty/kitty.conf" symlink
   process_dotfile "$TARGET_DIR" ".config/kitty/theme.conf" symlink
   process_dotfile "$TARGET_DIR" ".config/starship.toml" symlink
+  process_dotfile "$TARGET_DIR" ".bash_aliases" symlink
+  process_dotfile "$TARGET_DIR" ".bash_exports" symlink
+  process_dotfile "$TARGET_DIR" ".bash_functions" symlink
   process_dotfile "$TARGET_DIR" ".bashrc.dotfiles" symlink
+  process_dotfile "$TARGET_DIR" ".zsh_aliases" symlink
+  process_dotfile "$TARGET_DIR" ".zsh_completions" symlink
   process_dotfile "$TARGET_DIR" ".zshrc.dotfiles" symlink
   process_dotfile "$TARGET_DIR" "Brewfile" symlink
   process_dotfile "$TARGET_DIR" "Library/Application Support/Code/User/keybindings.json" symlink

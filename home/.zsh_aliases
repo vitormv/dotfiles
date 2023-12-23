@@ -14,6 +14,6 @@ function forget() {
     history -p
     echo >~/.zsh_history && kill -9 $$
   else
-    echo "Ok ok, not touching anything!"
+    echo "¯\(°_o)/¯ Ok ok, not touching anything!"
   fi
 }

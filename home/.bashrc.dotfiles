@@ -1,12 +1,17 @@
 source "$HOME/dotfiles/shell/utils.sh"
 
-source "$HOME/dotfiles/shell/bash_exports"
-source "$HOME/dotfiles/shell/bash_aliases"
-source "$HOME/dotfiles/shell/bash_functions"
+# ----------------------------------------------------
+# load other .bash_* files
 
-source_if_exists "$HOME/.bashrc.local"
+source ~/.bash_aliases
+source ~/.bash_exports
+source ~/.bash_functions
 
-# Do some things ONLY if we are in a bash shell
+# ----------------------------------------------------
+# shell & completions
+
+# do some things only when we're running an actual bash shell
+# to prevent conflicts with zsh (which also loads bash config files)
 current_shell=$(ps -p $$ -ocomm=)
 if [[ "$current_shell" == *"bash" ]]; then
   # load starship prompt

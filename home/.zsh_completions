@@ -1,0 +1,16 @@
+
+# add zsh-completions (for a lot of common packages, like git, node yarn, etc)
+FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+# make autocomplete case-insensitive
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
+# fnm completions
+eval "$(fnm env --use-on-cd)"
+
+# SSH autocomplete
+# Highlight the current autocomplete option
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# Initialize the autocompletion
+autoload -Uz compinit && compinit -i

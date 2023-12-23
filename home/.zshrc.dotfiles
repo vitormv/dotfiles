@@ -1,15 +1,13 @@
-# enable ZSH compatibility mode for bash completions
+# allow ZSH to use Bash completions (back-compatibility)
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
 # ----------------------------------------------------
-# Source all the things \o/
+# load other .zsh_* files
 
 source ~/.bashrc
-source "$HOME/dotfiles/shell/zsh_aliases"
-source "$HOME/dotfiles/shell/zsh_prompt"
-
-source_if_exists "$HOME/.zshrc.local"
+source ~/.zsh_aliases
+source ~/.zsh_completions
 
 # ----------------------------------------------------
 # ZSH Options
@@ -18,22 +16,22 @@ setopt histignorespace # do not save commands that start with space
 setopt histignoredups  # do not save duplicated commands
 
 # ----------------------------------------------------
-# Key Mappings (human-friendly)
+# Human Friendly Key Mappings
 
 bindkey "^[[Z" reverse-menu-complete # SHIFT+TAB -> previous item in menus and autocomplete options
 bindkey "^[[H" beginning-of-line     # HOME key -> beginning of line
 bindkey "^[[F" end-of-line           # END key -> end of line
 
+zstyle ':completion:*' menu select # use autocomplete Menu Style with ARROW navigation
+
 # ----------------------------------------------------
-# Autocompletions
+# ZSH Prompt
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+# Uses the zsh precmd function hook to set the tab title to the current working directory before each prompt
+function precmd() {
+  window_title="\\033]0;${PWD##*/}\\007"
+  echo -ne "$window_title"
+}
 
-  autoload -Uz compinit
-  compinit
-fi
-
-# case insensitive autocomplete
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-autoload -Uz compinit && compinit
+# load starship prompt
+eval "$(starship init zsh)"

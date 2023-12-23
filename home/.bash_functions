@@ -1,7 +1,3 @@
-#############
-# Functions
-#############
-
 function forget() { history -c && history -w; }
 
 # mkdir and cd
