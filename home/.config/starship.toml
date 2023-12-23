@@ -23,21 +23,14 @@ success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set
 [nodejs]
 version_format = 'v${major}'
 
-# [custom.incognito]
-# command = 'echo "󱀣"'
-# when = "[[ -z \"$HISTFILE\" ]]"
-# shell = ["/Users/vmello/dotfiles/test.sh"]
-# when = true
-# format = '[ $output ](bg:none purple) '
-
-# Indicates when in bash shell.
-[custom.bash]
+[custom.is_bash]
+description = "Indicates when in BASH shell"
 command = "echo 'bash'"
 when = '[ "$STARSHIP_SHELL" == "bash" ]'
 format = '[ $output ](bg:purple black) '
 
-# Indicates when in fish shell.
-[custom.fish]
+[custom.is_fish]
+description = "Indicates when in FISH shell"
 command = 'echo "fish"'
 when = 'test "$STARSHIP_SHELL" = "fish"'
 format = '[ $output ](bg:green black) '
