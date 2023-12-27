@@ -2,6 +2,9 @@ starship init fish | source
 
 source ~/.bash_aliases
 
+# load ~/.fishrc.local if it exists ()
+test -e ~/.fishrc.local; and source ~/.fishrc.local
+
 # override bash reload alias for fish
 alias reload "source ~/.config/fish/config.fish"
 
