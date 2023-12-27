@@ -18,3 +18,8 @@ function fish_right_prompt -d "Show Private label on right side when applicable"
         set_color normal
     end
 end
+
+# use fd to search only in mounted Volumes
+function fdm
+    fd -E "/Volumes/Macintosh HD" $argv[1] /Volumes --exec-batch exa -al --color=always --icons --no-permissions --no-user --time-style=long-iso
+end

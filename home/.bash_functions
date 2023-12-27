@@ -5,7 +5,7 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # use fd to search only in mounted Volumes
 function fdm() {
-  fd -E "/Volumes/Macintosh HD" "$1" /Volumes
+  fd -E "/Volumes/Macintosh HD" "$1" /Volumes --exec-batch exa -al --color=always --group-directories-first --icons --no-permissions --no-user --time-style=long-iso
 }
 
 function perf() {
