@@ -1,15 +1,9 @@
+
+# ----------------------------------------------------
+# completions
 starship init fish | source
 
-source ~/.bash_aliases
-
-# load ~/.fishrc.local if it exists ()
-test -e ~/.fishrc.local; and source ~/.fishrc.local
-
-# override bash reload alias for fish
-alias reload "source ~/.config/fish/config.fish"
-
-# disable welcome greeting when shell starts
-set -U fish_greeting
+set -U fish_greeting # disable welcome greeting when shell starts
 
 function fish_right_prompt -d "Show Private label on right side when applicable"
     if not test -z $fish_private_mode
@@ -18,6 +12,29 @@ function fish_right_prompt -d "Show Private label on right side when applicable"
         set_color normal
     end
 end
+
+fnm env --use-on-cd | source
+
+
+# ----------------------------------------------------
+# imports
+
+source ~/.bash_aliases
+test -e ~/.fishrc.local; and source ~/.fishrc.local
+
+
+# ----------------------------------------------------
+# path
+
+fish_add_path (yarn global bin)
+fish_add_path /usr/local/bin
+
+
+# ----------------------------------------------------
+# alias and functions
+
+# override bash reload alias for fish
+alias reload "source ~/.config/fish/config.fish"
 
 # use fd to search only in mounted Volumes
 function fdm
