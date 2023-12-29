@@ -3978,7 +3978,7 @@ auhal-audio-device=0
 #preparse-timeout=5000
 
 # Allow metadata network access (boolean)
-metadata-network-access=0
+#metadata-network-access=0
 
 # Subdirectory behavior (string)
 #recursive=collapse
@@ -4729,3 +4729,4 @@ key-jump+medium=Shift-Right
 
 # Playlist bookmark 10 (string)
 #bookmark10=
+

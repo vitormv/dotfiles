@@ -3,10 +3,12 @@
 
 alias projects="cd ~/projects"
 alias dotfiles="cd ~/dotfiles"
+alias vim="nvim"
 alias top="btm"
 alias nvm="fnm"
 alias iplocal="ipconfig getifaddr en0"
 alias ippublic='echo $(curl -sS -4 ifconfig.me)'
+alias weather="curl https://wttr.in/"
 
 # ----------------------------------------------------
 # shell
