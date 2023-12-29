@@ -56,6 +56,12 @@
           "settings": {
             "foreground": "#6f4e37"
           }
+        },
+        {
+          "scope": "entity.name.namespace",
+          "settings": {
+            "foreground": "#FB4934"
+          }
         }
       ]
     }

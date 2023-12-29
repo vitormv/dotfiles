@@ -7,7 +7,7 @@ function process_dotfile() {
 
   local TARGET_DIR="$1"
   local file_path="$2"
-  local mode="$3"
+  local mode="$3" # @todo add support for "copy" in addition to default "symlink"
 
   from="home/${file_path}"
   to="${file_path}"
@@ -123,5 +123,5 @@ setup_dotfiles() {
   process_dotfile "$TARGET_DIR" "Brewfile" symlink
   process_dotfile "$TARGET_DIR" "Library/Application Support/Code/User/keybindings.json" symlink
   process_dotfile "$TARGET_DIR" "Library/Application Support/Code/User/settings.json" symlink
-  process_dotfile "$TARGET_DIR" "Library/Preferences/org.videolan.vlc/vlcrc" symlink
+  process_dotfile "$TARGET_DIR" "Library/Preferences/org.videolan.vlc" symlink
 }
