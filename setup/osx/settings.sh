@@ -95,7 +95,7 @@ defaults write com.Apple.Dock show-recents -bool false
 # Remove the auto-hiding Dock delay
 defaults write com.apple.dock autohide-delay -float 0
 
-# Remove the animation when hiding/showing the Dock
+# Remove the animation when hiding/showing the Dock (use "-float 0.2" to enable)
 defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Automatically hide and show the Dock

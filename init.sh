@@ -2,10 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# @todo possible better  alternative for DOTFILES_ROOT
-# BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-DOTFILES_ROOT=$(pwd -P)
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOTFILES_SETTINGS_FILE="${HOME}/.config/dotfiles/settings.env"
 if ${DEBUG+"false"}; then
   DEBUG=
@@ -42,21 +39,9 @@ setup_shell
 
 # when pulling from github for the first time, since there is no SSH yet
 # repo will be pulled with https. But now that we configure things
-# set origin back to SSH if needed
+# set git origin back to SSH if needed
 if git --git-dir ~/dotfiles/.git remote get-url origin | grep https; then
   git --git-dir ~/dotfiles/.git remote set-url git@github.com:vitormv/dotfiles.git
 fi
-
-# @todo add bat/delta syntax-highligthing for Astro files when new syntax is supported
-#       https://github.com/trishume/syntect/issues/271
-#       https://github.com/trishume/syntect/issues/323
-# @todo add firefox extensions?
-# @todo add chrome extensions?
-# @todo add cronjob for checking mouse battery
-# @todo Persist Kap changes/ /Users/vitormello/Library/Application\ Support/Kap/config.json
-# @todo add Google DNS 1.1.1.1
-#       https://osxdaily.com/2015/06/02/change-dns-command-line-mac-os-x/
-#       networksetup -getdnsservers Ethernet
-#       networksetup -getdnsservers Wi-Fi
 
 echo -e '\n\n✅ All done! Your System is Certified lit 🔥 🔥 🔥'
