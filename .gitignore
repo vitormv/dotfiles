@@ -3,3 +3,4 @@
 
 # @todo temporarily remove docs, but add it again when ready
 docs/
+node_modules/

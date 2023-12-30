@@ -53,19 +53,14 @@ function setup_git() {
   git config --global interactive.diffFilter "delta --color-only"
 
   # Set delta settings
-  # See all available syntax-themes with:
-  #     delta --show-syntax-themes
-  #     bat --list-themes
-  git config --global delta.features "villsau"
-  git config --global delta.syntax-theme "monokai-dimmed"
+  git config --global delta.features "villsau"            # List options: bat --list-themes
+  git config --global delta.syntax-theme "monokai-dimmed" # List options: delta --show-syntax-themes
   git config --global delta.line-numbers true
   git config --global delta.light false
   git config --global delta.side-by-side true
   git config --global delta.inline-hint-style "syntax"
   git config --global delta.minus-style "syntax \"#53171c\""
   git config --global delta.plus-style "syntax \"#3a412a\""
-
-  # Set include settings
   git config --global include.path "~/.config/git-delta/themes.gitconfig"
 
   # Set merge settings
@@ -108,7 +103,7 @@ function setup_git() {
   git config --global alias.ls "log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate"
   git config --global alias.ll "log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --numstat"
   git config --global alias.lnc "log --pretty=format:\"%h\\ %s\\ [%cn]\""
-  git config --global alias.main '!f() { show-ref -q --heads main && git checkout main || git checkout master; }; f' # go to main/master, whichever exists
+  git config --global alias.main '!f() { git show-ref -q --heads main && git checkout main || git checkout master; }; f' # go to main/master, whichever exists
   git config --global alias.mergeff "merge --no-ff"
   git config --global alias.push "push -u"
   git config --global alias.pushf "push -u --force"

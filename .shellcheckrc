@@ -1,0 +1,5 @@
+# allow checking if source'd files exist
+external-sources=true
+
+# consider bash by default for files without shebang/extension
+shell=bash

@@ -8,7 +8,7 @@ function get_mouse_battery_level() {
   # current battery level
   battery_level=$(ioreg -c AppleDeviceManagementHIDEventService -r -l | grep -i mouse -A 20 | grep BatteryPercent | cut -d= -f2 | cut -d' ' -f2)
 
-  echo "${battery_level}%"
+  echo "${battery_level}"
 }
 
 function check_mouse_battery() {

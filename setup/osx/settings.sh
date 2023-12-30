@@ -1,6 +1,4 @@
-############################
-# System
-############################
+# -- SYSTEM --------------------------------------------------------------------
 
 # no siri in menubar
 defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false
@@ -25,9 +23,7 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
-############################
-# Input, Keyboard, Trackpad & Mouse
-############################
+# -- INPUT, KEYBOARD, TRACKPAD & MOUSE -----------------------------------------
 
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -50,9 +46,7 @@ defaults write com.apple.TextInputMenu visible -bool false
 # Mouse speed
 defaults write -g com.apple.mouse.scaling 1.5
 
-############################
-# Finder
-############################
+# -- FINDER --------------------------------------------------------------------
 
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
@@ -79,9 +73,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-############################
-# Dock
-############################
+# -- DOCK --------------------------------------------------
 
 # Dock Size
 defaults write com.apple.dock tilesize -int 70
@@ -101,9 +93,7 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
-############################
-# Calendar
-############################
+# -- CALENDAR ------------------------------------------------------------------
 
 # Show week numbers (10.8 only)
 defaults write com.apple.iCal "Show Week Numbers" -bool true
@@ -111,9 +101,7 @@ defaults write com.apple.iCal "Show Week Numbers" -bool true
 # Week starts on monday
 defaults write com.apple.iCal "first day of week" -int 1
 
-############################
-# Safari & WebKit
-############################
+# -- SAFARI & WEBKIT -----------------------------------------------------------
 
 # Privacy: don't send search queries to Apple
 # defaults write com.apple.Safari UniversalSearchEnabled -bool false
@@ -122,15 +110,12 @@ defaults write com.apple.iCal "first day of week" -int 1
 # # Show the full URL in the address bar (note: this still hides the scheme)
 # defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
-############################
-# Time Machine
-############################
+# -- TIME MACHINE --------------------------------------------------------------
+
 #  do NOT prompt to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-###############################################################################
-# Mac App Store                                                               #
-###############################################################################
+# -- APP STORE -----------------------------------------------------------------
 
 # Enable the WebKit Developer Tools in the Mac App Store
 # defaults write com.apple.appstore WebKitDeveloperExtras -bool true

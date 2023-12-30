@@ -36,7 +36,8 @@ function add-to-dock() {
   fi
 }
 
-# remove bloat from dock
+# -- REMOVE ITEMS I NEVER USE --------------------------------------------------
+
 remove-if-exists "com.apple.launchpad.launcher"
 remove-if-exists "com.apple.mail"
 remove-if-exists "com.apple.Maps"
@@ -49,7 +50,8 @@ remove-if-exists "com.apple.MobileSMS"
 
 status "Removed unused apps from Dock" OK
 
-# add the stuff I use often
+# -- ADD MY PREFERRED DOCK ITEMS -----------------------------------------------
+
 add-to-dock "/Applications/Firefox.app"
 add-to-dock "/Applications/Google Chrome.app"
 add-to-dock "/Applications/Safari.app" "com.apple.Safari"

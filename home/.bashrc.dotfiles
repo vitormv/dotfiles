@@ -1,8 +1,7 @@
-source "$HOME/dotfiles/shell/utils.sh"
-
 # ----------------------------------------------------
 # load other .bash_* files
 
+source "~/.bash_utils" # has to be first, other files might use things from here
 source ~/.bash_aliases
 source ~/.bash_exports
 source ~/.bash_functions

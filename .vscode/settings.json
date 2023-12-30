@@ -6,8 +6,9 @@
   },
   "files.associations": {
     "*.conf": "properties",
-    "**/shell/*": "shellscript",
     "**/home/.*.dotfiles": "shellscript",
+    "**/home/.bash*": "shellscript",
+    "**/home/.zsh_*": "shellscript",
   },
   "shellformat.effectLanguages": [
     "dockerfile",
@@ -21,5 +22,6 @@
     "azcli",
     "bats"
   ],
-  "editor.fontFamily": "'MesloLGM Nerd Font', Menlo, Monaco, 'Courier New', monospace"
+  "editor.fontFamily": "'MesloLGM Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "shellcheck.useWorkspaceRootAsCwd": true
 }

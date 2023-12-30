@@ -8,10 +8,10 @@ if ${DEBUG+"false"}; then
   DEBUG=
 fi
 
-source "$DOTFILES_ROOT/setup/lib/strings.sh"
-source "$DOTFILES_ROOT/setup/lib/layout.sh"
-source "$DOTFILES_ROOT/setup/lib/filesystem.sh"
-source "$DOTFILES_ROOT/setup/lib/system.sh"
+source "$DOTFILES_ROOT/setup/utils/strings.sh"
+source "$DOTFILES_ROOT/setup/utils/layout.sh"
+source "$DOTFILES_ROOT/setup/utils/filesystem.sh"
+source "$DOTFILES_ROOT/setup/utils/system.sh"
 
 source "$DOTFILES_ROOT/setup/setup_assets.sh"
 source "$DOTFILES_ROOT/setup/setup_dependencies.sh"

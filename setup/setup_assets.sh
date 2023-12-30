@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-source "$DOTFILES_ROOT/setup/lib/filesystem.sh"
+source "$DOTFILES_ROOT/setup/utils/filesystem.sh"
 
 setup_assets() {
   title_h1 "Assets"

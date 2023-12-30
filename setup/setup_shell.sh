@@ -2,14 +2,13 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-source "$DOTFILES_ROOT/setup/lib/layout.sh"
-source "$DOTFILES_ROOT/setup/lib/system.sh"
+source "$DOTFILES_ROOT/setup/utils/layout.sh"
+source "$DOTFILES_ROOT/setup/utils/system.sh"
 
 function setup_shell() {
   title_h1 "Shell & Terminal"
 
-  # ----------------------
-  # ZSH
+  # -- ZSH ---------------------------------------------------------------------
   make_zsh_default_shell
 
   fnm completions --shell=zsh >"$HOME/.config/zsh/completions/fnm"
@@ -20,13 +19,13 @@ function setup_shell() {
   ensure_line_exists "${HOME}/.zshrc" 'source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"'
 
   # avoid Error "zsh compinit: insecure directories" warnings when loading zsh-completions
+  # remove group write permissions recursively (@see: https://github.com/zsh-users/zsh-completions/issues/433)
   chmod go-w "$(brew --prefix)/share"
   chmod -R go-w "$(brew --prefix)/share/zsh"
 
   status "zsh: Add sourcing of .zshrc.dotfiles" OK
 
-  # ----------------------
-  # BASH
+  # -- BASH --------------------------------------------------------------------
 
   fnm completions --shell=bash >"$HOME/.config/bash/completions/fnm"
   status "bash: FNM completion for Bash" $?
@@ -35,8 +34,7 @@ function setup_shell() {
 
   status "bash: Add sourcing of .bashrc.dotfiles" OK
 
-  # ----------------------
-  # iTerm
+  # -- ITERM -------------------------------------------------------------------
 
   # Specify the preferences directory
   defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DOTFILES_ROOT/home/.config/iTerm"
