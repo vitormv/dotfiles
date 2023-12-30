@@ -26,3 +26,5 @@ setup_assets() {
   ensure_file_exists "$DOTFILES_SETTINGS_FILE" verbose
   ensure_file_exists "$HOME/.gitignore_global" verbose
 }
+
+setup_assets

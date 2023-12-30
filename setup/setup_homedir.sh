@@ -2,6 +2,34 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+setup_homedir() {
+  title_h1 "Homedir Symlinks"
+
+  local DIR="$DOTFILES_ROOT"
+  local TARGET_DIR=$1
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  process_dotfile "$TARGET_DIR" ".config/bat/themes/monokai-dimmed.tmTheme" symlink
+  process_dotfile "$TARGET_DIR" ".config/fish/config.fish" symlink
+  process_dotfile "$TARGET_DIR" ".config/git-delta/themes.gitconfig" symlink
+  process_dotfile "$TARGET_DIR" ".config/kitty/kitty.conf" symlink
+  process_dotfile "$TARGET_DIR" ".config/kitty/theme.conf" symlink
+  process_dotfile "$TARGET_DIR" ".config/starship.toml" symlink
+  process_dotfile "$TARGET_DIR" ".bash_aliases" symlink
+  process_dotfile "$TARGET_DIR" ".bash_exports" symlink
+  process_dotfile "$TARGET_DIR" ".bash_functions" symlink
+  process_dotfile "$TARGET_DIR" ".bash_utils" symlink
+  process_dotfile "$TARGET_DIR" ".bashrc.dotfiles" symlink
+  process_dotfile "$TARGET_DIR" ".zsh_aliases" symlink
+  process_dotfile "$TARGET_DIR" ".zsh_completions" symlink
+  process_dotfile "$TARGET_DIR" ".zshrc.dotfiles" symlink
+  process_dotfile "$TARGET_DIR" "Brewfile" symlink
+  process_dotfile "$TARGET_DIR" "Library/Application Support/Code/User/keybindings.json" symlink
+  process_dotfile "$TARGET_DIR" "Library/Application Support/Code/User/settings.json" symlink
+  process_dotfile "$TARGET_DIR" "Library/Preferences/org.videolan.vlc" symlink
+}
+
 function process_dotfile() {
   local from to
 
@@ -12,17 +40,22 @@ function process_dotfile() {
   from="home/${file_path}"
   to="${file_path}"
 
-  local source_file_relative existing_link
+  local existing_link action_verb
 
   # create an array of line items
   local source_file="$DIR/${from}"
   local target_file="$TARGET_DIR/${to}"
-  source_file_relative=$(grealpath --relative-base="${DIR}/.." "$source_file")
 
   local noop=0
 
+  action_verb="Symlinking"
+
+  if [ "$mode" = 'copy' ]; then
+    action_verb="Copying"
+  fi
+
   local output_message prompt_message
-  output_message="$(gray)Copying $(clr)$(pretty_path "$target_file")   $(gray)← ${source_file_relative}$(clr)"
+  output_message="$(gray)${action_verb} $(clr)$(pretty_path "$target_file")"
   prompt_message="${PREFIX_EMPTY} $(yellow)↑ File already exists, what do you want to do?$(clr)"
   local action=""
 
@@ -99,29 +132,4 @@ function process_dotfile() {
   fi
 }
 
-setup_dotfiles() {
-  title_h1 "HOME Symlinks"
-
-  local DIR="$DOTFILES_ROOT"
-  local TARGET_DIR=$1
-
-  local overwrite_all=false backup_all=false skip_all=false
-
-  process_dotfile "$TARGET_DIR" ".config/bat/themes/monokai-dimmed.tmTheme" symlink
-  process_dotfile "$TARGET_DIR" ".config/fish/config.fish" symlink
-  process_dotfile "$TARGET_DIR" ".config/git-delta/themes.gitconfig" symlink
-  process_dotfile "$TARGET_DIR" ".config/kitty/kitty.conf" symlink
-  process_dotfile "$TARGET_DIR" ".config/kitty/theme.conf" symlink
-  process_dotfile "$TARGET_DIR" ".config/starship.toml" symlink
-  process_dotfile "$TARGET_DIR" ".bash_aliases" symlink
-  process_dotfile "$TARGET_DIR" ".bash_exports" symlink
-  process_dotfile "$TARGET_DIR" ".bash_functions" symlink
-  process_dotfile "$TARGET_DIR" ".bashrc.dotfiles" symlink
-  process_dotfile "$TARGET_DIR" ".zsh_aliases" symlink
-  process_dotfile "$TARGET_DIR" ".zsh_completions" symlink
-  process_dotfile "$TARGET_DIR" ".zshrc.dotfiles" symlink
-  process_dotfile "$TARGET_DIR" "Brewfile" symlink
-  process_dotfile "$TARGET_DIR" "Library/Application Support/Code/User/keybindings.json" symlink
-  process_dotfile "$TARGET_DIR" "Library/Application Support/Code/User/settings.json" symlink
-  process_dotfile "$TARGET_DIR" "Library/Preferences/org.videolan.vlc" symlink
-}
+setup_homedir "$1"

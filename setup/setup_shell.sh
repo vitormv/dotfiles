@@ -47,3 +47,5 @@ function setup_shell() {
   # make sure bat reads any new syntax-highlight themes installed
   bat cache --build >/dev/null
 }
+
+setup_shell

@@ -62,3 +62,5 @@ host github.com
     fi
   done
 }
+
+setup_ssh

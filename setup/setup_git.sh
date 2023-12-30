@@ -80,7 +80,7 @@ function setup_git() {
   git config --global filter.lfs.process "git-lfs filter-process"
   git config --global filter.lfs.required true
 
-  status "Configure global git settings" OK
+  status "Configure global $(pretty_path "~/.gitconfig") settings" OK
 
   # Set alias settings
   git config --global alias.aa "add --all"
@@ -120,3 +120,5 @@ function setup_git() {
 
   status "Git aliases" OK
 }
+
+setup_git

@@ -52,6 +52,10 @@ function clr() {
   printf "\e[0m"
 }
 
+function bgCyan() {
+  printf "\e[46m"
+}
+
 pad_start() {
   local string="$1"
   local target_length="$2"
@@ -66,6 +70,24 @@ pad_start() {
     echo "$padding$string"
   else
     echo "$string"
+  fi
+}
+
+function pad_end() {
+  local string="$1"
+  local length="$2"
+  local padding_char="$3"
+
+  local current_length=${#string}
+
+  local padding padding_length
+
+  if [ $current_length -ge $length ]; then
+    echo "$string"
+  else
+    padding_length=$((length - current_length))
+    padding=$(printf "%0.s$padding_char" $(seq 1 $padding_length))
+    echo "$string$padding"
   fi
 }
 
@@ -177,8 +199,10 @@ function status_dbg() {
 function title_h1() {
   local title=$1
 
-  echo -e "\n$(gray)# =================================================$(clr)"
-  echo -e "$(gray)#$(clr) ${title}:\n"
+  local to_print="# --- ${title} "
+  local string_length=${#to_print}
+
+  echo -e "\n\n$(pad_end "$to_print" 60 "-")\n"
 }
 
 function title_h2() {
@@ -186,7 +210,7 @@ function title_h2() {
   local margin_top=${2:-1}
 
   [ "$margin_top" -eq 1 ] && echo ""
-  echo -e "$(gray)---------$(clr) ${title}:"
+  echo -e "$(gray)--------$(clr) ${title}:"
 }
 
 # prints a path with the prefix portion (defaults to $HOME) in gray

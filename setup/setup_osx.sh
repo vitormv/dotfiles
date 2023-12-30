@@ -34,6 +34,7 @@ IFS=$'\n\t'
 #
 # For a good reference see http://osxnotes.net/keybindings.html.
 
+# ASCII icons for Mac keyboards
 # ⌘ Command (or Cmd)
 # ⇧ Shift
 # ⌥ Option (or Alt)
@@ -110,3 +111,5 @@ function setup_osx() {
     status "Default \"Open With\" applications" OK
   fi
 }
+
+setup_osx
