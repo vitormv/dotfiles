@@ -16,11 +16,16 @@ setup_homedir() {
   process_dotfile "$TARGET_DIR" ".config/kitty/kitty.conf" symlink
   process_dotfile "$TARGET_DIR" ".config/kitty/theme.conf" symlink
   process_dotfile "$TARGET_DIR" ".config/starship.toml" symlink
+  process_dotfile "$TARGET_DIR" ".config/yazi/keymap.toml" symlink
+  process_dotfile "$TARGET_DIR" ".config/yazi/theme.toml" symlink
+  process_dotfile "$TARGET_DIR" ".config/yazi/ui-render.lua" symlink
+  process_dotfile "$TARGET_DIR" ".config/yazi/yazi.toml" symlink
   process_dotfile "$TARGET_DIR" ".bash_aliases" symlink
   process_dotfile "$TARGET_DIR" ".bash_exports" symlink
   process_dotfile "$TARGET_DIR" ".bash_functions" symlink
   process_dotfile "$TARGET_DIR" ".bash_utils" symlink
   process_dotfile "$TARGET_DIR" ".bashrc.dotfiles" symlink
+  process_dotfile "$TARGET_DIR" ".vimrc" symlink
   process_dotfile "$TARGET_DIR" ".zsh_aliases" symlink
   process_dotfile "$TARGET_DIR" ".zsh_completions" symlink
   process_dotfile "$TARGET_DIR" ".zshrc.dotfiles" symlink
