@@ -44,7 +44,14 @@ cask "choosy"
 cask "docker"
 cask "firefox", args: { 'no-quarantine': true }
 # cask "firefox-developer-edition"
+cask "font-lato"
+cask "font-lora"
 cask "font-meslo-lg-nerd-font"
+cask "font-nunito"
+cask "font-nunito-sans"
+cask "font-raleway"
+cask "font-source-sans-3"
+cask "font-source-serif-4"
 cask "font-symbols-only-nerd-font" # needed by yazi
 cask "google-chrome" , args: { 'no-quarantine': true }
 cask "insomnia"
