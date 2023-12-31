@@ -11,6 +11,8 @@ function setup_shell() {
   # -- ZSH ---------------------------------------------------------------------
   make_zsh_default_shell
 
+  ensure_directory_exists "$HOME/.config/zsh/completions" verbose
+
   fnm completions --shell=zsh >"$HOME/.config/zsh/completions/fnm"
   status "zsh: FNM completion for ZSH" $?
 
@@ -26,6 +28,8 @@ function setup_shell() {
   status "zsh: Add sourcing of .zshrc.dotfiles" OK
 
   # -- BASH --------------------------------------------------------------------
+
+  ensure_directory_exists "$HOME/.config/bash/completions" verbose
 
   fnm completions --shell=bash >"$HOME/.config/bash/completions/fnm"
   status "bash: FNM completion for Bash" $?

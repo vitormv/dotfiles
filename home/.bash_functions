@@ -72,8 +72,7 @@ function do.bash() {
   docker exec -it $(docker ps -aqf "name=$1") bash
 }
 
-# ==============================================================================
-# Miscellaneous functions
+# -- MISC FUNCTIONS ------------------------------------------------------------
 
 # Generate a random string ('A-Za-z0-9') with the given length
 #

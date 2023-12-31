@@ -10,6 +10,8 @@ function setup_git() {
   git_name=$(git config user.name || echo)
   git_email=$(git config user.email || echo)
 
+  ensure_directory_exists "$HOME/.config/git/"
+
   # @todo move git stuff to ~/.config/.git
   # https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
 
@@ -44,7 +46,8 @@ function setup_git() {
   git config --global user.useconfigonly true
 
   # Set core settings
-  git config --global core.excludesfile "~/.gitignore_global"
+  ensure_file_exists "$HOME/.config/git/gitignore" verbose
+  git config --global core.excludesfile "~/.config/git/gitignore"
   git config --global core.filemode false
   git config --global core.autocrlf false
   git config --global core.pager "delta"

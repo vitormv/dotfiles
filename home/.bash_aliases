@@ -1,17 +1,18 @@
-# ----------------------------------------------------
-# General
+# -- GENERAL -------------------------------------------------------------------
 
 alias projects="cd ~/projects"
 alias dotfiles="cd ~/dotfiles"
-alias vim="nvim"
-alias top="btm"
-alias nvm="fnm"
 alias iplocal="ipconfig getifaddr en0"
 alias ippublic='echo $(curl -sS -4 ifconfig.me)'
 alias weather="curl https://wttr.in/"
+alias dufs="duf /Volumes/*"
 
-# ----------------------------------------------------
-# shell
+# old habits die hard :)
+alias vim="nvim"
+alias top="btm"
+alias nvm="fnm"
+
+# -- SHELL ---------------------------------------------------------------------
 
 alias ls='exa -l --color=always --group-directories-first --icons'                       # long format
 alias ll='exa -al --color=always --group-directories-first --icons'                      # preferred listing
@@ -25,28 +26,22 @@ alias cls='clear'
 
 alias incognito="fish --private"
 
-# ----------------------------------------------------
-# shell config
-
 alias bashrc='vim ~/.bashrc'
 alias zshrc="vim ~/.zshrc"
 alias reload="source ~/.bashrc && echo 'Sourced ~/.bashrc'"
 
 alias grep='rg --color=auto'
 
-# ----------------------------------------------------
-# Torrentbox
+# -- TORRENTBOX ----------------------------------------------------------------
 
 alias torrentbox="ssh torrentbox '(bash ~/torrentbox/torrentbox.sh status)'"
 
-# ----------------------------------------------------
-# Docker
+# -- DOCKER --------------------------------------------------------------------
 
 alias do.ls='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"'
 alias doco="docker compose"
 
-# ----------------------------------------------------
-# MacOS
+# -- MacOS ---------------------------------------------------------------------
 
 # remove all .DS_Store files recursively
 alias purge.ds='find . -type f \( -name ".DS_Store" -o -name "._.DS_Store" \) -delete -print 2>&1 | grep -v "Permission denied"'

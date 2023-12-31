@@ -17,14 +17,11 @@ setup_assets() {
   ensure_directory_exists "$HOME/projects" verbose
   ensure_directory_exists "$HOME/.tools" verbose
   ensure_directory_exists "$HOME/.config" verbose
-  ensure_directory_exists "$HOME/.config/zsh/completions" verbose
-  ensure_directory_exists "$HOME/.config/bash/completions" verbose
 
   title_h2 "Ensure files exist"
 
   ensure_file_exists "$HOME/.bashrc.local" verbose
   ensure_file_exists "$DOTFILES_SETTINGS_FILE" verbose
-  ensure_file_exists "$HOME/.gitignore_global" verbose
 }
 
 setup_assets
