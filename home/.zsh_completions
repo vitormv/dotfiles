@@ -5,8 +5,6 @@ FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 # make autocomplete case-insensitive
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
-source ~/dotfiles/vendor/fzf-tab/fzf-tab.plugin.zsh
-
 export FZF_DEFAULT_OPTS="--height=100% --prompt=\"◆\" --pointer=\"◆\" --layout=reverse --border --no-sort --prompt=\"~ \" --color=dark,hl:red:regular,fg+:white:regular,hl+:red:regular:reverse,query:white:regular,info:gray:regular,prompt:red:bold,pointer:red:bold"
 
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
@@ -28,3 +26,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # Initialize the autocompletion
 autoload -Uz compinit && compinit -i
+
+source ~/dotfiles/vendor/fzf-tab/fzf-tab.plugin.zsh # has to be before syntax-highlighting
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" # ZSH command green/red highlighting

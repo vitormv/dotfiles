@@ -15,6 +15,7 @@ brew "fd" # find things easily
 brew "ffmpeg"
 brew "fish"
 brew "fnm" # NVM but in rust
+brew "fzf" # fuzzy search (used by zsh fzf-tab for autocomplete)
 brew "git"
 brew "git-delta" # awesome git diffs
 brew "hyperfine" # benchmark commands
@@ -38,6 +39,7 @@ brew "youtube-dl"
 brew "yt-dlp"
 brew "zsh"
 brew "zsh-completions"
+brew "zsh-history-substring-search"
 brew "zsh-syntax-highlighting"
 
 cask "choosy"

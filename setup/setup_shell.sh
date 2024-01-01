@@ -17,8 +17,6 @@ function setup_shell() {
   status "zsh: FNM completion for ZSH" $?
 
   ensure_line_exists "${HOME}/.zshrc" 'source "$HOME/.zshrc.dotfiles"'
-  ensure_line_exists "${HOME}/.zshrc" '# ZSH command green/red highlighting (HAS TO BE THE LAST COMMAND!!) (for apple and intel)'
-  ensure_line_exists "${HOME}/.zshrc" 'source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"'
 
   # avoid Error "zsh compinit: insecure directories" warnings when loading zsh-completions
   # remove group write permissions recursively (@see: https://github.com/zsh-users/zsh-completions/issues/433)
