@@ -36,11 +36,4 @@ source "$DOTFILES_ROOT/setup/setup_osx.sh"
 source "$DOTFILES_ROOT/setup/setup_ssh.sh"
 source "$DOTFILES_ROOT/setup/setup_shell.sh"
 
-# when pulling from github for the first time, since there is no SSH yet
-# repo will be pulled with https. But now that we configure things
-# set git origin back to SSH if needed
-if git --git-dir "${DOTFILES_ROOT}/.git" remote get-url origin | grep https; then
-  git --git-dir "${DOTFILES_ROOT}/.git" remote set-url git@github.com:vitormv/dotfiles.git
-fi
-
 echo -e '\n\n✅ All done! Your system is ready to roll! 🔥 🔥 🔥'

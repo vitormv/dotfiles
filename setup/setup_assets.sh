@@ -20,7 +20,6 @@ setup_assets() {
 
   title_h2 "Ensure files exist"
 
-  ensure_file_exists "$HOME/.bashrc.local" verbose
   ensure_file_exists "$DOTFILES_SETTINGS_FILE" verbose
 }
 

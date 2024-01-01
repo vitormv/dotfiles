@@ -18,6 +18,10 @@ export HISTCONTROL=ignoreboth:erasedups # do not log consecutive repeated comman
 export BAT_THEME="monokai-dimmed"                              # default syntax-highlight theme for `bat` command
 export BAT_STYLE="grid,header,header-filename,header-filesize" # bat output style (hide line numbers)
 
+export LESSHISTFILE=- # disable "~/.lesshst" file creation
+
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,firefox/custom-profile/*}"'
+
 # ----------------------------------------------------
 # Homebrew
 

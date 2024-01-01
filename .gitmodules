@@ -1,0 +1,3 @@
+[submodule "vendor/fzf-tab"]
+	path = vendor/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab

@@ -23,5 +23,5 @@
     "bats"
   ],
   "editor.fontFamily": "'MesloLGM Nerd Font', Menlo, Monaco, 'Courier New', monospace",
-  "shellcheck.useWorkspaceRootAsCwd": true
+  "shellcheck.useWorkspaceRootAsCwd": true,
 }

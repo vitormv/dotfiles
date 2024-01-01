@@ -121,6 +121,9 @@ function setup_git() {
   git config --global alias.ghosted "!f() { git ls-files -v | grep \"^[[:lower:]]\"; }; f" # list ghosted files
   git config --global alias.unghost "update-index --no-assume-unchanged"
 
+  # make git always use ssh instead of https
+  git config --global url."git@github.com:".insteadOf "https://github.com/"
+
   status "Git aliases" OK
 }
 
