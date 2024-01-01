@@ -16,6 +16,7 @@ setup_homedir() {
   process_dotfile "$TARGET_DIR" ".config/kitty/kitty.conf" symlink
   process_dotfile "$TARGET_DIR" ".config/kitty/theme.conf" symlink
   process_dotfile "$TARGET_DIR" ".config/starship.toml" symlink
+  process_dotfile "$TARGET_DIR" ".config/nvim/init.lua" symlink
   process_dotfile "$TARGET_DIR" ".config/yazi/keymap.toml" symlink
   process_dotfile "$TARGET_DIR" ".config/yazi/theme.toml" symlink
   process_dotfile "$TARGET_DIR" ".config/yazi/ui-render.lua" symlink
