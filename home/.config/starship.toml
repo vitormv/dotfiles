@@ -2,6 +2,7 @@
 scan_timeout = 10
 
 format = '$custom$time$all'
+right_format = "${custom.is_private_label}"
 
 [battery]
 disabled = true
@@ -29,7 +30,7 @@ version_format = 'v${major}'
 [custom.is_bash]
 description = "Indicates when in BASH shell"
 command = "echo ''"
-shell = ['bash']
+shell = ["sh", "--norc"]                     # for fastest performance
 when = 'test "$STARSHIP_SHELL" = "bash"'
 format = '[ $output ](bg:purple black) '
 
@@ -37,11 +38,19 @@ format = '[ $output ](bg:purple black) '
 description = "Indicates when in FISH shell"
 command = 'echo "🐟"'
 when = 'test "$STARSHIP_SHELL" = "fish"'
-shell = ['bash']
+shell = ["sh", "--norc"]                     # for fastest performance
 format = '[ $output ](bg:blue black) '
 
-[custom.is_private]
+[custom.is_private_label]
 description = "Indicates when in ZSH is running without $HISTFILE"
-command = 'echo "PRIVATE"'
+command = 'echo "󰗹 PRIVATE"'
 when = '[ -n "$NOHISTFILE" ]'
+shell = ["sh", "--norc"]                                           # for fastest performance
+format = '[ $output ](bg:purple black) '
+
+[custom.is_private_indicator]
+description = "Indicates when in ZSH is running without $HISTFILE"
+command = 'echo "󰗹"'
+when = '[ -n "$NOHISTFILE" ]'
+shell = ["sh", "--norc"]                                           # for fastest performance
 format = '[ $output ](bg:purple black) '
