@@ -25,6 +25,11 @@ if ! sudo --validate -n &>/dev/null; then
   sudo -v --prompt="  $(cyan)◆$(clr) %p password: "
 fi
 
+# pull git submodules if needed
+if git submodule status | grep "^-"; then
+  git submodule update --init --depth 1
+fi
+
 # @todo add README.md file   https://github.com/aaronbates/dotfiles/blob/master/README.md
 
 source "$DOTFILES_ROOT/setup/setup_dependencies.sh"
