@@ -39,3 +39,9 @@ command = 'echo "🐟"'
 when = 'test "$STARSHIP_SHELL" = "fish"'
 shell = ['bash']
 format = '[ $output ](bg:blue black) '
+
+[custom.is_private]
+description = "Indicates when in ZSH is running without $HISTFILE"
+command = 'echo "PRIVATE"'
+when = '[ -n "$NOHISTFILE" ]'
+format = '[ $output ](bg:purple black) '

@@ -24,7 +24,7 @@ alias l.="exa -a | egrep '^\.'"                                                 
 alias clear='printf "\033c"'
 alias cls='clear'
 
-alias incognito="fish --private"
+alias incognito="NOHISTFILE=true zsh"
 
 alias bashrc='vim ~/.bashrc'
 alias zshrc="vim ~/.zshrc"

@@ -1,3 +1,9 @@
+# Disable history if NOHISTFILE is passed via environment variable
+if [ -n "$NOHISTFILE" ] && $NOHISTFILE; then
+  unset HISTFILE
+  echo "Disabling \$HISTFILE"
+fi
+
 # allow ZSH to use Bash completions (back-compatibility)
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
