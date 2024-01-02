@@ -56,8 +56,8 @@ function setup_git() {
   git config --global interactive.diffFilter "delta --color-only"
 
   # Set delta settings
-  git config --global delta.features "villsau"            # List options: bat --list-themes
-  git config --global delta.syntax-theme "monokai-dimmed" # List options: delta --show-syntax-themes
+  git config --global delta.features "mellow-barbet"      # List options: delta --show-themes
+  git config --global delta.syntax-theme "monokai-dimmed" # List options: bat --list-themes && delta --show-syntax-themes
   git config --global delta.line-numbers true
   git config --global delta.light false
   git config --global delta.side-by-side true
