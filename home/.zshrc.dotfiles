@@ -18,8 +18,10 @@ source ~/.zsh_completions # should be the last imported file
 # ----------------------------------------------------
 # ZSH Options
 
-setopt histignorespace # do not save commands that start with space
-setopt histignoredups  # do not save duplicated commands
+# its case insensitive and ignores "_" by default (@see https://zsh.sourceforge.io/Doc/Release/Options.html)
+setopt HIST_IGNORE_SPACE    # do not save commands that start with space
+setopt HIST_IGNORE_ALL_DUPS # Remove older command from the history if a duplicate is to be added
+setopt GLOB_DOTS            # # show hidden files in completion without a leading .
 
 # ----------------------------------------------------
 # Human Friendly Key Mappings

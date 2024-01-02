@@ -27,7 +27,7 @@ fi
 
 # pull git submodules if needed
 if git submodule status | grep "^-"; then
-  git submodule update --init --depth 1
+  git submodule update --init
 fi
 
 # @todo add README.md file   https://github.com/aaronbates/dotfiles/blob/master/README.md

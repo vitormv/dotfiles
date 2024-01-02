@@ -5,19 +5,21 @@ FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 # export FZF_DEFAULT_OPTS="--prompt='→ ' --pointer=\"◆\" --border=thinblock --padding=0,1 --margin=0,0,0,5"
-export FZF_DEFAULT_OPTS="--pointer=◆ --border=thinblock --padding=0,1 --margin=1,0,0,5"
+export FZF_DEFAULT_OPTS="--pointer=◆ --border=thinblock --info=right --preview-window=border-thinblock --padding=0,1 --margin=1,0,0,5"
 # export FZF_DEFAULT_OPTS=""
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} \
-  --color=fg:-1,bg:#0f0f0f,hl:#5f87af \
+  --color=dark,fg:-1,bg:#0f0f0f,gutter:#0f0f0f,hl:#5f87af \
   --color=fg+:#d0d0d0,bg+:#262626,hl+:#5f87af \
   --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff \
   --color=marker:#87ff00,spinner:#af5fff,header:#87afaf \
   --color=border:#707070,scrollbar:#5f87af \
+  --color=preview-bg:#202020 \
 "
 
-zstyle ':fzf-tab:*' fzf-flags $(echo "${FZF_DEFAULT_OPTS}")
+zstyle ':fzf-tab:*' fzf-flags --prompt="→ " $(echo "${FZF_DEFAULT_OPTS}")
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
-zstyle ':fzf-tab:*' fzf-pad 4 # default is 2, but add extra space to accomodate for "fzf --border"
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always $realpath'
+zstyle ':fzf-tab:*' fzf-pad '5' # default is 2, but add extra space to accomodate for "fzf --border"
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
