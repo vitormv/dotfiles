@@ -8,13 +8,14 @@ if ${DEBUG+"false"}; then
   DEBUG=
 fi
 
+# these are just common util functions that will be used by other scripts
+# this does not yet perform any changes in the system yet
 source "$DOTFILES_ROOT/setup/utils/strings.sh"
 source "$DOTFILES_ROOT/setup/utils/layout.sh"
 source "$DOTFILES_ROOT/setup/utils/filesystem.sh"
 source "$DOTFILES_ROOT/setup/utils/system.sh"
 
-echo ""
-echo "$(bgCyan)$(black) DOTFILES $(clr) ($(gray)root:$(clr) $(pretty_path "$DOTFILES_ROOT"))"
+echo -e "\n$(bgCyan)$(black) DOTFILES $(clr) ($(gray)root:$(clr) $(pretty_path "$DOTFILES_ROOT"))"
 
 echo -e "\n$(gray)Using settings from:$(clr) $(pretty_path "$DOTFILES_SETTINGS_FILE")"
 
@@ -23,8 +24,6 @@ if ! sudo --validate -n &>/dev/null; then
   echo -e "\nGet sudo permissions"
   sudo -v --prompt="  $(cyan)◆$(clr) %p password: "
 fi
-
-# ask early, we will be needing it
 
 # @todo add README.md file   https://github.com/aaronbates/dotfiles/blob/master/README.md
 
