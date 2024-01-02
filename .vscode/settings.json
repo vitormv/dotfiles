@@ -24,4 +24,7 @@
   ],
   "editor.fontFamily": "'MesloLGM Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "shellcheck.useWorkspaceRootAsCwd": true,
+  "search.exclude": {
+    "vendor/**/*": true
+  },
 }

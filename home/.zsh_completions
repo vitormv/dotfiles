@@ -1,13 +1,23 @@
-
 # add zsh-completions (for a lot of common packages, like git, node yarn, etc)
 FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
 # make autocomplete case-insensitive
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
-export FZF_DEFAULT_OPTS="--height=100% --prompt=\"◆\" --pointer=\"◆\" --layout=reverse --border --no-sort --prompt=\"~ \" --color=dark,hl:red:regular,fg+:white:regular,hl+:red:regular:reverse,query:white:regular,info:gray:regular,prompt:red:bold,pointer:red:bold"
+# export FZF_DEFAULT_OPTS="--prompt='→ ' --pointer=\"◆\" --border=thinblock --padding=0,1 --margin=0,0,0,5"
+export FZF_DEFAULT_OPTS="--pointer=◆ --border=thinblock --padding=0,1 --margin=0,0,0,5"
+# export FZF_DEFAULT_OPTS=""
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS//\"/\\\"} \
+  --color=fg:-1,bg:#0f0f0f,hl:#5f87af \
+  --color=fg+:#d0d0d0,bg+:#262626,hl+:#5f87af \
+  --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff \
+  --color=marker:#87ff00,spinner:#af5fff,header:#87afaf \
+  --color=border:#707070,scrollbar:#5f87af
+"
 
+zstyle ':fzf-tab:*' fzf-flags $(echo "${FZF_DEFAULT_OPT}")
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+zstyle ':fzf-tab:*' fzf-pad 4 # default is 2, but add extra space to accomodate for "fzf --border"
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -20,12 +30,8 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 # fnm completions
 eval "$(fnm env --use-on-cd)"
 
-# Highlight the current autocomplete option
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
 # Initialize the autocompletion
 autoload -Uz compinit && compinit -i
 
-source ~/dotfiles/vendor/fzf-tab/fzf-tab.plugin.zsh # has to be before syntax-highlighting
+source ~/dotfiles/vendor/fzf-tab/fzf-tab.plugin.zsh                                 # has to be before syntax-highlighting
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" # ZSH command green/red highlighting
