@@ -5,17 +5,17 @@ FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 # export FZF_DEFAULT_OPTS="--prompt='→ ' --pointer=\"◆\" --border=thinblock --padding=0,1 --margin=0,0,0,5"
-export FZF_DEFAULT_OPTS="--pointer=◆ --border=thinblock --padding=0,1 --margin=0,0,0,5"
+export FZF_DEFAULT_OPTS="--pointer=◆ --border=thinblock --padding=0,1 --margin=1,0,0,5"
 # export FZF_DEFAULT_OPTS=""
-export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS//\"/\\\"} \
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} \
   --color=fg:-1,bg:#0f0f0f,hl:#5f87af \
   --color=fg+:#d0d0d0,bg+:#262626,hl+:#5f87af \
   --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff \
   --color=marker:#87ff00,spinner:#af5fff,header:#87afaf \
-  --color=border:#707070,scrollbar:#5f87af
+  --color=border:#707070,scrollbar:#5f87af \
 "
 
-zstyle ':fzf-tab:*' fzf-flags $(echo "${FZF_DEFAULT_OPT}")
+zstyle ':fzf-tab:*' fzf-flags $(echo "${FZF_DEFAULT_OPTS}")
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zstyle ':fzf-tab:*' fzf-pad 4 # default is 2, but add extra space to accomodate for "fzf --border"
 
