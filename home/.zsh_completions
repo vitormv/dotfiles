@@ -4,7 +4,7 @@ FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 # make autocomplete case-insensitive
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
-export FZF_DEFAULT_OPTS="--exact --pointer=◆ --border=block --scrollbar=▌▐ --info=right --preview-window=border-rounded --padding=0,1 --margin=1,0,0,5"
+export FZF_DEFAULT_OPTS="--exact -i --pointer=◆ --border=block --scrollbar=▌▐ --info=right --preview-window=border-rounded --padding=0,1 --margin=1,0,0,5"
 # export FZF_DEFAULT_OPTS=""
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} \
   --color=dark,fg:-1,bg:#0f0f0f,gutter:#0f0f0f,hl:#ffd95a \

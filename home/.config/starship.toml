@@ -1,6 +1,7 @@
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
 
+# position custom commands individuall with "${custom.your_cmd}" brackets are necessary
 format = '$custom$time$all'
 right_format = "${custom.is_private_label}"
 
@@ -32,7 +33,7 @@ description = "Indicates when in BASH shell"
 command = "echo ''"
 shell = ["sh", "--norc"]                     # for fastest performance
 when = 'test "$STARSHIP_SHELL" = "bash"'
-format = '[ $output ](bg:purple black) '
+format = '[ $output ](bg:white black) '
 
 [custom.is_fish]
 description = "Indicates when in FISH shell"
@@ -44,13 +45,13 @@ format = '[ $output ](bg:blue black) '
 [custom.is_private_label]
 description = "Indicates when in ZSH is running without $HISTFILE"
 command = 'echo "󰗹 PRIVATE"'
-when = '[ -n "$NOHISTFILE" ]'
+when = '[ -n "$NOHISTFILE" ] && [ "$STARSHIP_SHELL" == "zsh" ]'
 shell = ["sh", "--norc"]                                           # for fastest performance
 format = '[ $output ](bg:purple black) '
 
 [custom.is_private_indicator]
 description = "Indicates when in ZSH is running without $HISTFILE"
 command = 'echo "󰗹"'
-when = '[ -n "$NOHISTFILE" ]'
+when = '[ -n "$NOHISTFILE" ] && [ "$STARSHIP_SHELL" == "zsh" ]'
 shell = ["sh", "--norc"]                                           # for fastest performance
 format = '[ $output ](bg:purple black) '
