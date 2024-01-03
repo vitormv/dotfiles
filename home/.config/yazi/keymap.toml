@@ -16,8 +16,6 @@ keymap = [
 
   { on = [ "<C-u>" ], exec = "arrow -50%",  desc = "Move cursor up half page" },
   { on = [ "<C-d>" ], exec = "arrow 50%",   desc = "Move cursor down half page" },
-  { on = [ "<C-b>" ], exec = "arrow -100%", desc = "Move cursor up one page" },
-  { on = [ "<C-f>" ], exec = "arrow 100%",  desc = "Move cursor down one page" },
 
   { on = [ "h" ], exec = [ "leave", "escape --visual --select" ], desc = "Go back to the parent directory" },
   { on = [ "l" ], exec = [ "enter", "escape --visual --select" ], desc = "Enter the child directory" },
@@ -63,7 +61,7 @@ keymap = [
   { on = [ ";" ],         exec = "shell",                                                desc = "Run a shell command" },
   { on = [ ":" ],         exec = "shell --block",                                        desc = "Run a shell command (block the UI until the command finishes)" },
   { on = [ "." ],         exec = "hidden toggle",                                        desc = "Toggle the visibility of hidden files" },
-  { on = [ "s" ],         exec = "search fd",                                            desc = "Search files by name using fd" },
+  { on = [ "<C-f>" ],     exec = "search fd",                                            desc = "Search files by name using fd" },
   { on = [ "S" ],         exec = "search rg",                                            desc = "Search files by content using ripgrep" },
   { on = [ "<C-s>" ],     exec = "search none",                                          desc = "Cancel the ongoing search" },
   { on = [ "z" ],         exec = "jump zoxide",                                          desc = "Jump to a directory using zoxide" },
