@@ -26,6 +26,7 @@ brew "mas"
 brew "monolith" # download websites
 brew "neovim"
 brew "ouch" # zip/unzip stuff easily
+brew "poppler" # preview pdf files (used by yazi)
 brew "pueue" # long running tasks queue
 brew "ripgrep" # better faster grep
 brew "serve"
