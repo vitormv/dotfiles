@@ -4,7 +4,7 @@ FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 # make autocomplete case-insensitive
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
-export FZF_DEFAULT_OPTS="--pointer=◆ --border=block --scrollbar=▌▐ --info=right --preview-window=border-rounded --padding=0,1 --margin=1,0,0,5"
+export FZF_DEFAULT_OPTS="--exact --pointer=◆ --border=block --scrollbar=▌▐ --info=right --preview-window=border-rounded --padding=0,1 --margin=1,0,0,5"
 # export FZF_DEFAULT_OPTS=""
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} \
   --color=dark,fg:-1,bg:#0f0f0f,gutter:#0f0f0f,hl:#ffd95a \
@@ -15,13 +15,22 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} \
   --color=preview-bg:#202020 \
 "
 
+# preview command used for single files
+single_file_preview='bat --wrap never --pager=never --color=always --line-range :30 --color=always $realpath'
+
 zstyle ':fzf-tab:*' fzf-flags --prompt="→ " $(echo "${FZF_DEFAULT_OPTS}")
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --icons --color=always $realpath'
-zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --all --tree --color=always --icons --only-dirs --level 1 --ignore-glob=".git" $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview $single_file_preview
+zstyle ':fzf-tab:complete:cat:*' fzf-preview $single_file_preview
+zstyle ':fzf-tab:complete:nvim:*' fzf-preview $single_file_preview
+zstyle ':fzf-tab:complete:vim:*' fzf-preview $single_file_preview
 zstyle ':fzf-tab:*' fzf-pad 5 # default is 2, but add extra space to accomodate for "fzf --border"
+
+zstyle ':fzf-tab:*' continuous-trigger '/' # @todo is there a way to remap to [shift|option]+enter ?
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
+
 # set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
 
