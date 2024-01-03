@@ -24,7 +24,8 @@ alias l.="exa --all | egrep '^\.'"                                              
 alias clear='printf "\033c"'
 alias cls='clear'
 
-alias incognito="NOHISTFILE=true zsh"
+# start a new zsh session without history, and give it a custom name
+alias incognito="NOHISTFILE=true bash -c 'exec -a zsh_private zsh'"
 
 alias bashrc='vim ~/.bashrc'
 alias zshrc="vim ~/.zshrc"
