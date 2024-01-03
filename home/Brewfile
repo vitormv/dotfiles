@@ -3,6 +3,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "lotyp/homebrew-formulae" # needed for dockutil
 
+brew "bandwhich" # network utilization tool (needs sudo)
 brew "bat" # cat with syntax highlighting
 brew "bottom" # top replacement, system dashboard
 brew "coreutils" # better core /usr/bin
@@ -25,6 +26,7 @@ brew "mas"
 brew "monolith" # download websites
 brew "neovim"
 brew "ouch" # zip/unzip stuff easily
+brew "pueue" # long running tasks queue
 brew "ripgrep" # better faster grep
 brew "serve"
 brew "shellcheck"
@@ -33,8 +35,9 @@ brew "starship"
 brew "tealdeer" # aint nobody got time for that
 brew "unar" # The Unarchiver for terminal, improves yazi
 brew "wget"
+brew "xplr" # TUI file manager user friendly
 brew "yarn"
-brew "yazi" # TUI File Manager
+brew "yazi" # TUI file manager with preview
 brew "youtube-dl"
 brew "yt-dlp"
 brew "zsh"
