@@ -2,7 +2,7 @@
 scan_timeout = 10
 
 # position custom commands individuall with "${custom.your_cmd}" brackets are necessary
-format = '$custom$time$all'
+format = '$custom$time$all${custom.git_ghost}$character'
 right_format = "${custom.is_private_label}"
 
 [battery]
@@ -55,3 +55,10 @@ command = 'echo "󰗹"'
 when = '[ -n "$NOHISTFILE" ] && [ "$STARSHIP_SHELL" == "zsh" ]'
 shell = ["sh", "--norc"]                                           # for fastest performance
 format = '[ $output ](bg:purple black) '
+
+[custom.git_ghost]
+description = "Indicates when a Git Repo contains in ZSH is running without $HISTFILE"
+command = 'echo "󱙝"'
+when = '[ -d .git ] && git ghosted >& /dev/null'
+shell = ["sh", "--norc"]                                           # for fastest performance
+format = '[ $output ](blue bold) '
