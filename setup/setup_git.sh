@@ -64,6 +64,15 @@ function setup_git() {
   git config --global delta.inline-hint-style "syntax"
   git config --global delta.minus-style "syntax \"#53171c\""
   git config --global delta.plus-style "syntax \"#3a412a\""
+  git config --global delta.file-style "yellow ul"
+  git config --global delta.file-decoration-style "none"
+  git config --global delta.file-added-label "[+]"
+  git config --global delta.file-copied-label "[COPIED]"
+  git config --global delta.file-modified-label "[*]"
+  git config --global delta.file-removed-label "[-]"
+  git config --global delta.file-renamed-label "[RENAMED]"
+  git config --global delta.hunk-header-decoration-style "\"#3e3e43\" ul"
+  git config --global delta.zero-style "dim syntax"
   git config --global include.path "~/.config/git-delta/themes.gitconfig"
 
   # Set merge settings

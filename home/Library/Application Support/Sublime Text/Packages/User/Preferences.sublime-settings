@@ -1,0 +1,10 @@
+{
+	"theme": "ayu-mirage.sublime-theme",
+	"index_files": false,
+	"color_scheme": "ayu-mirage.sublime-color-scheme",
+	"font_face": "MesloLGM Nerd Font",
+	"font_size": 14,
+	"line_padding_bottom": 2,
+  "line_padding_top": 2,
+  "highlight_line": true,
+}
