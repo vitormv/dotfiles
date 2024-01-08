@@ -225,5 +225,10 @@
         "internalConsoleOptions": "neverOpen"
       }
     ]
-  }
+  },
+  "svelte.enable-ts-plugin": true,
+  "search.exclude": {
+    "vendor/**/*": true,
+    ".yarn/": true,
+  },
 }
