@@ -1,0 +1,58 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+mainFunction() {
+  echo
+  printColors
+  printGuidelines
+}
+
+printColor() {
+  local color="${1}"
+
+  printf "\033[1;4%sm     " "${color}"
+  printf "\033[0m    "
+  printf "\033[1;3%smSampleText  " "${color}"
+  printf "\033[0;3%smSampleText  " "${color}"
+  printf "\033[0m\n"
+}
+
+printColors() {
+  local color
+  # 0 black
+  # 1 red
+  # 2 green
+  # 3 yellow
+  # 4 blue
+  # 5 magenta / orange
+  # 6 cyan / purple
+  # 7 white
+
+  for color in 0 7; do
+    printColor "${color}"
+  done
+  echo
+
+  for color in 4 5 6; do
+    printColor "${color}"
+  done
+  echo
+
+  for color in 2 3 1; do
+    printColor "${color}"
+  done
+  echo
+}
+
+printGuidelines() {
+  echo "A good palette has:"
+  echo "- All colors easy to read."
+  echo "- Similar eye catchiness within the same group, except for monochromes."
+  echo "- Similar or greater eye catchiness in upper groups, including this text."
+  echo "- Similar color within the same line."
+  echo "- The last group as: green yellow red."
+  echo
+}
+
+mainFunction
