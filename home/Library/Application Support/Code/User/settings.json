@@ -231,4 +231,12 @@
     "vendor/**/*": true,
     ".yarn/": true,
   },
+  "todo-tree.general.tags": ["@todo:", "TODO:"],
+  "todo-tree.general.tagGroups": {
+    "TODO": [
+      "TODO:",
+      "@todo:",
+      "TODO",
+    ]
+},
 }
