@@ -34,6 +34,7 @@ setup_homedir() {
   process_dotfile "$TARGET_DIR" "Library/Application Support/Code/User/keybindings.json" symlink
   process_dotfile "$TARGET_DIR" "Library/Application Support/Code/User/settings.json" symlink
   process_dotfile "$TARGET_DIR" "Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings" symlink
+  process_dotfile "$TARGET_DIR" "Library/KeyBindings/DefaultKeyBinding.dict" symlink
   process_dotfile "$TARGET_DIR" "Library/Preferences/org.videolan.vlc" symlink
 }
 
