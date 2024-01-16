@@ -1,6 +1,6 @@
 {
   "editor.fontSize": 14,
-  "editor.rulers": [{}, 80],
+  "editor.rulers": [{}, 100],
   "workbench.tree.indent": 18,
   "breadcrumbs.enabled": true,
   "editor.formatOnPaste": true,
@@ -238,6 +238,7 @@
   "todo-tree.general.tagGroups": {
     "TODO": [
       "@todo:",
+      "@todo",
       "TODO:",
       "TODO",
     ]
