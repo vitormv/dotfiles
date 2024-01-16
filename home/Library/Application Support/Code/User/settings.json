@@ -119,7 +119,6 @@
   "editor.suggestSelection": "first",
   "editor.bracketPairColorization.enabled": true,
   "telemetry.telemetryLevel": "error",
-
   "editor.fontFamily": "'Oxygen Mono', Menlo, Monaco, 'Courier New', monospace",
   "git.enableStatusBarSync": false,
   "editor.minimap.maxColumn": 80,
@@ -231,12 +230,17 @@
     "vendor/**/*": true,
     ".yarn/": true,
   },
-  "todo-tree.general.tags": ["@todo:", "TODO:"],
+  "todo-tree.general.tags": [
+    "@todo:",
+    "TODO:"
+  ],
   "todo-tree.general.tagGroups": {
     "TODO": [
-      "TODO:",
       "@todo:",
+      "TODO:",
       "TODO",
     ]
-},
+  },
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
 }
