@@ -232,6 +232,7 @@
   },
   "todo-tree.general.tags": [
     "@todo:",
+    "@todo",
     "TODO:"
   ],
   "todo-tree.general.tagGroups": {
