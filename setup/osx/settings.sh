@@ -6,6 +6,9 @@ defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false
 # Disable spotlight search icon (use cmd+space) in Menu bar
 defaults write com.apple.controlcenter "NSStatusItem Visible Item-0" -int 0
 
+# show battery percentage in menu bar
+defaults write com.apple.controlcenter BatteryShowPercentage -bool true
+
 # always show all extensions
 defaults write -g AppleShowAllExtensions -bool true
 
@@ -22,6 +25,10 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 # Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Change Terminal settings
+defaults write com.apple.Terminal "Default Window Settings" -string "Pro"
+defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
 
 # -- INPUT, KEYBOARD, TRACKPAD & MOUSE -----------------------------------------
 
