@@ -7,4 +7,8 @@
 	"line_padding_bottom": 2,
   "line_padding_top": 2,
   "highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage",
+	],
 }

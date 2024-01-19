@@ -6,6 +6,9 @@ defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false
 # Disable spotlight search icon (use cmd+space) in Menu bar
 defaults write com.apple.controlcenter "NSStatusItem Visible Item-0" -int 0
 
+# show battery percentage in menu bar
+defaults write com.apple.controlcenter BatteryShowPercentage -bool true
+
 # always show all extensions
 defaults write -g AppleShowAllExtensions -bool true
 
@@ -22,6 +25,10 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 # Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Change Terminal settings
+defaults write com.apple.Terminal "Default Window Settings" -string "Pro"
+defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
 
 # -- INPUT, KEYBOARD, TRACKPAD & MOUSE -----------------------------------------
 
@@ -108,7 +115,19 @@ defaults write com.apple.iCal "first day of week" -int 1
 # defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
 # # Show the full URL in the address bar (note: this still hides the scheme)
-# defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+
+# Enable the Develop menu and the Web Inspector in Safari
+defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+
+# defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+
+# Add a context menu item for showing the Web Inspector in web views
+# defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Prevent Safari from opening ‘safe’ files automatically after downloading
+# defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
 # -- TIME MACHINE --------------------------------------------------------------
 
