@@ -115,11 +115,11 @@ defaults write com.apple.iCal "first day of week" -int 1
 # defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
 # # Show the full URL in the address bar (note: this still hides the scheme)
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+#defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 # Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
+#defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true
+#defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
 # defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 
