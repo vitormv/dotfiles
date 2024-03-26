@@ -65,7 +65,7 @@ format = '[ $output ](blue bold) '
 
 [custom.git_wip]
 description = "Indicates when a Git Repo contains latest commit is WIP"
-command = 'echo "WIP"'
-when = '[ -d .git ] && git log -1 --pretty=%B | grep WIP >& /dev/null'
-shell = ["sh", "--norc"]                                                # for fastest performance
+command = 'echo "WIP  "'
+when = '[ -d .git ] && git log -1 --pretty=%B | rg --line-regexp "WIP" >& /dev/null'
+shell = ["sh", "--norc"]                                                             # for fastest performance
 format = '[ $output ](yellow bold) '
