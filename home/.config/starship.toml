@@ -2,7 +2,7 @@
 scan_timeout = 10
 
 # position custom commands individuall with "${custom.your_cmd}" brackets are necessary
-format = '$custom$time$all${custom.git_ghost}$character'
+format = '$custom$time$all${custom.git_ghost}${custom.git_wip}$character'
 right_format = "${custom.is_private_label}"
 
 [battery]
@@ -60,5 +60,12 @@ format = '[ $output ](bg:purple black) '
 description = "Indicates when a Git Repo contains in ZSH is running without $HISTFILE"
 command = 'echo "󱙝"'
 when = '[ -d .git ] && git ghosted >& /dev/null'
-shell = ["sh", "--norc"]                                           # for fastest performance
+shell = ["sh", "--norc"]                                                               # for fastest performance
 format = '[ $output ](blue bold) '
+
+[custom.git_wip]
+description = "Indicates when a Git Repo contains latest commit is WIP"
+command = 'echo "WIP"'
+when = '[ -d .git ] && git log -1 --pretty=%B | grep WIP >& /dev/null'
+shell = ["sh", "--norc"]                                                # for fastest performance
+format = '[ $output ](yellow bold) '

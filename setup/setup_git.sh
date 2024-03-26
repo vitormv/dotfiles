@@ -124,7 +124,7 @@ function setup_git() {
   git config --global alias.st "status"
   git config --global alias.stale "for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
   git config --global alias.undo "reset --soft HEAD^"
-  git config --global alias.wip "git commit --no-verify -m \"WIP\""
+  git config --global alias.wip "! git add . && git commit --no-verify -m \"WIP\""
 
   # alias: temporarily ignore changes to files (avoid commiting changes by mistake)
   git config --global alias.ghost "update-index --assume-unchanged"
