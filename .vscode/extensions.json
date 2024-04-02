@@ -3,6 +3,7 @@
     "mads-hartmann.bash-ide-vscode",
     "timonwong.shellcheck",
     "foxundermoon.shell-format",
-    "bmalehorn.vscode-fish"
+    "bmalehorn.vscode-fish",
+    "tamasfe.even-better-toml"
   ]
 }

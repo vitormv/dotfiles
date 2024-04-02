@@ -197,8 +197,8 @@
   "workbench.iconTheme": "material-icon-theme",
   "gitlens.hovers.currentLine.over": "line",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "typescript.preferences.useAliasesForRenames": false,
-  "javascript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.useAliasesForRenames": true,
+  "javascript.preferences.useAliasesForRenames": true,
   "terminal.explorerKind": "external",
   "[properties]": {
     "editor.formatOnSave": false,
