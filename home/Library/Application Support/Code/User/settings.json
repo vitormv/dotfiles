@@ -246,6 +246,9 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "todo-tree.filtering.ignoreGitSubmodules": true,
   "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
 }

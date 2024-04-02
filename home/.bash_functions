@@ -5,7 +5,22 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # use fd to search only in mounted Volumes
 function fdm() {
-  fd -E "/Volumes/Macintosh HD" "$1" /Volumes --exec-batch exa -al --color=always --group-directories-first --icons --no-permissions --no-user --time-style=long-iso
+  if [ $# -eq 0 ]; then
+    echo "Error: At least one search pattern is required." >&2
+    return 1
+  fi
+
+  local search_pattern="$1"
+  shift
+
+  local and_patterns=()
+  if [ -n "$*" ]; then
+    for pattern in "$@"; do
+      and_patterns+=("--and" "$pattern")
+    done
+  fi
+
+  fd -E "/Volumes/Macintosh HD" "$search_pattern" "${and_patterns[@]}" /Volumes --exec-batch exa -al --color=always --group-directories-first --icons --no-permissions --no-user --time-style=long-iso
 }
 
 function perf() {
@@ -38,7 +53,7 @@ function erase() {
 }
 
 function backtick-remap() {
-  if [ "$1" = "on" ] || [ "$1" = "true" ] || [ "$1" = "1" ] || [ "$1" = "yes" ]; then
+  if is_truthy "$1"; then
     hidutil property --matching '{"ProductID":0x0340}' --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064},{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}'
   else
     hidutil property --set '{"UserKeyMapping":[]}'
