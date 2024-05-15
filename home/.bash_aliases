@@ -15,11 +15,11 @@ alias nvm="fnm"
 
 # -- SHELL ---------------------------------------------------------------------
 
-alias ls='exa --long --color=always --group-directories-first --icons'                            # long format
-alias ll='exa --long --all --color=always --group-directories-first --icons'                      # preferred listing
-alias la='exa --all --color=always --group-directories-first --icons'                             # all files and dirs
-alias lt='exa --tree --all --ignore-glob=".git" --color=always --group-directories-first --icons' # tree listing
-alias l.="exa --all | egrep '^\.'"                                                                # show only dotfiles
+alias ls='eza --long --color=always --group-directories-first --icons'                            # long format
+alias ll='eza --long --all --color=always --group-directories-first --icons'                      # preferred listing
+alias la='eza --all --color=always --group-directories-first --icons'                             # all files and dirs
+alias lt='eza --tree --all --ignore-glob=".git" --color=always --group-directories-first --icons' # tree listing
+alias l.="eza --all | egrep '^\.'"                                                                # show only dotfiles
 
 # like the original "/usr/bin/clear", but it actually removes things instead of just scrolling
 alias clear='printf "\033c"'

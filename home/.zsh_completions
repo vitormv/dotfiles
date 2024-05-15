@@ -19,7 +19,7 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} \
 single_file_preview='bat --wrap never --pager=never --color=always --line-range :30 --color=always $realpath'
 
 zstyle ':fzf-tab:*' fzf-flags --prompt="→ " $(echo "${FZF_DEFAULT_OPTS}")
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --all --tree --color=always --icons --only-dirs --level 1 --ignore-glob=".git" $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --all --tree --color=always --icons --only-dirs --level 1 --ignore-glob=".git" $realpath'
 zstyle ':fzf-tab:complete:bat:*' fzf-preview $single_file_preview
 zstyle ':fzf-tab:complete:cat:*' fzf-preview $single_file_preview
 zstyle ':fzf-tab:complete:nvim:*' fzf-preview $single_file_preview

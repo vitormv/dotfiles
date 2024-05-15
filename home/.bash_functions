@@ -20,7 +20,7 @@ function fdm() {
     done
   fi
 
-  fd -E "/Volumes/Macintosh HD" "$search_pattern" "${and_patterns[@]}" /Volumes --exec-batch exa -al --color=always --group-directories-first --icons --no-permissions --no-user --time-style=long-iso
+  fd -E "/Volumes/Macintosh HD" "$search_pattern" "${and_patterns[@]}" /Volumes --exec-batch eza -al --color=always --group-directories-first --icons --no-permissions --no-user --time-style=long-iso
 }
 
 function perf() {

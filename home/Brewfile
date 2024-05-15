@@ -1,6 +1,5 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "lotyp/homebrew-formulae" # needed for dockutil
 
 brew "bandwhich" # network utilization tool (needs sudo)
@@ -11,7 +10,7 @@ brew "diskonaut" # disk/folder space utilization
 brew "duf"
 brew "dust"
 brew "duti" # set default OSX apps
-brew "exa" # better ls
+brew "eza" # better ls
 brew "fd" # find things easily
 brew "ffmpeg"
 brew "fish"
