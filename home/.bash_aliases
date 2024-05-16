@@ -13,6 +13,7 @@ alias pn="pnpm"
 alias vim="nvim"
 alias top="btm"
 alias nvm="fnm"
+alias grep='rg --color=auto'
 
 # -- SHELL ---------------------------------------------------------------------
 
@@ -32,8 +33,6 @@ alias incognito="NOHISTFILE=true bash -c 'exec -a zsh_private zsh'"
 alias bashrc='vim ~/.bashrc'
 alias zshrc="vim ~/.zshrc"
 alias reload="source ~/.bashrc && echo 'Sourced ~/.bashrc'"
-
-alias grep='rg --color=auto'
 
 # -- TORRENTBOX ----------------------------------------------------------------
 
