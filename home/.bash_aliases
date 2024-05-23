@@ -58,3 +58,6 @@ alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # start screen saver
 alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
+
+# adminer
+alias adminer="php -S localhost:9999 -c ~/projects/adminer/php.ini -t ~/projects/adminer"
