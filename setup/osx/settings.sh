@@ -1,13 +1,19 @@
 # -- SYSTEM --------------------------------------------------------------------
 
-# no siri in menubar
+# menubar: no siri
 defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false
 
-# Disable spotlight search icon (use cmd+space) in Menu bar
+# menubar: smaller spacing between items
+defaults -currentHost read -globalDomain NSStatusItemSpacing 8
+
+# menubar: Disable spotlight search icon (use cmd+space)
 defaults write com.apple.controlcenter "NSStatusItem Visible Item-0" -int 0
 
-# show battery percentage in menu bar
+# menubar: show battery percentage
 defaults write com.apple.controlcenter BatteryShowPercentage -bool true
+
+# menubar: Disable language / flag input menu
+defaults write com.apple.TextInputMenu visible -bool false
 
 # always show all extensions
 defaults write -g AppleShowAllExtensions -bool true
@@ -46,9 +52,6 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-
-# Disable language / flag input menu in menu bar
-defaults write com.apple.TextInputMenu visible -bool false
 
 # Mouse speed
 defaults write -g com.apple.mouse.scaling 1.5
