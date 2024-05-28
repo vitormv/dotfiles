@@ -30,9 +30,12 @@ alias cls='clear'
 # start a new zsh session without history, and give it a custom name
 alias incognito="NOHISTFILE=true bash -c 'exec -a zsh_private zsh'"
 
+# -- CONFIGS -------------------------------------------------------------------
+
 alias bashrc='vim ~/.bashrc'
 alias zshrc="vim ~/.zshrc"
 alias reload="source ~/.bashrc && echo 'Sourced ~/.bashrc'"
+alias gitignore="vim ~/.config/git/gitignore"
 
 # -- TORRENTBOX ----------------------------------------------------------------
 
