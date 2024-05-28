@@ -222,6 +222,17 @@
         "console": "integratedTerminal",
         "protocol": "inspector",
         "internalConsoleOptions": "neverOpen"
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "vitest-debug-current-file",
+        "autoAttachChildProcesses": true,
+        "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+        "program": "${workspaceRoot}/node_modules/vitest/vitest.mjs",
+        "args": ["run", "${relativeFile}"],
+        "smartStep": true,
+        "console": "integratedTerminal"
       }
     ]
   },
@@ -251,4 +262,5 @@
   },
   "todo-tree.filtering.ignoreGitSubmodules": true,
   "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
+  "github.copilot.editor.enableAutoCompletions": true,
 }
