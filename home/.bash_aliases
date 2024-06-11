@@ -7,6 +7,7 @@ alias ippublic='echo $(curl -sS -4 ifconfig.me)'
 alias weather="curl https://wttr.in/"
 alias dufs="duf /Volumes/*"
 alias yarnis="yarn install && yarn start"
+alias finder="open -a Finder ."
 alias pn="pnpm"
 
 # old habits die hard :)
