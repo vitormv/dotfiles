@@ -47,7 +47,7 @@ brew "zsh-syntax-highlighting"
 
 cask "choosy"
 cask "docker"
-cask "firefox", args: { 'no-quarantine': true }
+cask "firefox"
 # cask "firefox-developer-edition"
 cask "font-lato"
 cask "font-lora"
@@ -58,20 +58,20 @@ cask "font-raleway"
 cask "font-source-sans-3"
 cask "font-source-serif-4"
 cask "font-symbols-only-nerd-font" # needed by yazi
-cask "google-chrome" , args: { 'no-quarantine': true }
+cask "google-chrome"
 cask "insomnia"
-cask "iterm2"
+cask "iterm2", args: { 'no_quarantine': true }
 cask "kap"
-cask "kitty"
+cask "kitty", args: { 'no_quarantine': true }
 cask "numi"
-cask "qlmarkdown", args: { 'no-quarantine': true }
+cask "qlmarkdown", args: { 'no_quarantine': true }
 cask "quicklook-json"
 cask "slack"
 cask "spotify"
-cask "stats", args: { 'no-quarantine': true }
-cask "sublime-text"
-cask "visual-studio-code" , args: { 'no-quarantine': true }
-cask "vlc", args: { 'no-quarantine': true }
+cask "stats"
+cask "sublime-text", args: { 'no_quarantine': true }
+cask "visual-studio-code" , args: { 'no_quarantine': true }
+cask "vlc"
 cask "whatsapp"
 
 mas "1Password for Safari", id: 1569813296

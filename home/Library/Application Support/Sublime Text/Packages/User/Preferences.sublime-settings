@@ -1,14 +1,22 @@
 {
-	"theme": "ayu-mirage.sublime-theme",
-	"index_files": false,
-	"color_scheme": "ayu-mirage.sublime-color-scheme",
-	"font_face": "MesloLGM Nerd Font",
-	"font_size": 14,
-	"line_padding_bottom": 2,
+  "theme": "ayu-mirage.sublime-theme",
+  "color_scheme": "ayu-mirage.sublime-color-scheme",
+  "index_files": false,
+  "font_face": "MesloLGM Nerd Font",
+  "font_size": 14,
+  "line_padding_bottom": 2,
   "line_padding_top": 2,
+  "caret_extra_bottom": 0,
+  "caret_extra_top": 3,
+  "caret_style": "smooth",
+  "enable_telemetry": false,
   "highlight_line": true,
-	"ignored_packages":
-	[
-		"Vintage",
-	],
+  "highlight_modified_tabs": true,
+  "highlight_line": true,
+  "___translate_tabs_to_spaces": true,
+  "rulers": [80, 100],
+  "ignored_packages":
+  [
+    "Vintage",
+  ]
 }
