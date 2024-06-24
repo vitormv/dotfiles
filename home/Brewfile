@@ -10,7 +10,7 @@ brew "diskonaut" # disk/folder space utilization
 brew "duf"
 brew "dust"
 brew "duti" # set default OSX apps
-brew "eza" # better ls
+brew "eza" # better ls (fork of exa, which is unmaintained)
 brew "fd" # find things easily
 brew "ffmpeg"
 brew "fish"
@@ -100,8 +100,9 @@ vscode "mechatroner.rainbow-csv"
 vscode "mrmlnc.vscode-scss"
 # vscode "MylesMurphy.prettify-ts" # disabling because of performance issues
 vscode "PKief.material-icon-theme"
-vscode "syler.sass-indented"
+vscode "redhat.vscode-xml" # xml support & auto formatter
 vscode "streetsidesoftware.code-spell-checker"
+vscode "syler.sass-indented"
 vscode "timonwong.shellcheck"
 vscode "tomoki1207.pdf"
 vscode "yoavbls.pretty-ts-errors"
