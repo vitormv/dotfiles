@@ -36,6 +36,9 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 defaults write com.apple.Terminal "Default Window Settings" -string "Pro"
 defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
 
+# screenshot location
+defaults write com.apple.screencapture location ~/Downloads/screenshots
+
 # -- INPUT, KEYBOARD, TRACKPAD & MOUSE -----------------------------------------
 
 # Disable press-and-hold for keys in favor of key repeat
