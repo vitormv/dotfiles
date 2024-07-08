@@ -14,7 +14,9 @@
   "highlight_modified_tabs": true,
   "highlight_line": true,
   "___translate_tabs_to_spaces": true,
+  "show_encoding": true,
   "rulers": [80, 100],
+  "show_line_endings": true,
   "ignored_packages":
   [
     "Vintage",
