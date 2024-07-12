@@ -10,6 +10,7 @@ function clr() { printf "\e[0m"; }
 
 # Iterate over all arguments
 for arg in "$@"; do
+  echo $arg
   if [ "$arg" == "-m" ]; then
     has_message_flag=1
     break # Exit loop after finding the message
