@@ -103,7 +103,7 @@ function setup_git() {
   git config --global alias.br "branch"
   git config --global alias.cleanup-branches "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
   git config --global alias.caam "commit --all --amend --no-edit"
-  git config --global alias.ci '!f() { ~/dotfiles/bin/git-commit.sh; }; f'
+  git config --global alias.ci "!f() { bash \"$DOTFILES_ROOT/bin/git-commit.sh\" \"\$@\"; }; f"
   git config --global alias.cin "commit --no-verify"
   git config --global alias.co "checkout"
   git config --global alias.continue "rebase --continue"

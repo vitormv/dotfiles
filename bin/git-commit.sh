@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 IFS=$'\n\t'
 
+# This script is a wrapper around `git commit` that prompts the user for a
+# commit message if one is not provided as an argument. It also automatically
+# prepends the Jira ticket number to the commit message if the branch name
+# starts with a Jira ticket number.
+
 # Initialize variables
 has_message_flag=0
 
@@ -10,7 +15,6 @@ function clr() { printf "\e[0m"; }
 
 # Iterate over all arguments
 for arg in "$@"; do
-  echo $arg
   if [ "$arg" == "-m" ]; then
     has_message_flag=1
     break # Exit loop after finding the message
