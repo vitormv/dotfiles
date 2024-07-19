@@ -8,6 +8,7 @@ IFS=$'\n\t'
 
 # Initialize variables
 has_message_flag=0
+has_any_flag=0
 
 function cyan() { printf "\e[36m"; }
 function gray() { printf "\e[38;5;242m"; }
@@ -17,7 +18,10 @@ function clr() { printf "\e[0m"; }
 for arg in "$@"; do
   if [ "$arg" == "-m" ]; then
     has_message_flag=1
+    has_any_flag=1
     break # Exit loop after finding the message
+  elif [[ "$arg" == "-"* ]]; then
+    has_any_flag=1
   fi
 done
 
@@ -30,10 +34,23 @@ else
 
   if [[ $branch_name =~ ^([A-Z]+-[0-9]{2,5})\- ]]; then
     jira_ticket="${BASH_REMATCH[1]}"
-    read -e -p "$message" -i "$jira_ticket: " commit_msg
+    msg_prefix="$jira_ticket: "
+
+    # if we dont have ANY flag argument, use all arguments as commit message
+    if [[ "$has_any_flag" == "0" ]]; then
+      all_args=("$@")
+      input="${all_args[@]}"
+      commit_msg="${msg_prefix}${input}" # concatenate all args as string
+      git commit -m "$commit_msg"
+    else
+      # prompt user for message and prefx with jira ticket
+      read -e -p "$message" -i "$msg_prefix" commit_msg
+      echo # Add a newline after the prompt
+      git commit "$@" -m "$commit_msg"
+    fi
   else
     read -e -p "$message" commit_msg
+    echo # Add a newline after the prompt
+    git commit "$@" -m "$commit_msg"
   fi
-
-  git commit "$@" -m "$commit_msg"
 fi
