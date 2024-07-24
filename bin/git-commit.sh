@@ -9,6 +9,13 @@ IFS=$'\n\t'
 # Initialize variables
 has_message_flag=0
 has_any_flag=0
+no_verify_flag=""
+
+# Check for "-n" as the first argument
+if [[ "$1" == "-n" ]]; then
+  no_verify_flag="-n"
+  shift # Remove "-n" from the arguments list
+fi
 
 function cyan() { printf "\e[36m"; }
 function gray() { printf "\e[38;5;242m"; }
@@ -27,30 +34,30 @@ done
 
 # Proceed based on whether a commit message was provided
 if [[ "$has_message_flag" == "1" ]]; then
-  git commit "$@" # Pass all arguments to git commit
+  git commit no_verify_flag "$@" # Pass all arguments to git commit
 else
   branch_name=$(git symbolic-ref --short HEAD)
   message="    $(cyan)◆$(clr) $(gray)Commit message:$(clr) "
 
-  if [[ $branch_name =~ ^([A-Z]+-[0-9]{2,5})\- ]]; then
-    jira_ticket="${BASH_REMATCH[1]}"
-    msg_prefix="$jira_ticket: "
+  msg_prefix=""
 
-    # if we dont have ANY flag argument, use all arguments as commit message
-    if [[ "$has_any_flag" == "0" ]]; then
-      all_args=("$@")
-      input="${all_args[@]}"
-      commit_msg="${msg_prefix}${input}" # concatenate all args as string
-      git commit -m "$commit_msg"
-    else
-      # prompt user for message and prefx with jira ticket
-      read -e -p "$message" -i "$msg_prefix" commit_msg
-      echo # Add a newline after the prompt
-      git commit "$@" -m "$commit_msg"
-    fi
+  # if branch name starts with a Jira ticket number, use it as prefix
+  if [[ $branch_name =~ ^([A-Z]+-[0-9]{2,5})\- ]]; then
+    msg_prefix="${BASH_REMATCH[1]}: "
+  fi
+
+  # if we dont have ANY flag argument, use all arguments as commit message
+  if [[ "$has_any_flag" == "0" ]]; then
+    all_args=("$@")
+    input="${all_args[@]}"
+    commit_msg="${msg_prefix}${input}" # concatenate all args as string
+
+    git commit $no_verify_flag -m "$commit_msg"
   else
-    read -e -p "$message" commit_msg
+    # prompt user for message and prefx with jira ticket
+    read -e -p "$message" -i "$msg_prefix" commit_msg
     echo # Add a newline after the prompt
-    git commit "$@" -m "$commit_msg"
+
+    git commit $no_verify_flag "$@" -m "$commit_msg"
   fi
 fi

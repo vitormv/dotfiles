@@ -124,6 +124,7 @@ function setup_git() {
   git config --global alias.pushfn "push -u --force --no-verify"
   git config --global alias.pushf "push -u --force"
   git config --global alias.pushn "push -u --no-verify"
+  git config --global alias.sprout "!f() { bash \"$DOTFILES_ROOT/bin/git-sprout.sh\" \"\$@\"; }; f"
   git config --global alias.st "status"
   git config --global alias.stale "for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
   git config --global alias.undo "reset --soft HEAD^"
