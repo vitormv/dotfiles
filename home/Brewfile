@@ -7,7 +7,7 @@ brew "bat" # cat with syntax highlighting
 brew "bottom" # top replacement, system dashboard
 brew "coreutils" # better core /usr/bin
 brew "diskonaut" # disk/folder space utilization
-brew "duf"
+brew "duf" # disk free space / usage
 brew "dust"
 brew "duti" # set default OSX apps
 brew "eza" # better ls
@@ -31,6 +31,7 @@ brew "ripgrep" # better faster grep
 brew "serve"
 brew "shellcheck"
 brew "speedtest-cli"
+brew "sponge" # like, tee but for allowing read/write same file in same line
 brew "starship"
 brew "tealdeer" # aint nobody got time for that
 brew "unar" # The Unarchiver for terminal, improves yazi

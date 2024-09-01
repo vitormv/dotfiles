@@ -12,11 +12,10 @@
   "enable_telemetry": false,
   "highlight_line": true,
   "highlight_modified_tabs": true,
-  "highlight_line": true,
   "___translate_tabs_to_spaces": true,
   "rulers": [80, 100],
   "ignored_packages":
   [
     "Vintage",
-  ]
+  ],
 }
