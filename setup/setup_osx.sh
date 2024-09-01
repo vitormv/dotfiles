@@ -8,10 +8,10 @@ IFS=$'\n\t'
 
 # Here is a rough cheatsheet for syntax.
 #   Key Modifiers
-#   ^ : Ctrl
-#   $ : Shift
-#   ~ : Option (Alt)
-#   @ : Command (Apple)
+#   $ : (⇧) Shift
+#   ^ : (⌃) Ctrl
+#   ~ : (⌥) Option (Alt)
+#   @ : (⌘) Command (Apple)
 #   # : Numeric Keypad
 #
 # Non-Printable Key Codes
@@ -33,12 +33,6 @@ IFS=$'\n\t'
 #   delete:       \U007F
 #
 # For a good reference see http://osxnotes.net/keybindings.html.
-
-# ASCII icons for Mac keyboards
-# ⌘ Command (or Cmd)
-# ⇧ Shift
-# ⌥ Option (or Alt)
-# ⌃ Control (or Ctrl)
 
 function setup_osx() {
   title_h1 "macOS Setup"

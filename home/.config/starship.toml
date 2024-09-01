@@ -3,7 +3,7 @@ scan_timeout = 10
 
 # position custom commands individuall with "${custom.your_cmd}" brackets are necessary
 format = '$custom$time$all${custom.git_ghost}${custom.git_wip}$character'
-right_format = "${custom.is_private_label}"
+right_format = "${custom.is_private_label_right}"
 
 [battery]
 disabled = true
@@ -48,14 +48,14 @@ when = 'test "$STARSHIP_SHELL" = "fish"'
 shell = ["sh", "--norc"]                     # for fastest performance
 format = '[ $output ](bg:blue black) '
 
-[custom.is_private_label]
+[custom.is_private_label_right]
 description = "Indicates when in ZSH is running without $HISTFILE"
 command = 'echo "󰗹 PRIVATE"'
 when = '[ -n "$NOHISTFILE" ] && [ "$STARSHIP_SHELL" == "zsh" ]'
 shell = ["sh", "--norc"]                                           # for fastest performance
 format = '[ $output ](bg:purple black) '
 
-[custom.is_private_indicator]
+[custom.is_private_icon]
 description = "Indicates when in ZSH is running without $HISTFILE"
 command = 'echo "󰗹"'
 when = '[ -n "$NOHISTFILE" ] && [ "$STARSHIP_SHELL" == "zsh" ]'

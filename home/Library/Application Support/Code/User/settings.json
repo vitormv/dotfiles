@@ -223,7 +223,6 @@
         "args": ["test", "--runInBand"],
         "cwd": "${workspaceFolder}",
         "console": "integratedTerminal",
-        "protocol": "inspector",
         "internalConsoleOptions": "neverOpen"
       },
       {
@@ -242,21 +241,22 @@
   "svelte.enable-ts-plugin": true,
   "search.exclude": {
     "vendor/**/*": true,
-    ".yarn/": true,
+    ".yarn/": true
   },
-  "todo-tree.general.tags": [
-    "@todo:",
-    "@todo",
-    "TODO:"
-  ],
+  "todo-tree.highlights.defaultHighlight": {
+    "type": "tag-and-subTag"
+  },
+  "todo-tree.general.tags": ["@todo:", "@todo", "TODO:"],
   "todo-tree.general.tagGroups": {
-    "TODO": [
-      "@todo:",
-      "@todo",
-      "TODO:",
-      "TODO",
-    ]
+    "TODO": ["@todo:", "@todo", "TODO:", "TODO"]
   },
+  "todo-tree.highlights.customHighlight": {
+    "vitor": {
+      "background": "#c6eeff",
+      "foreground": "#000000"
+    }
+  },
+  "todo-tree.regex.subTagRegex": "^\\s*\\((.*)\\)",
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
@@ -265,5 +265,6 @@
   },
   "todo-tree.filtering.ignoreGitSubmodules": true,
   "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "githubPullRequests.terminalLinksHandler": "github"
 }

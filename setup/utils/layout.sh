@@ -4,57 +4,20 @@ IFS=$'\n\t'
 
 source "$DOTFILES_ROOT/setup/utils/strings.sh"
 
-function black() {
-  printf "\e[30m"
-}
+function bgCyan() { printf "\e[46m"; }
 
-function red() {
-  printf "\e[31m"
-}
-
-function green() {
-  printf "\e[32m"
-}
-
-function yellow() {
-  printf "\e[33m"
-}
-
-function blue() {
-  printf "\e[34m"
-}
-
-function magenta() {
-  printf "\e[35m"
-}
-
-function cyan() {
-  printf "\e[36m"
-}
-
-function white() {
-  printf "\e[37m"
-}
-
-function gray() {
-  printf "\e[38;5;242m"
-}
-
-function grey() {
-  gray
-}
-
-function bold() {
-  printf "\e[1m"
-}
-
-function clr() {
-  printf "\e[0m"
-}
-
-function bgCyan() {
-  printf "\e[46m"
-}
+function black() { printf "\e[30m"; }
+function blue() { printf "\e[34m"; }
+function bold() { printf "\e[1m"; }
+function clr() { printf "\e[0m"; }
+function cyan() { printf "\e[36m"; }
+function gray() { printf "\e[38;5;242m"; }
+function green() { printf "\e[32m"; }
+function grey() { gray; }
+function magenta() { printf "\e[35m"; }
+function red() { printf "\e[31m"; }
+function white() { printf "\e[37m"; }
+function yellow() { printf "\e[33m"; }
 
 pad_start() {
   local string="$1"
