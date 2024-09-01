@@ -107,6 +107,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
   },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
   "eslint.format.enable": true,
   "prettier.requireConfig": true,
   "explorer.compactFolders": false,
@@ -262,5 +265,5 @@
   },
   "todo-tree.filtering.ignoreGitSubmodules": true,
   "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
-  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.editor.enableAutoCompletions": true
 }
