@@ -16,6 +16,10 @@ alias top="btm"
 alias nvm="fnm"
 alias grep='rg --color=auto'
 
+# autocorrect
+alias kgit="git"
+alias gti="git"
+
 # -- SHELL ---------------------------------------------------------------------
 
 alias ls='eza --long --color=always --group-directories-first --icons'                            # long format

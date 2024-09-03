@@ -25,11 +25,10 @@ if [ -z "$ticket_id" ]; then
 fi
 
 message="    $(cyan)◆$(clr) $(gray)Enter branch name:$(clr) "
-branch_suffix=""
+branch_name=""
 
 # Prompt the user for a branch name, prefilling with ticket ID
-read -e -p "$message" -i "${ticket_id}-" branch_suffix
-branch_name="${ticket_id}-${branch_suffix}"
+read -e -p "$message" -i "${ticket_id}-" branch_name
 
 # Create the new branch
 git checkout -b "$branch_name"
