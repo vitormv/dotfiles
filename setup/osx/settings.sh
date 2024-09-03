@@ -4,7 +4,7 @@
 defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false
 
 # menubar: smaller spacing between items
-defaults -currentHost read -globalDomain NSStatusItemSpacing 8
+defaults -currentHost write -globalDomain NSStatusItemSpacing 8
 
 # menubar: Disable spotlight search icon (use cmd+space)
 defaults write com.apple.controlcenter "NSStatusItem Visible Item-0" -int 0

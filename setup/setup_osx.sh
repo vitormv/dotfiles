@@ -103,6 +103,64 @@ function setup_osx() {
     duti $([[ -n "$DEBUG" ]] && echo -n "-v") "$DOTFILES_ROOT/setup/osx/default_apps.duti"
 
     status "Default \"Open With\" applications" OK
+
+    title_h2 "Sublime Text"
+
+    local MAX_WAIT=30 # Maximum number of seconds to wait
+    local waited=0
+    local sublime_dir="$HOME/Library/Application Support/Sublime Text"
+    local sublime_packages_dir="$HOME/Library/Application Support/Sublime Text/Installed Packages"
+    local package_control_settings="${sublime_dir}/Packages/User/Package Control.sublime-settings"
+
+    # check if we need to create sublime config dirs
+    if ! [[ -d "$sublime_packages_dir" ]]; then
+      inform_tag "Sublime Text settings directory" yellow "MISSING"
+
+      # Open Sublime Text to create necessary folders
+      subl .
+
+      until [[ -d "$sublime_packages_dir" ]] || [[ $waited -ge $MAX_WAIT ]]; do
+        echo "Waiting for Sublime Text to initialize..."
+        sleep 1
+        ((waited++))
+      done
+
+      if [[ -d "$sublime_packages_dir" ]]; then
+        sleep 2
+        status "Sublime Settings directory created" OK
+      else
+        status "Sublime Text did not initialize within $MAX_WAIT seconds." FAIL
+        exit 1
+      fi
+
+      # Quit Sublime after folder are created
+      # osascript -e 'quit app "Sublime Text"'
+
+      echo -r "Please COMPLETELY QUIT Sublime Text manually."
+      echo -e -n "    Press ENTER to continue... "
+      read # Wait for user to press enter.
+    else
+      inform_tag "Sublime Text settings directory" yellow "already exists"
+    fi
+
+    # install package control if not already installed
+    if ! [ -f "${sublime_dir}/Installed Packages/Package Control.sublime-package" ]; then
+      wget -P "${sublime_dir}/Installed Packages" --quiet https://packagecontrol.io/Package%20Control.sublime-package
+      status "Package Control installed" OK
+    fi
+
+    # init "Package Control.sublime-settings" json if it doesnt exist or if file is empty
+    if ! [ -f "$package_control_settings" ] || [ ! -s "$package_control_settings" ]; then
+      echo "{}" >"${sublime_dir}/Packages/User/Package Control.sublime-settings"
+      status "Package Control settings file created" OK
+    fi
+
+    # use jq to append some items to installed_packages uniquely
+    jq '.installed_packages |= (. + ["A File Icon"] | unique | sort_by(. as $s | ascii_downcase))' "$package_control_settings" | sponge "$package_control_settings"
+    jq '.installed_packages |= (. + ["ayu"] | unique | sort_by(. as $s | ascii_downcase))' "$package_control_settings" | sponge "$package_control_settings"
+    jq '.installed_packages |= (. + ["Package Control"] | unique | sort_by(. as $s | ascii_downcase))' "$package_control_settings" | sponge "$package_control_settings"
+
+    status "Sublime Text fully configured" OK
   fi
 }
 

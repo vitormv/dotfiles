@@ -5,15 +5,39 @@ alias reload="source ~/.zshrc && echo 'Sourced ~/.zshrc'"
 
 unset -f forget
 function forget() {
-  echo -e "Are you sure you want to delete ALL Zsh history?"
-  echo -n "This will also close all ZSH instances: "
+  # if first argument is "all" then delete all history
+  if [ "$1" = "all" ]; then
+    echo -e "Are you sure you want to delete ALL Zsh history?"
+    echo -n "This will also close all ZSH instances: "
 
-  read confirmStart
-  echo
-  if is_truthy "$confirmStart"; then
-    history -p
-    echo >~/.zsh_history && kill -9 $$
+    read confirmStart
+    echo
+    if is_truthy "$confirmStart"; then
+      history -p
+      echo >~/.zsh_history && kill -9 $$
+    else
+      echo "¯\(°_o)/¯ Ok ok, not touching anything!"
+    fi
+    return
   else
-    echo "¯\(°_o)/¯ Ok ok, not touching anything!"
+    remove_history_line -1
   fi
+}
+
+function remove_history_line() {
+  # Prevent the specified history line from being saved.
+  # shellcheck disable=SC2296
+  local HISTORY_IGNORE="${(b)$(fc -ln $1 $1)}"
+
+  # Write out history to file, excluding lines that match `$HISTORY_IGNORE`.
+  fc -W
+
+  # Dispose of the current history and read the new history from file.
+  fc -p $HISTFILE $HISTSIZE $SAVEHIST
+
+  # TA-DA!
+  print -r "$(gray)Deleted '$HISTORY_IGNORE' from history."
+  echo -e -n "    Press enter to continue... "
+  read # Wait for user to press enter.
+  clear  # Clear the screen.
 }
