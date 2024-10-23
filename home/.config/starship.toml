@@ -2,7 +2,7 @@
 scan_timeout = 10
 
 # position custom commands individuall with "${custom.your_cmd}" brackets are necessary
-format = '$custom$time$all${custom.git_ghost}${custom.git_wip}$character'
+format = '$custom$time$all${custom.git_ghost}${custom.git_wip}${custom.is_danger}$character'
 right_format = "${custom.is_private_label_right}"
 
 [battery]
@@ -61,6 +61,14 @@ command = 'echo "󰗹"'
 when = '[ -n "$NOHISTFILE" ] && [ "$STARSHIP_SHELL" == "zsh" ]'
 shell = ["sh", "--norc"]                                           # for fastest performance
 format = '[ $output ](bg:purple black) '
+
+# this flag can be used by any scripts whenever it is necessary to indicate a danger state
+[custom.is_danger]
+description = "Indicates when in ZSH is running with $IS_DANGER flag"
+command = 'echo "  DANGER "'
+when = '[ -n "$IS_DANGER" ]'
+shell = ["sh", "--norc"]                                              # for fastest performance
+format = '[ $output ](bg:red white) '
 
 [custom.git_ghost]
 description = "Indicates when a Git Repo contains in ZSH is running without $HISTFILE"

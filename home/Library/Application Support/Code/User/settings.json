@@ -198,6 +198,8 @@
   "editor.stickyScroll.enabled": true,
   "git.openDiffOnClick": false,
   "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.theme": "classic",
+  "material-icon-theme.activeIconPack": "react",
   "gitlens.hovers.currentLine.over": "line",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "typescript.preferences.useAliasesForRenames": true,
@@ -266,5 +268,9 @@
   "todo-tree.filtering.ignoreGitSubmodules": true,
   "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
   "github.copilot.editor.enableAutoCompletions": true,
-  "githubPullRequests.terminalLinksHandler": "github"
+  "githubPullRequests.terminalLinksHandler": "github",
+  "githubPullRequests.pullBranch": "never",
+  "scm.showHistoryGraph": false,
+  "dbt-formatter.upper": false,
+  "gitlens.mode.active": "review",
 }
