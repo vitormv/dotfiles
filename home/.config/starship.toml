@@ -68,7 +68,7 @@ description = "Indicates when in ZSH is running with $IS_DANGER flag"
 command = 'echo "  DANGER "'
 when = '[ -n "$IS_DANGER" ]'
 shell = ["sh", "--norc"]                                              # for fastest performance
-format = '[ $output ](bg:red white) '
+format = '[ $output ](red) '
 
 [custom.git_ghost]
 description = "Indicates when a Git Repo contains in ZSH is running without $HISTFILE"

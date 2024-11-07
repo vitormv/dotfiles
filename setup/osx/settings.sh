@@ -56,6 +56,12 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+# disable coversion of double-space to period
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# disable smart quotes
+defaults write NSGlobalDomain UseSmartQuotes -bool false
+
 # Mouse speed
 defaults write -g com.apple.mouse.scaling 1.5
 
