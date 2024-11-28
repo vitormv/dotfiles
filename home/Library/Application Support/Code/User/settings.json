@@ -1,25 +1,99 @@
 {
-  "editor.fontSize": 14,
-  "editor.rulers": [80, 100],
-  "workbench.tree.indent": 18,
-  "breadcrumbs.enabled": true,
-  "editor.formatOnPaste": true,
-  "editor.tabSize": 2,
+  /**
+   * --------------------------------------------------------------------
+   * EDITOR
+   */
+  "editor.accessibilitySupport": "off",
+  "editor.autoClosingQuotes": "always",
   "editor.autoIndent": "full",
-  "workbench.sideBar.location": "left",
-  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "'Oxygen Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.maxColumn": 80,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.showSlider": "always",
+  "editor.multiCursorModifier": "alt",
+  "editor.renderControlCharacters": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.suggestSelection": "first",
+  "editor.rulers": [80, 100],
+  "editor.tabSize": 2,
+
+  /**
+   * --------------------------------------------------------------------
+   * WORKBENCH
+   */
+  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.focusRecentEditorAfterClose": false,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.wrapTabs": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.tree.indent": 18,
+
+  /**
+   * --------------------------------------------------------------------
+   * GIT, GITHUB and COPILOT
+   */
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableStatusBarSync": false,
+  "git.openDiffOnClick": false,
+
+  "github.copilot.editor.enableAutoCompletions": true,
+
+  /**
+   * --------------------------------------------------------------------
+   * GENERAL
+   */
+  "breadcrumbs.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "explorer.compactFolders": false,
+  "files.associations": {
+    "*.conf": "properties"
+  },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-  "git.autofetch": true,
-  "workbench.editor.highlightModifiedTabs": true,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "editor.autoClosingQuotes": "always",
+  "search.exclude": {
+    "vendor/**/*": true,
+    ".yarn/": true
+  },
+  "telemetry.telemetryLevel": "error",
   "window.openFoldersInNewWindow": "on",
+
+  /**
+   * --------------------------------------------------------------------
+   * LANGUAGE PREFERENCES
+   */
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.useAliasesForRenames": true,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.useAliasesForRenames": true,
+  "typescript.updateImportsOnFileMove.enabled": "never",
+
+  /**
+   * --------------------------------------------------------------------
+   * TERMINAL
+   */
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "\"MesloLGM Nerd Font\"",
   "terminal.integrated.fontSize": 14,
+  "terminal.explorerKind": "external",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.scrollback": 2000,
+  "terminal.integrated.cursorStyle": "line",
+
+  /**
+   * --------------------------------------------------------------------
+   * UI CUSTOMIZATIONS
+   */
   "workbench.colorCustomizations": {
     "terminal.background": "#181818",
     "terminal.foreground": "#D8D8D8",
@@ -66,9 +140,11 @@
       ]
     }
   },
-  "javascript.updateImportsOnFileMove.enabled": "never",
-  "workbench.editor.focusRecentEditorAfterClose": false,
-  "editor.multiCursorModifier": "alt",
+
+  /**
+   * --------------------------------------------------------------------
+   * Language-specific settings
+   */
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
@@ -76,15 +152,10 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.detectIndentation": false,
-  "editor.renderControlCharacters": true,
-  "editor.minimap.renderCharacters": false,
-  "editor.minimap.showSlider": "always",
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
   },
-  "typescript.updateImportsOnFileMove.enabled": "never",
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
@@ -110,23 +181,22 @@
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "eslint.format.enable": true,
-  "prettier.requireConfig": true,
-  "explorer.compactFolders": false,
-  "git.confirmSync": false,
-  "workbench.editor.wrapTabs": true,
-  "editor.formatOnSave": true,
+
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.suggestSelection": "first",
-  "editor.bracketPairColorization.enabled": true,
-  "telemetry.telemetryLevel": "error",
-  "editor.fontFamily": "'Oxygen Mono', Menlo, Monaco, 'Courier New', monospace",
-  "git.enableStatusBarSync": false,
-  "editor.minimap.maxColumn": 80,
-  "extensions.ignoreRecommendations": true,
-  "editor.inlineSuggest.enabled": true,
+
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[properties]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false
+  },
+
   "gitlens.menus": {
     "editor": {
       "blame": false,
@@ -135,10 +205,7 @@
       "history": false,
       "remote": false
     },
-    "editorGroup": {
-      "blame": true,
-      "compare": false
-    },
+    "editorGroup": { "blame": true, "compare": false },
     "editorTab": {
       "clipboard": true,
       "compare": false,
@@ -151,17 +218,9 @@
       "history": true,
       "remote": true
     },
-    "scm": {
-      "authors": true
-    },
-    "scmGroupInline": {
-      "stash": true
-    },
-    "scmGroup": {
-      "compare": true,
-      "openClose": true,
-      "stash": true
-    },
+    "scm": { "authors": true },
+    "scmGroupInline": { "stash": true },
+    "scmGroup": { "compare": true, "openClose": true, "stash": true },
     "scmItem": {
       "clipboard": true,
       "compare": true,
@@ -189,32 +248,11 @@
       "hovers": true
     }
   },
-  "terminal.integrated.scrollback": 2000,
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
-  "editor.accessibilitySupport": "off",
-  "workbench.colorTheme": "Monokai Dimmed",
-  "editor.stickyScroll.enabled": true,
-  "git.openDiffOnClick": false,
-  "workbench.iconTheme": "material-icon-theme",
-  "material-icon-theme.folders.theme": "classic",
-  "material-icon-theme.activeIconPack": "react",
-  "gitlens.hovers.currentLine.over": "line",
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "typescript.preferences.useAliasesForRenames": true,
-  "javascript.preferences.useAliasesForRenames": true,
-  "terminal.explorerKind": "external",
-  "[properties]": {
-    "editor.formatOnSave": false,
-    "editor.formatOnPaste": false
-  },
-  "files.associations": {
-    "*.conf": "properties"
-  },
-  "local-history.path": "/tmp/vscode/localhistory",
-  "terminal.integrated.cursorStyle": "line",
-  "redhat.telemetry.enabled": false,
+
+  /**
+   * --------------------------------------------------------------------
+   * DEBUGGING
+   */
   "launch": {
     "configurations": [
       {
@@ -240,11 +278,39 @@
       }
     ]
   },
+
+  /**
+   * --------------------------------------------------------------------
+   * EXTENSIONS: General
+   */
+  "extensions.ignoreRecommendations": true,
+
+  "dbt-formatter.upper": false,
+  "eslint.format.enable": true,
+
+  "githubPullRequests.terminalLinksHandler": "github",
+  "githubPullRequests.pullBranch": "never",
+
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.mode.active": "review",
+
+  "local-history.path": "/tmp/vscode/localhistory",
+
+  "material-icon-theme.folders.theme": "classic",
+  "material-icon-theme.activeIconPack": "react",
+
+  "prettier.requireConfig": true,
+  "redhat.telemetry.enabled": false,
+  "scm.showHistoryGraph": false,
   "svelte.enable-ts-plugin": true,
-  "search.exclude": {
-    "vendor/**/*": true,
-    ".yarn/": true
-  },
+
+  /**
+   * --------------------------------------------------------------------
+   * EXTENSIONS: Todo Tree
+   */
+  "todo-tree.regex.subTagRegex": "^\\s*\\((.*)\\)",
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
   "todo-tree.highlights.defaultHighlight": {
     "type": "tag-and-subTag"
   },
@@ -257,20 +323,5 @@
       "background": "#c6eeff",
       "foreground": "#000000"
     }
-  },
-  "todo-tree.regex.subTagRegex": "^\\s*\\((.*)\\)",
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "todo-tree.filtering.ignoreGitSubmodules": true,
-  "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
-  "github.copilot.editor.enableAutoCompletions": true,
-  "githubPullRequests.terminalLinksHandler": "github",
-  "githubPullRequests.pullBranch": "never",
-  "scm.showHistoryGraph": false,
-  "dbt-formatter.upper": false,
-  "gitlens.mode.active": "review",
+  }
 }
