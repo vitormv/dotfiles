@@ -67,6 +67,7 @@ cask "kitty", args: { 'no_quarantine': true }
 cask "numi"
 cask "qlmarkdown", args: { 'no_quarantine': true }
 cask "quicklook-json"
+cask "qlZipInfo" # QuickLook preview for zip/compressed files
 cask "slack"
 cask "spotify"
 cask "stats"

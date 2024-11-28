@@ -1,5 +1,6 @@
 # macOS Finder files
 .DS_Store
+.idea/
 
 # @todo temporarily remove docs, but add it again when ready
 docs/

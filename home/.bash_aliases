@@ -55,6 +55,7 @@ alias doco="docker compose"
 
 # remove all .DS_Store files recursively
 alias purge.ds='find . -type f \( -name ".DS_Store" -o -name "._.DS_Store" \) -delete -print 2>&1 | grep -v "Permission denied"'
+alias zipclean="zip -d filename.zip __MACOSX/\*" # remove __MACOSX from zip files
 
 # reload native apps
 alias kill.finder="killall Finder"
