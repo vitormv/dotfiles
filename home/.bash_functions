@@ -176,4 +176,12 @@ function _desmont_completions() {
   COMPREPLY=($(compgen -W "$volumes" "${COMP_WORDS[1]}"))
 }
 
+# outputs a random uuid v4 lowercase using posix compliant uuidgen
+function uuid() {
+  local theUuid
+  theUuid=$(uuidgen)
+
+  echo "${theUuid}" | tr '[:upper:]' '[:lower:]'
+}
+
 complete -F _desmont_completions desmont
