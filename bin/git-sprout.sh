@@ -38,24 +38,34 @@ branch_name=""
 read -e -p "$message" -i "${ticket_id}-" branch_name
 
 current_branch=$(git symbolic-ref --short HEAD)
-# Prompt the user to choose between main and current branch
-echo -e "    $(cyan)◆$(clr) $(gray)Which branch to use?$(clr) "
-echo -e "       $(gray)1)$(clr) main"
-echo -e "       $(gray)2)$(clr) $current_branch (current)"
-echo -e ""
-read -e -p "    $(cyan)◆$(clr) $(gray) Enter your choice [1 or 2] (ENTER for main): $(clr)" -i "1" choice
 
-if [ "$choice" == "1" ]; then
+if [ "$current_branch" == "main" ]; then
   target_branch="main"
 else
-  target_branch="$current_branch"
+  # Prompt the user to choose between main and current branch
+  echo -e "    $(cyan)◆$(clr) $(gray)Which branch to use?$(clr) "
+  echo -e "       $(gray)1)$(clr) main  $(gray)(default)$(clr)"
+  echo -e "       $(gray)2)$(clr) $current_branch (current)"
+  echo -e ""
+  read -e -p "    $(cyan)◆$(clr) $(gray) Enter your choice [1 or 2] (ENTER for main): $(clr)" choice
+
+  if [ "$choice" == "1" ] || [ "$choice" == "" ]; then
+    target_branch="main"
+  else
+    target_branch="$current_branch"
+  fi
 fi
 
-# Only checkout and pull if the target branch is different from the current branch
-if [ "$target_branch" != "$current_branch" ]; then
-  git checkout "$target_branch"
-  git pull
+if [ "$target_branch" != "$current_branch" ] || [ "$target_branch" == "main" ]; then
+  echo -e ""
+
+  git checkout "$target_branch" >/dev/null 2>&1
+
+  echo -e "   $(gray)Pulling latest changes from $(clr)\"main\"$(gray) ...$(clr)"
+  git pull >/dev/null 2>&1
 fi
 
 # Create the new branch
-git checkout -b "$branch_name"
+git checkout -b "$branch_name" >/dev/null 2>&1
+
+echo -e "\n   Switched to a new branch '$branch_name'\n"
