@@ -47,6 +47,12 @@
 
   "github.copilot.editor.enableAutoCompletions": true,
 
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "text": "In Javascript and Typescript, always use ESM for imports. Always prefer named exports rather than default exports. Always prefer arrow functions"
+    },
+  ],
+
   /**
    * --------------------------------------------------------------------
    * GENERAL
