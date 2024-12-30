@@ -1,3 +1,13 @@
+# ##############################################################################
+# To find which key is changed:
+#
+#   1. cd /tmp; defaults read > before
+#   2. Change the setting in System Preferences
+#   3. diff -rub before <(defaults read)
+#
+# defaults write [domain] [key] [-type] [value]
+# Writing an unknown key in valid domain succeeds; Unknown domain fails
+
 # -- SYSTEM --------------------------------------------------------------------
 
 # menubar: no siri
@@ -38,6 +48,9 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
 
 # screenshot location
 defaults write com.apple.screencapture location ~/Downloads/screenshots
+
+# Disable Sequoia's Settings > Desktop & Dock > Windows > "Tiled windows have margins"
+defaults write com.apple.WindowManager EnableTiledWindowMargins -int 0
 
 # -- INPUT, KEYBOARD, TRACKPAD & MOUSE -----------------------------------------
 

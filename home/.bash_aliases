@@ -33,7 +33,7 @@ alias clear='printf "\033c"'
 alias cls='clear'
 
 # start a new zsh session without history, and give it a custom name
-alias incognito="NOHISTFILE=true bash -c 'exec -a zsh_private zsh'"
+alias incognito="NOHISTFILE=true bash -c 'exec -a zsh_private zsh' && clear"
 
 # -- CONFIGS -------------------------------------------------------------------
 

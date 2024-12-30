@@ -61,6 +61,10 @@ host github.com
       security add-generic-password -a "$USER" -s "$VARIABLE_NAME" -w
     fi
   done
+
+  # TO UPDATE SECRETS:
+  # Usually once a year since Github API tokens expire after a while:
+  #   security delete-generic-password -U -a "$USER" -s HOMEBREW_GITHUB_API_TOKEN
 }
 
 setup_ssh
