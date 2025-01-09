@@ -65,7 +65,7 @@ format = '[ $output ](bg:purple black) '
 # this flag can be used by any scripts whenever it is necessary to indicate a danger state
 [custom.is_danger]
 description = "Indicates when in ZSH is running with $IS_DANGER flag"
-command = 'echo "  DANGER "'
+command = 'echo "  $IS_DANGER "'
 when = '[ -n "$IS_DANGER" ]'
 shell = ["sh", "--norc"]                                              # for fastest performance
 format = '[ $output ](red) '
