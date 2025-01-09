@@ -65,9 +65,19 @@ function setup_osx() {
     local ctrl="^"
     local optn="~"
 
-    defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF702"
-    defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Right Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF703"
     defaults write -g NSUserKeyEquivalents -dict-add 'Lock Screen' "${cmd}${shift}L"
+
+    # MacOS 14 and below
+    if [[ $(sw_vers -productVersion) -lt 15 ]]; then
+      defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF702"
+      defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Right Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF703"
+    fi
+
+    # MacOS 15 and above
+    if [[ $(sw_vers -productVersion) -ge 15 ]]; then
+      defaults write -g NSUserKeyEquivalents -dict-add 'Left' "${cmd}${optn}${ctrl}${shift}\UF702"
+      defaults write -g NSUserKeyEquivalents -dict-add 'Right' "${cmd}${optn}${ctrl}${shift}\UF703"
+    fi
 
     status "Added keyboard shortcuts" OK
 
