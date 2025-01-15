@@ -68,15 +68,16 @@ function setup_osx() {
     defaults write -g NSUserKeyEquivalents -dict-add 'Lock Screen' "${cmd}${shift}L"
 
     # MacOS 14 and below
-    if [[ $(sw_vers -productVersion) -lt 15 ]]; then
+    if [[ $(sw_vers -productVersion | cut -d "." -f 1 | cut -d "," -f 1) -lt 15 ]]; then
       defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF702"
       defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Right Side of Screen' "${cmd}${optn}${ctrl}${shift}\UF703"
     fi
 
     # MacOS 15 and above
-    if [[ $(sw_vers -productVersion) -ge 15 ]]; then
-      defaults write -g NSUserKeyEquivalents -dict-add 'Left' "${cmd}${optn}${ctrl}${shift}\UF702"
-      defaults write -g NSUserKeyEquivalents -dict-add 'Right' "${cmd}${optn}${ctrl}${shift}\UF703"
+    if [[ $(sw_vers -productVersion | cut -d "." -f 1 | cut -d "," -f 1) -ge 15 ]]; then
+      defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Fill' "${cmd}${optn}${ctrl}${shift}\UF700"
+      defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Left' "${cmd}${optn}${ctrl}${shift}\UF702"
+      defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Right' "${cmd}${optn}${ctrl}${shift}\UF703"
     fi
 
     status "Added keyboard shortcuts" OK
@@ -164,6 +165,8 @@ function setup_osx() {
       echo "{}" >"${sublime_dir}/Packages/User/Package Control.sublime-settings"
       status "Package Control settings file created" OK
     fi
+
+    bat "$package_control_settings"
 
     # use jq to append some items to installed_packages uniquely
     jq '.installed_packages |= (. + ["A File Icon"] | unique | sort_by(. as $s | ascii_downcase))' "$package_control_settings" | sponge "$package_control_settings"
