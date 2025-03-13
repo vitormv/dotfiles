@@ -101,11 +101,12 @@ function setup_git() {
   git config --global alias.amend "commit --amend --no-edit"
   git config --global alias.apply-url "!f() { curl -s \$1 2>nul | git apply \${@:2}; }; f"
   git config --global alias.br "branch"
-  git config --global alias.cleanup-branches "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  git config --global alias.cleanup-branches "! git co main && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
   git config --global alias.caam "commit --all --amend --no-edit"
   git config --global alias.ci "!f() { bash \"$DOTFILES_ROOT/bin/git-commit.sh\" \"\$@\"; }; f"
   git config --global alias.cin "commit --no-verify"
   git config --global alias.co "checkout"
+  git config --global alias.cont "rebase --continue"
   git config --global alias.continue "rebase --continue"
   git config --global alias.count '! git ls-files | wc -l'
   git config --global alias.diffs "diff --staged"
