@@ -97,7 +97,7 @@ vscode "EditorConfig.EditorConfig"
 vscode "esbenp.prettier-vscode"
 vscode "foxundermoon.shell-format"
 vscode "Gruntfuggly.todo-tree"
-vscode "mads-hartmann.bash-ide-vscode"
+# vscode "mads-hartmann.bash-ide-vscode" // disabling because of performance issues
 vscode "mechatroner.rainbow-csv"
 vscode "mrmlnc.vscode-scss"
 # vscode "MylesMurphy.prettify-ts" # disabling because of performance issues
