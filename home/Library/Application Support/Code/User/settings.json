@@ -50,7 +50,7 @@
   "github.copilot.chat.codeGeneration.instructions": [
     {
       "text": "In Javascript and Typescript, always use ESM for imports. Always prefer named exports rather than default exports. Always prefer arrow functions"
-    },
+    }
   ],
 
   /**
@@ -329,5 +329,30 @@
       "background": "#c6eeff",
       "foreground": "#000000"
     }
-  }
+  },
+  "workbench.cloudChanges.autoResume": "off",
+  "scm.diffDecorationsGutterWidth": 5,
+  "githubIssues.queries": [
+    {
+      "label": "My Issues",
+      "query": "is:open assignee:${user} repo:${owner}/${repository}",
+      "groupBy": ["milestone"]
+    },
+    {
+      "label": "Created Issues",
+      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    }
+  ],
+  "githubPullRequests.experimental.notificationsView": true,
+  "githubPullRequests.notifications": "pullRequests",
+  "githubPullRequests.queries": [
+    {
+      "label": "Waiting For My Review",
+      "query": "repo:${owner}/${repository} is:open review-requested:${user}"
+    },
+    {
+      "label": "Created By Me",
+      "query": "repo:${owner}/${repository} is:open author:${user}"
+    }
+  ]
 }
