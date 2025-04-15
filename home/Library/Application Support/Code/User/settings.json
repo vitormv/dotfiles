@@ -49,7 +49,7 @@
 
   "github.copilot.chat.codeGeneration.instructions": [
     {
-      "text": "In Javascript and Typescript, always use ESM for imports. Always prefer named exports rather than default exports. Always prefer arrow functions"
+      "text": "In Javascript and Typescript: always use ESM for imports, always prefer named exports rather than default exports, always prefer arrow functions, always prefer Typescript types over interfaces, for node imports prefer 'node:' prefix when available"
     }
   ],
 
@@ -67,7 +67,8 @@
   "files.trimFinalNewlines": true,
   "search.exclude": {
     "vendor/**/*": true,
-    ".yarn/": true
+    ".yarn/": true,
+    "**/node_modules": true
   },
   "telemetry.telemetryLevel": "error",
   "window.openFoldersInNewWindow": "on",
