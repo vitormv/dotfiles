@@ -3,7 +3,7 @@ scan_timeout = 10
 
 # position custom commands individuall with "${custom.your_cmd}" brackets are necessary
 format = '$custom$time$all${custom.git_ghost}${custom.git_wip}${custom.is_danger}$character'
-right_format = "${custom.is_private_label_right}"
+right_format = "${custom.is_private_label_right}${custom.is_danger_right}"
 
 [battery]
 disabled = true
@@ -64,6 +64,14 @@ format = '[ $output ](bg:purple black) '
 
 # this flag can be used by any scripts whenever it is necessary to indicate a danger state
 [custom.is_danger]
+description = "Indicates when in ZSH is running with $IS_DANGER flag"
+command = 'echo " "'
+when = '[ -n "$IS_DANGER" ]'
+shell = ["sh", "--norc"]                                              # for fastest performance
+format = '[ $output ](red) '
+
+# this flag can be used by any scripts whenever it is necessary to indicate a danger state
+[custom.is_danger_right]
 description = "Indicates when in ZSH is running with $IS_DANGER flag"
 command = 'echo "  $IS_DANGER "'
 when = '[ -n "$IS_DANGER" ]'
