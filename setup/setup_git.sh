@@ -111,6 +111,7 @@ function setup_git() {
   git config --global alias.count '! git ls-files | wc -l'
   git config --global alias.diffs "diff --staged"
   git config --global alias.fpo "fetch --prune origin"
+  git config --global alias.j "!f() { bash \"$DOTFILES_ROOT/bin/git-jump.sh\"; }; f"
   git config --global alias.ld "log --pretty=format:\"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --date=relative"
   git config --global alias.lds "log --pretty=format:\"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate --date=short"
   git config --global alias.ls "log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\" --decorate"
