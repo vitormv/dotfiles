@@ -22,7 +22,7 @@ function setup_dependencies() {
   fi
 
   title_h2 "Install Homebrew packages"
-  brew bundle --no-lock --file "${DOTFILES_ROOT}/home/Brewfile"
+  brew bundle --file "${DOTFILES_ROOT}/home/Brewfile"
 }
 
 setup_dependencies

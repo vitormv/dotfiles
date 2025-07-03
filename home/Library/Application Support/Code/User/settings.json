@@ -44,8 +44,11 @@
   "git.confirmSync": false,
   "git.enableStatusBarSync": false,
   "git.openDiffOnClick": false,
-
-  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "secret": false,
+  },
 
   "github.copilot.chat.codeGeneration.instructions": [
     {
@@ -61,7 +64,9 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "explorer.compactFolders": false,
   "files.associations": {
-    "*.conf": "properties"
+    "*.conf": "properties",
+    ".env": "plaintext",
+    ".env*": "plaintext"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -129,13 +134,13 @@
         {
           "scope": "entity.name.type.class",
           "settings": {
-            "foreground": "#ce2029"
+            "foreground": "#E91E63"
           }
         },
         {
           "scope": "entity.name.type",
           "settings": {
-            "foreground": "#6f4e37"
+            "foreground": "#D2B48C"
           }
         },
         {
@@ -348,12 +353,26 @@
   "githubPullRequests.notifications": "pullRequests",
   "githubPullRequests.queries": [
     {
+      "label": "Local Pull Request Branches",
+      "query": "default"
+    },
+    {
       "label": "Waiting For My Review",
       "query": "repo:${owner}/${repository} is:open review-requested:${user}"
     },
     {
       "label": "Created By Me",
       "query": "repo:${owner}/${repository} is:open author:${user}"
+    },
+    {
+      "label": "All Open",
+      "query": "default"
     }
-  ]
+  ],
+  "chat.agent.enabled": true,
+  "github.copilot.chat.editor.temporalContext.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.edits.temporalContext.enabled": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "github.copilot.chat.languageContext.inline.typescript.enabled": true
 }
